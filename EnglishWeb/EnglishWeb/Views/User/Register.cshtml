@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+<h2>Register</h2>
+<form method="post">
+    <label>Full Name:</label><input name="FullName" type="text" /><br />
+    <label>Email:</label><input name="Email" type="email" /><br />
+    <label>Password:</label><input name="Password" type="password" /><br />
+    <label>Confirm Password:</label><input name="ConfirmPassword" type="password" /><br />
+    <input type="submit" value="Register" />
+</form>
+<p style="color:red">@ViewData["Error"]</p>

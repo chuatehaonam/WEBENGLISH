@@ -1,0 +1,41 @@
+﻿@model EnglishWeb.Models.Lesson
+
+@{
+    ViewBag.Title = "Xoá bài học";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Bạn có chắc muốn xoá bài học này?</h3>
+<div>
+    <h4>@Model.Title</h4>
+    <dl class="dl-horizontal">
+        <dt>Mô tả</dt>
+        <dd>@Model.Description</dd>
+
+        <dt>Loại bài học</dt>
+        <dd>@Model.LessonType.TypeName</dd>
+
+        <dt>Ảnh minh hoạ</dt>
+        <dd>
+            @{
+                var img = Model.Images.FirstOrDefault();
+                if (img != null)
+                {
+                    <img src="@Url.Content(img.FilePath)" alt="Lesson Image" width="200" />
+                }
+                else
+                {
+                    <span>Không có ảnh</span>
+                }
+            }
+        </dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Xoá" class="btn btn-danger" />
+    @Html.ActionLink("Huỷ", "Index", null, new { @class = "btn btn-secondary" })
+}

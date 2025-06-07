@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EnglishLearningDB" Class="dbEnglishDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Image">
+      <Column Name="ImageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="UploadDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LessonId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WordId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Lesson_Image" Member="Lesson" ThisKey="LessonId" OtherKey="LessonId" Type="Lesson" IsForeignKey="true" />
+      <Association Name="User_Image" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="Vocabulary_Image" Member="Vocabulary" ThisKey="WordId" OtherKey="WordId" Type="Vocabulary" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lesson" Member="Lessons">
+    <Type Name="Lesson">
+      <Column Name="LessonId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Lesson_Image" Member="Images" ThisKey="LessonId" OtherKey="LessonId" Type="Image" />
+      <Association Name="Lesson_UserLessonProgress" Member="UserLessonProgresses" ThisKey="LessonId" OtherKey="LessonId" Type="UserLessonProgress" />
+      <Association Name="Lesson_Video" Member="Videos" ThisKey="LessonId" OtherKey="LessonId" Type="Video" />
+      <Association Name="Lesson_Vocabulary" Member="Vocabularies" ThisKey="LessonId" OtherKey="LessonId" Type="Vocabulary" />
+      <Association Name="LessonType_Lesson" Member="LessonType" ThisKey="TypeId" OtherKey="TypeId" Type="LessonType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LessonType" Member="LessonTypes">
+    <Type Name="LessonType">
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="LessonType_Lesson" Member="Lessons" ThisKey="TypeId" OtherKey="TypeId" Type="Lesson" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserLessonProgress" Member="UserLessonProgresses">
+    <Type Name="UserLessonProgress">
+      <Column Name="ProgressId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LessonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsCompleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastAccessed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CompletionPercentage" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Association Name="Lesson_UserLessonProgress" Member="Lesson" ThisKey="LessonId" OtherKey="LessonId" Type="Lesson" IsForeignKey="true" />
+      <Association Name="User_UserLessonProgress" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Image" Member="Images" ThisKey="UserId" OtherKey="UserId" Type="Image" />
+      <Association Name="User_UserLessonProgress" Member="UserLessonProgresses" ThisKey="UserId" OtherKey="UserId" Type="UserLessonProgress" />
+      <Association Name="User_UserVocabularyHistory" Member="UserVocabularyHistories" ThisKey="UserId" OtherKey="UserId" Type="UserVocabularyHistory" />
+      <Association Name="User_Video" Member="Videos" ThisKey="UserId" OtherKey="UserId" Type="Video" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserVocabularyHistory" Member="UserVocabularyHistories">
+    <Type Name="UserVocabularyHistory">
+      <Column Name="HistoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WordId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastReviewed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimesReviewed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_UserVocabularyHistory" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="Vocabulary_UserVocabularyHistory" Member="Vocabulary" ThisKey="WordId" OtherKey="WordId" Type="Vocabulary" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Video" Member="Videos">
+    <Type Name="Video">
+      <Column Name="VideoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="UploadDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LessonId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WordId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Lesson_Video" Member="Lesson" ThisKey="LessonId" OtherKey="LessonId" Type="Lesson" IsForeignKey="true" />
+      <Association Name="User_Video" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="Vocabulary_Video" Member="Vocabulary" ThisKey="WordId" OtherKey="WordId" Type="Vocabulary" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vocabulary" Member="Vocabularies">
+    <Type Name="Vocabulary">
+      <Column Name="WordId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LessonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Word" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Definition" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Example" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PronunciationUrl" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Vocabulary_Image" Member="Images" ThisKey="WordId" OtherKey="WordId" Type="Image" />
+      <Association Name="Vocabulary_UserVocabularyHistory" Member="UserVocabularyHistories" ThisKey="WordId" OtherKey="WordId" Type="UserVocabularyHistory" />
+      <Association Name="Vocabulary_Video" Member="Videos" ThisKey="WordId" OtherKey="WordId" Type="Video" />
+      <Association Name="Lesson_Vocabulary" Member="Lesson" ThisKey="LessonId" OtherKey="LessonId" Type="Lesson" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

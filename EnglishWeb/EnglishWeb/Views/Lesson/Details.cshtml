@@ -1,0 +1,42 @@
+﻿@model EnglishWeb.Models.Lesson
+
+@{
+    ViewBag.Title = "Chi tiết bài học";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Mô tả</dt>
+        <dd>@Model.Description</dd>
+
+        <dt>Loại bài học</dt>
+        <dd>@Model.LessonType.TypeName</dd>
+
+        <dt>Ngày tạo</dt>
+        <dd>@Model.CreateDate.ToString("dd/MM/yyyy")</dd>
+
+        <dt>Ảnh minh hoạ</dt>
+        <dd>
+            @{
+                var img = Model.Images.FirstOrDefault();
+                if (img != null)
+                {
+                    <img src="@Url.Content(img.FilePath)" alt="Lesson Image" width="200" />
+                }
+                else
+                {
+                    <span>Không có ảnh</span>
+                }
+            }
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.LessonId }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>
