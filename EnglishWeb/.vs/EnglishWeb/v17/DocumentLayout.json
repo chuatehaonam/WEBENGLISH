@@ -1,42 +1,114 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\",
+  "WorkspaceRootPath": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\source\\repos\\englishweb\\englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\scripts\\jquery-3.7.0.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\scripts\\jquery-3.7.0.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\shared\\lockout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\shared\\lockout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\vocabulary\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\content\\translator.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\content\\translator.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,47 +123,321 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "jquery-3.7.0.min.js",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Scripts\\jquery-3.7.0.min.js",
+              "RelativeDocumentMoniker": "EnglishWeb\\Scripts\\jquery-3.7.0.min.js",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Scripts\\jquery-3.7.0.min.js",
+              "RelativeToolTip": "EnglishWeb\\Scripts\\jquery-3.7.0.min.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-14T05:39:39.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Lockout.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\Lockout.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Shared\\Lockout.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\Lockout.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Shared\\Lockout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T05:32:33.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\User\\Login.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\User\\Login.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\User\\Login.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\User\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T05:32:31.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\User\\Register.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\User\\Register.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\User\\Register.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\User\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T05:32:29.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Details.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Details.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Details.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Details.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-05T16:50:15.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T05:28:26.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAACwAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAADMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-06T14:24:47.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\packages.config",
+              "RelativeDocumentMoniker": "EnglishWeb\\packages.config",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\packages.config",
+              "RelativeToolTip": "EnglishWeb\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-14T05:12:41.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Edit.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Edit.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Edit.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Edit.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T05:32:24.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "favicon.ico -  [English (United States)] - Icon [16x16, 32 bit, BMP]",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\favicon.ico",
+              "RelativeDocumentMoniker": "EnglishWeb\\favicon.ico",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\favicon.ico -  [English (United States)] - Icon [16x16, 32 bit, BMP]",
+              "RelativeToolTip": "EnglishWeb\\favicon.ico -  [English (United States)] - Icon [16x16, 32 bit, BMP]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001525|",
+              "WhenOpened": "2025-06-14T05:32:23.131Z",
+              "EditorCaption": " -  [English (United States)] - Icon [16x16, 32 bit, BMP]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Startup.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Startup.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Startup.cs",
+              "RelativeToolTip": "EnglishWeb\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T05:11:32.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Startup.Auth.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\App_Start\\Startup.Auth.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\App_Start\\Startup.Auth.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\App_Start\\Startup.Auth.cs",
+              "RelativeToolTip": "EnglishWeb\\App_Start\\Startup.Auth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T05:16:50.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Global.asax.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Global.asax.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Global.asax.cs",
+              "RelativeToolTip": "EnglishWeb\\Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T05:11:35.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Web.config",
+              "RelativeDocumentMoniker": "EnglishWeb\\Web.config",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Web.config",
+              "RelativeToolTip": "EnglishWeb\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-14T05:00:08.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T05:12:46.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "EnglishWeb\\Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T05:15:29.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Web.config",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Web.config",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Web.config",
+              "RelativeToolTip": "EnglishWeb\\Views\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-14T05:12:44.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Create.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Create.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Create.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Create.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAqwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-05T14:45:00.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "translator.js",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\translator.js",
+              "RelativeDocumentMoniker": "EnglishWeb\\Content\\translator.js",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\translator.js",
+              "RelativeToolTip": "EnglishWeb\\Content\\translator.js",
+              "ViewState": "AgIAACgBAAAAAAAAAAAmwFYBAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-14T04:59:10.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LessonController.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\LessonController.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\LessonController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T16:55:51.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Manage\\Index.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Manage\\Index.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Manage\\Index.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Manage\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T05:04:43.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AccountViewModels.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\AccountViewModels.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Models\\AccountViewModels.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\AccountViewModels.cs",
+              "RelativeToolTip": "EnglishWeb\\Models\\AccountViewModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T04:59:24.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Contact.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Contact.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Contact.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Contact.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Contact.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T14:23:16.969Z"
+              "WhenOpened": "2025-06-06T14:23:16.969Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 23,
               "Title": "About.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\About.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\About.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\About.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\About.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\About.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\About.cshtml",
               "ViewState": "AgIAAB0AAAAAAAAAAAAqwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T14:21:53.886Z"
+              "WhenOpened": "2025-06-06T14:21:53.886Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 25,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Edit.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Edit.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Edit.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Edit.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Edit.cshtml",
               "ViewState": "AgIAAAsAAAAAAAAAAAAqwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -99,35 +445,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LessonController.cs",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\LessonController.cs",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
-              "RelativeToolTip": "EnglishWeb\\Controllers\\LessonController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwBcAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T16:55:51.951Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Details.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Details.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Details.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAqwCoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T16:50:15.93Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 26,
               "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Delete.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Delete.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Delete.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Delete.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Delete.cshtml",
               "ViewState": "AgIAAA4AAAAAAAAAAAAqwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -135,27 +457,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Create.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Create.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Create.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAqwCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T14:45:00.594Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 24,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAG0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAIBZwG0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T14:00:37.968Z"
+              "WhenOpened": "2025-06-05T14:00:37.968Z",
+              "EditorCaption": ""
             }
           ]
         }
