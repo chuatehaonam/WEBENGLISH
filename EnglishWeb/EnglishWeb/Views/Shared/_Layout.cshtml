@@ -18,9 +18,11 @@
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Home", "Index", "Vocabulary", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("About", "About", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Favorites", "Favorites", "Vocabulary", new { area = "" }, new { @class = "nav-link" })</li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Session["User"] == null)
@@ -42,7 +44,6 @@
         @RenderBody()
         <hr />
         <footer>
-           
         </footer>
     </div>
 

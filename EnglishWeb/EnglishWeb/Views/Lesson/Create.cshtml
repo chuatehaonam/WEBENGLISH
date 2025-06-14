@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Lesson", FormMethod.Post, new { enctype = "multipart/form-data" })) // thêm enctype
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -30,9 +30,37 @@
             @Html.ValidationMessageFor(model => model.TypeId, "", new { @class = "text-danger" })
         </div>
 
+        <!-- Phần chọn ảnh và preview -->
         <div class="form-group">
-            <input type="submit" value="Tạo bài học" class="btn btn-success" />
+            @Html.Label("Ảnh đại diện bài học", htmlAttributes: new { @class = "control-label" })
+            <input type="file" name="imageFile" id="imageFile" accept="image/*" class="form-control" />
+            <br />
+            <img id="imgPreview" style="max-width:300px; max-height:300px; display:none; border:1px solid #ccc; padding:5px;" />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Tạo bài họcz" class="btn btn-success" />
             @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default" })
         </div>
     </div>
+}
+
+@section Scripts {
+    <script>
+        document.getElementById('imageFile').addEventListener('change', function (event) {
+            var file = event.target.files[0];
+            var imgPreview = document.getElementById('imgPreview');
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    imgPreview.src = e.target.result;
+                    imgPreview.style.display = "block";
+                }
+                reader.readAsDataURL(file);
+            } else {
+                imgPreview.src = "";
+                imgPreview.style.display = "none";
+            }
+        });
+    </script>
 }

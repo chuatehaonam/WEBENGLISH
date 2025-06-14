@@ -56,14 +56,15 @@ namespace EnglishLearning.Controllers
 
         // GET: User/Login
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
         // POST: User/Login
         [HttpPost]
-        public ActionResult Login(FormCollection collection)
+        public ActionResult Login(FormCollection collection, string returnUrl)
         {
             var email = collection["Email"];
             var password = collection["Password"];
@@ -75,11 +76,17 @@ namespace EnglishLearning.Controllers
             {
                 Session["User"] = user;
                 TempData["Success"] = "Login successful!";
-                return RedirectToAction("Index", "Lesson"); // Trang chính
+
+                // Nếu có returnUrl, chuyển hướng người dùng đến đúng trang trước khi login
+                if (!string.IsNullOrEmpty(returnUrl))
+                    return Redirect(returnUrl);
+
+                return RedirectToAction("Index", "Vocabulary");
             }
             else
             {
                 ViewBag.Error = "Invalid email or password.";
+                ViewBag.ReturnUrl = returnUrl; // giữ lại returnUrl nếu login sai
                 return View();
             }
         }

@@ -1,110 +1,232 @@
-﻿//using EnglishWeb.Models;
-//using System;
-//using System.Linq;
-//using System.Net;
-//using System.Web.Mvc;
+﻿using EnglishWeb.Models;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
-//namespace EnglishLearningSite.Controllers
-//{
-//    public class VocabularyController : Controller
-//    {
-//        private dbEnglishDataContext db = new dbEnglishDataContext();
+namespace EnglishLearningSite.Controllers
+{
+    public class VocabularyController : Controller
+    {
+        dbEnglishDataContext db = new dbEnglishDataContext();
 
-//        // GET: Vocabulary/Edit/5
-//        public ActionResult Edit(int? id)
-//        {
-//            if (id == null)
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        // Danh sách các bài học Vocabulary
+        public ActionResult Index()
+        {
+            int vocabularyTypeId = 7; // ID của 'Vocabulary' trong LessonType
 
-//            Vocabulary vocabulary = db.Vocabularies.FirstOrDefault(v => v.WordId == id);
-//            if (vocabulary == null)
-//                return HttpNotFound();
+            var vocabularyLessons = db.Lessons
+                .Where(l => l.TypeId == vocabularyTypeId)
+                .Select(l => new
+                {
+                    Lesson = l,
+                    Image = db.Images.FirstOrDefault(i => i.LessonId == l.LessonId)
+                })
+                .ToList()
+                .Select(x => new LessonViewModel
+                {
+                    LessonId = x.Lesson.LessonId,
+                    Title = x.Lesson.Title,
+                    Description = x.Lesson.Description,
+                    ImagePath = x.Image != null ? x.Image.FilePath : "/Content/Images/default.jpg"
+                }).ToList();
 
-//            // Lấy TypeId của bài học hiện tại để chọn LessonType đúng
-//            int? currentTypeId = null;
-//            if (vocabulary.LessonId != null)
-//            {
-//                var lesson = db.Lessons.FirstOrDefault(l => l.LessonId == vocabulary.LessonId);
-//                if (lesson != null)
-//                    currentTypeId = lesson.TypeId;
-//            }
+            return View(vocabularyLessons);
+        }
 
-//            ViewBag.LessonTypes = new SelectList(db.LessonTypes, "TypeId", "TypeName", currentTypeId);
 
-//            if (currentTypeId != null)
-//            {
-//                ViewBag.Lessons = new SelectList(db.Lessons.Where(l => l.TypeId == currentTypeId), "LessonId", "Title", vocabulary.LessonId);
-//            }
-//            else
-//            {
-//                ViewBag.Lessons = new SelectList(Enumerable.Empty<SelectListItem>());
-//            }
+        // Hiển thị chi tiết 12 từ vựng trong bài học
+        public ActionResult Detail(int id)
+        {
+            var lesson = db.Lessons.FirstOrDefault(l => l.LessonId == id);
+            if (lesson == null) return HttpNotFound();
 
-//            return View(vocabulary);
-//        }
+            var vocabularies = db.Vocabularies
+                .Where(v => v.LessonId == id)
+                .Take(12)
+                .ToList();
 
-//        // POST: Vocabulary/Edit/5
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Edit([Bind(Include = "WordId,Word,Definition,Example,PronunciationUrl,LessonId")] Vocabulary vocabulary)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                var existing = db.Vocabularies.FirstOrDefault(v => v.WordId == vocabulary.WordId);
-//                if (existing != null)
-//                {
-//                    existing.Word = vocabulary.Word;
-//                    existing.Definition = vocabulary.Definition;
-//                    existing.Example = vocabulary.Example;
-//                    existing.PronunciationUrl = vocabulary.PronunciationUrl;
-//                    existing.LessonId = vocabulary.LessonId;
+            ViewBag.Lesson = lesson;
+            return View(vocabularies);
+        }
 
-//                    db.SubmitChanges();
-//                    return RedirectToAction("Index");
-//                }
-//                return HttpNotFound();
-//            }
+        // Thêm từ vựng
+        public ActionResult Create()
+        {
+            var vocabularyLessons = db.Lessons
+                .Where(l => l.TypeId == 7) // 7 là Vocabulary LessonType
+                .ToList();
 
-//            // Nếu lỗi, load lại dropdown
-//            int? currentTypeId = null;
-//            if (vocabulary.LessonId != null)
-//            {
-//                var lesson = db.Lessons.FirstOrDefault(l => l.LessonId == vocabulary.LessonId);
-//                if (lesson != null)
-//                    currentTypeId = lesson.TypeId;
-//            }
+            ViewBag.Lessons = new SelectList(vocabularyLessons, "LessonId", "Title");
 
-//            ViewBag.LessonTypes = new SelectList(db.LessonTypes, "TypeId", "TypeName", currentTypeId);
+            return View(new Vocabulary());
+        }
 
-//            if (currentTypeId != null)
-//            {
-//                ViewBag.Lessons = new SelectList(db.Lessons.Where(l => l.TypeId == currentTypeId), "LessonId", "Title", vocabulary.LessonId);
-//            }
-//            else
-//            {
-//                ViewBag.Lessons = new SelectList(Enumerable.Empty<SelectListItem>());
-//            }
 
-//            return View(vocabulary);
-//        }
+        [HttpPost]
+        public ActionResult Create(Vocabulary vocab, HttpPostedFileBase pronunciationFile)
+        {
+            if (ModelState.IsValid)
+            {
+                if (pronunciationFile != null && pronunciationFile.ContentLength > 0)
+                {
+                    var uploadDir = Server.MapPath("~/Uploads/Audio");
+                    if (!Directory.Exists(uploadDir))
+                    {
+                        Directory.CreateDirectory(uploadDir);
+                    }
 
-//        // Ajax call để lấy danh sách Lesson theo TypeId
-//        public JsonResult GetLessonsByType(int typeId)
-//        {
-//            var lessons = db.Lessons
-//                .Where(l => l.TypeId == typeId)
-//                .Select(l => new { l.LessonId, l.Title })
-//                .ToList();
-//            return Json(lessons, JsonRequestBehavior.AllowGet);
-//        }
+                    var fileName = Path.GetFileName(pronunciationFile.FileName);
+                    var path = Path.Combine(uploadDir, fileName);
+                    pronunciationFile.SaveAs(path);
+                    vocab.PronunciationUrl = "/Uploads/Audio/" + fileName;
+                }
 
-//        protected override void Dispose(bool disposing)
-//        {
-//            if (disposing)
-//            {
-//                db.Dispose();
-//            }
-//            base.Dispose(disposing);
-//        }
-//    }
-//}
+                db.Vocabularies.InsertOnSubmit(vocab);
+                db.SubmitChanges();
+
+                return RedirectToAction("Detail", new { id = vocab.LessonId });
+            }
+
+            // Nếu ModelState không hợp lệ, cần load lại dropdown
+            var vocabularyLessons = db.Lessons.Where(l => l.TypeId == 7).ToList();
+            ViewBag.Lessons = new SelectList(vocabularyLessons, "LessonId", "Title", vocab.LessonId);
+
+            return View(vocab);
+        }
+
+        // Sửa từ vựng
+        public ActionResult Edit(int id)
+        {
+            var vocab = db.Vocabularies.FirstOrDefault(v => v.WordId == id);
+            if (vocab == null) return HttpNotFound();
+
+            return View(vocab);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Vocabulary model, HttpPostedFileBase pronunciationFile)
+        {
+            var vocab = db.Vocabularies.FirstOrDefault(v => v.WordId == model.WordId);
+            if (vocab == null) return HttpNotFound();
+
+            vocab.Word = model.Word;
+            vocab.Definition = model.Definition;
+            vocab.Example = model.Example;
+
+            if (pronunciationFile != null && pronunciationFile.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(pronunciationFile.FileName);
+                var path = Path.Combine(Server.MapPath("~/Uploads/Audio"), fileName);
+                pronunciationFile.SaveAs(path);
+                vocab.PronunciationUrl = "/Uploads/Audio/" + fileName;
+            }
+
+            db.SubmitChanges();
+            return RedirectToAction("Detail", new { id = vocab.LessonId });
+        }
+
+
+        // Xóa từ vựng
+        public ActionResult Delete(int id)
+        {
+            var vocab = db.Vocabularies.FirstOrDefault(v => v.WordId == id);
+            if (vocab == null) return HttpNotFound();
+
+            return View(vocab);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var vocab = db.Vocabularies.FirstOrDefault(v => v.WordId == id);
+            if (vocab == null) return HttpNotFound();
+
+            int lessonId = vocab.LessonId;
+            db.Vocabularies.DeleteOnSubmit(vocab);
+            db.SubmitChanges();
+            return RedirectToAction("Detail", new { id = lessonId });
+        }
+
+        // Thêm từ vựng vào danh sách yêu thích
+        [HttpPost]
+        public ActionResult AddToFavorites(int wordId)
+        {
+            var user = Session["User"] as User;
+            if (user == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            var existing = db.UserVocabularyHistories
+                .FirstOrDefault(h => h.UserId == user.UserId && h.WordId == wordId);
+
+            if (existing == null)
+            {
+                UserVocabularyHistory history = new UserVocabularyHistory
+                {
+                    UserId = user.UserId,
+                    WordId = wordId,
+                    Score = 100,
+                    TimesReviewed = 1,
+                    LastReviewed = DateTime.Now,
+
+                };
+
+                db.UserVocabularyHistories.InsertOnSubmit(history);
+                db.SubmitChanges();
+            }
+
+            return RedirectToAction("Detail", new { id = db.Vocabularies.First(v => v.WordId == wordId).LessonId });
+        }
+        [HttpPost]
+        public ActionResult RemoveFromFavorites(int wordId)
+        {
+            var user = Session["User"] as User;
+            if (user == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            var favorite = db.UserVocabularyHistories
+                .FirstOrDefault(h => h.UserId == user.UserId && h.WordId == wordId);
+
+            if (favorite != null)
+            {
+                db.UserVocabularyHistories.DeleteOnSubmit(favorite);
+                db.SubmitChanges();
+            }
+
+            return RedirectToAction("Favorites");
+        }
+
+
+        // Hiển thị danh sách từ vựng yêu thích của user
+        public ActionResult Favorites()
+        {
+            var user = Session["User"] as User;
+            if (user == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            var favorites = db.UserVocabularyHistories
+                .Where(h => h.UserId == user.UserId && h.Score >= 80) // Ví dụ lấy các từ người học tốt
+                .Select(h => h.Vocabulary)
+                .ToList();
+
+            return View(favorites);
+        }
+
+    }
+
+    public class LessonViewModel
+    {
+        public int LessonId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string ImagePath { get; set; }
+    }
+}

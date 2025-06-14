@@ -1,0 +1,30 @@
+﻿@model List<EnglishLearningSite.Controllers.LessonViewModel>
+@{
+    ViewBag.Title = "Vocabulary Lessons";
+}
+<h2>Vocabulary Lessons</h2>
+
+<!-- Nút tạo bài học mới -->
+<div class="mb-3">
+    <a href="@Url.Action("Create", "Lesson")" class="btn btn-success">+ Create New Vocabulary Lesson</a>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="@item.ImagePath" class="card-img-top" style="height:200px; object-fit:cover;" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Description</p>
+
+                    <a href="@Url.Action("Detail", new { id = item.LessonId })" class="btn btn-primary">View Vocabulary</a>
+
+                    @Html.ActionLink("Delete", "Delete", "Lesson", new { id = item.LessonId }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure you want to delete this lesson?');" })
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

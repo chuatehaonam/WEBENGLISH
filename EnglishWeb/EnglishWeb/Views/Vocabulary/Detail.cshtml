@@ -1,0 +1,56 @@
+﻿@model List<EnglishWeb.Models.Vocabulary>
+
+@{
+    ViewBag.Title = "Vocabulary Detail";
+    var lessonTitle = Model.FirstOrDefault()?.Lesson?.Title ?? "Lesson";
+}
+
+<h2>@lessonTitle - Vocabulary</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Word</th>
+            <th>Definition</th>
+            <th>Example</th>
+            <th>Pronunciation</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Word</td>
+                <td>@item.Definition</td>
+                <td>@item.Example</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.PronunciationUrl))
+                    {
+                        <audio controls>
+                            <source src="@item.PronunciationUrl" type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                        </audio>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.WordId }, new { @class = "btn btn-sm btn-warning" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.WordId }, new { @class = "btn btn-sm btn-danger" }) |
+                    @using (Html.BeginForm("AddToFavorites", "Vocabulary", FormMethod.Post))
+                    {
+                        @Html.Hidden("wordId", item.WordId)
+                        <button type="submit" class="btn btn-sm btn-primary">Add to Favorite</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    @Html.ActionLink("Create New Vocabulary", "Create", "Vocabulary", new { lessonId = Model.FirstOrDefault()?.LessonId }, new { @class = "btn btn-success" })
+</p>
+
+<p>
+
+    @Html.ActionLink("Back to List", "Index", "Vocabulary", null, new { @class = "btn btn-secondary" })
+</p>

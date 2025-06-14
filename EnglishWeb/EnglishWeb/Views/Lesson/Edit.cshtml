@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Lesson", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
@@ -30,9 +30,45 @@
             @Html.ValidationMessageFor(model => model.TypeId, "", new { @class = "text-danger" })
         </div>
 
+        <!-- Phần chọn ảnh -->
+        <div class="form-group">
+            @Html.Label("Ảnh đại diện bài học", new { @class = "control-label" })
+            <input type="file" name="imageFile" id="imageFile" accept="image/*" class="form-control" />
+
+            <br />
+            @if (ViewBag.ImagePath != null)
+            {
+                <p>Ảnh hiện tại:</p>
+                <img src="@Url.Content(ViewBag.ImagePath)" alt="Ảnh đại diện" style="max-width:300px; max-height:300px; border:1px solid #ccc; padding:5px;" />
+            }
+
+            <p>Ảnh xem trước (preview):</p>
+            <img id="imgPreview" style="max-width:300px; max-height:300px; display:none; border:1px solid #ccc; padding:5px;" />
+        </div>
+
         <div class="form-group">
             <input type="submit" value="Lưu" class="btn btn-primary" />
             @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default" })
         </div>
     </div>
+}
+
+@section Scripts {
+    <script>
+        document.getElementById('imageFile').addEventListener('change', function (event) {
+            var file = event.target.files[0];
+            var imgPreview = document.getElementById('imgPreview');
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    imgPreview.src = e.target.result;
+                    imgPreview.style.display = "block";
+                }
+                reader.readAsDataURL(file);
+            } else {
+                imgPreview.src = "";
+                imgPreview.style.display = "none";
+            }
+        });
+    </script>
 }

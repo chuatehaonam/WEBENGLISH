@@ -68,7 +68,6 @@ namespace EnglishLearningSite.Controllers
             return View();
         }
 
-        // POST: Lesson/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Title,Description,TypeId")] Lesson lesson, HttpPostedFileBase imageFile)
@@ -91,20 +90,22 @@ namespace EnglishLearningSite.Controllers
                         FileName = fileName,
                         FilePath = "/Uploads/" + fileName,
                         LessonId = lesson.LessonId,
-                        UserId = 1 // giả sử UserId = 1
+                        UserId = 1, // Giả sử UserId tạm thời là 1, bạn có thể lấy User hiện tại
+                        UploadDate = DateTime.Now
                     };
 
                     db.Images.InsertOnSubmit(img);
                     db.SubmitChanges();
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Vocabulary");
             }
 
             ViewBag.TypeId = new SelectList(db.LessonTypes, "TypeId", "TypeName", lesson.TypeId);
             return View(lesson);
         }
 
+        // GET: Lesson/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -115,6 +116,10 @@ namespace EnglishLearningSite.Controllers
                 return HttpNotFound();
 
             ViewBag.TypeId = new SelectList(db.LessonTypes, "TypeId", "TypeName", lesson.TypeId);
+
+            var currentImg = db.Images.FirstOrDefault(i => i.LessonId == lesson.LessonId);
+            ViewBag.ImagePath = currentImg != null ? currentImg.FilePath : null;
+
             return View(lesson);
         }
 
@@ -133,7 +138,6 @@ namespace EnglishLearningSite.Controllers
                     existing.TypeId = lesson.TypeId;
                     db.SubmitChanges();
 
-                    // Cập nhật ảnh nếu có
                     if (imageFile != null && imageFile.ContentLength > 0)
                     {
                         string fileName = Path.GetFileName(imageFile.FileName);
@@ -154,17 +158,22 @@ namespace EnglishLearningSite.Controllers
                                 FileName = fileName,
                                 FilePath = "/Uploads/" + fileName,
                                 UploadDate = DateTime.Now,
-                                UserId = 1,
+                                UserId = 1, // hoặc userId hiện tại
                                 LessonId = lesson.LessonId
                             });
                         }
                         db.SubmitChanges();
                     }
+
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
             }
 
+            // Nếu có lỗi thì giữ lại dropdown và ảnh
             ViewBag.TypeId = new SelectList(db.LessonTypes, "TypeId", "TypeName", lesson.TypeId);
+            var currentImg = db.Images.FirstOrDefault(i => i.LessonId == lesson.LessonId);
+            ViewBag.ImagePath = currentImg != null ? currentImg.FilePath : null;
+
             return View(lesson);
         }
 
@@ -188,10 +197,27 @@ namespace EnglishLearningSite.Controllers
             Lesson lesson = db.Lessons.FirstOrDefault(l => l.LessonId == id);
             if (lesson != null)
             {
+                // Xóa ảnh liên kết
+                var images = db.Images.Where(i => i.LessonId == id).ToList();
+                foreach (var img in images)
+                {
+                    db.Images.DeleteOnSubmit(img);
+                }
+
+                // Xóa từ vựng liên kết
+                var vocabularies = db.Vocabularies.Where(v => v.LessonId == id).ToList();
+                foreach (var vocab in vocabularies)
+                {
+                    db.Vocabularies.DeleteOnSubmit(vocab);
+                }
+
+                // Sau đó xóa bài học
                 db.Lessons.DeleteOnSubmit(lesson);
                 db.SubmitChanges();
             }
-            return RedirectToAction("Index");
+
+            return RedirectToAction("Index", "Vocabulary");
         }
+
     }
 }

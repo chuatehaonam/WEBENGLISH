@@ -1,0 +1,36 @@
+﻿/Views/Vocabulary/Create.cshtml
+@model EnglishWeb.Models.Vocabulary
+@{
+    ViewBag.Title = "Create Vocabulary";
+}
+<h2>Create Vocabulary</h2>
+@using (Html.BeginForm("Create", "Vocabulary", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.LessonId, "Select Vocabulary Lesson")
+        @Html.DropDownListFor(m => m.LessonId, (SelectList)ViewBag.Lessons, "-- Select a Lesson --", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Word)
+        @Html.TextBoxFor(m => m.Word, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Definition)
+        @Html.TextAreaFor(m => m.Definition, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Example)
+        @Html.TextAreaFor(m => m.Example, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Pronunciation File (MP3)")
+        <input type="file" name="pronunciationFile" class="form-control" accept=".mp3" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    @Html.ActionLink("Back to Lessons", "Index", "Vocabulary", null, new { @class = "btn btn-default" })
+}

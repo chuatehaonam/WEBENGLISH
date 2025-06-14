@@ -270,6 +270,11 @@
     <Content Include="Views\Lesson\Edit.cshtml" />
     <Content Include="Views\Lesson\About.cshtml" />
     <Content Include="Views\Lesson\Contact.cshtml" />
+    <Content Include="Views\Vocabulary\Index.cshtml" />
+    <Content Include="Views\Vocabulary\Detail.cshtml" />
+    <Content Include="Views\Vocabulary\Create.cshtml" />
+    <Content Include="Views\Vocabulary\Delete.cshtml" />
+    <Content Include="Views\Vocabulary\Favorites.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,7 +330,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62251</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44314/</IISUrl>
+          <IISUrl>https://localhost:44355</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

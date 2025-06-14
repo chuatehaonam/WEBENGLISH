@@ -1,4 +1,4 @@
-﻿@*@model EnglishWeb.Models.Vocabulary
+﻿@model EnglishWeb.Models.Vocabulary
 
 @{
     ViewBag.Title = "Edit Vocabulary";
@@ -6,82 +6,48 @@
 
 <h2>Edit Vocabulary</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Vocabulary", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-
     @Html.HiddenFor(m => m.WordId)
+    @Html.HiddenFor(m => m.LessonId)
 
     <div class="form-group">
         @Html.LabelFor(m => m.Word)
         @Html.TextBoxFor(m => m.Word, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Word)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Definition)
-        @Html.TextAreaFor(m => m.Definition, new { @class = "form-control", rows = 3 })
-        @Html.ValidationMessageFor(m => m.Definition)
+        @Html.TextAreaFor(m => m.Definition, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Example)
-        @Html.TextAreaFor(m => m.Example, new { @class = "form-control", rows = 3 })
-        @Html.ValidationMessageFor(m => m.Example)
+        @Html.TextAreaFor(m => m.Example, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.PronunciationUrl)
-        @Html.TextBoxFor(m => m.PronunciationUrl, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.PronunciationUrl)
+        <label>Current Pronunciation (if any):</label><br />
+        @if (!string.IsNullOrEmpty(Model.PronunciationUrl))
+        {
+            <audio controls>
+                <source src="@Model.PronunciationUrl" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+            <br />
+            <small>@Model.PronunciationUrl</small>
+        }
+        else
+        {
+            <span>No pronunciation uploaded.</span>
+        }
     </div>
 
     <div class="form-group">
-        @Html.Label("Lesson Type")
-        @Html.DropDownList("lessonTypeSelect", (SelectList)ViewBag.LessonTypes, "-- Select Lesson Type --", new { @class = "form-control" })
+        <label>Replace Pronunciation File (MP3)</label>
+        <input type="file" name="pronunciationFile" class="form-control" accept=".mp3" />
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.LessonId, "Lesson")
-        @Html.DropDownListFor(m => m.LessonId, (SelectList)ViewBag.Lessons, "-- Select Lesson --", new { @class = "form-control", id = "lessonSelect" })
-        @Html.ValidationMessageFor(m => m.LessonId)
-    </div>
-
-    <input type="submit" value="Save" class="btn btn-primary" />
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary ml-2" })
+    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Back", "Detail", new { id = Model.LessonId }, new { @class = "btn btn-default" })
 }
-
-@section scripts {
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(function () {
-            $("#lessonTypeSelect").change(function () {
-                var typeId = $(this).val();
-                if (typeId) {
-                    $.getJSON('@Url.Action("GetLessonsByType")', { typeId: typeId }, function (data) {
-                        var $lesson = $("#lessonSelect");
-                        $lesson.empty();
-                        if (data.length === 0) {
-                            $lesson.append($('<option>').text("No lessons available").attr('value', ''));
-                            $lesson.prop("disabled", true);
-                        } else {
-                            $lesson.append($('<option>').text("-- Select Lesson --").attr('value', ''));
-                            $.each(data, function (i, lesson) {
-                                $lesson.append($('<option>').text(lesson.Title).attr('value', lesson.LessonId));
-                            });
-                            $lesson.prop("disabled", false);
-                        }
-                    });
-                } else {
-                    $("#lessonSelect").empty().prop("disabled", true);
-                }
-            });
-
-            // Khi load trang Edit, nếu đã có lessonTypeSelect chọn sẵn thì load lại Lesson cho phù hợp
-            var selectedTypeId = $("#lessonTypeSelect").val();
-            if (selectedTypeId) {
-                $("#lessonTypeSelect").trigger("change");
-            }
-        });
-    </script>
-}*@

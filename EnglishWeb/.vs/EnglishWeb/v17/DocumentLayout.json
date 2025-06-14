@@ -1,42 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\",
+  "WorkspaceRootPath": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\source\\repos\\englishweb\\englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\views\\vocabulary\\favorites.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\favorites.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\controllers\\vocabularycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\vocabularycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\views\\vocabulary\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\views\\vocabulary\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\views\\vocabulary\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\views\\vocabulary\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\views\\vocabulary\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\controllers\\usercontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\usercontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|c:\\users\\th\u00E0nh nam\\downloads\\c#\\webenglish\\englishweb\\englishweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\englishweb\\views\\lesson\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,40 +66,159 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VocabularyController.cs",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\VocabularyController.cs",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\VocabularyController.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAQwM4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T04:41:05.296Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "EnglishWeb\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T04:48:40.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Favorites.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAkwB4AAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T04:47:08.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Delete.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Delete.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAkwBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T04:45:41.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Edit.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Edit.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T04:44:56.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAACwAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAkwDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-06T14:24:47.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Contact.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Contact.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Contact.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Create.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Create.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Create.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAkwCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T14:23:16.969Z"
+              "WhenOpened": "2025-06-14T04:44:16.121Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T04:43:42.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T04:43:19.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserController .cs",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\UserController .cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\UserController .cs",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\UserController .cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\UserController .cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAswGUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T04:41:02.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Web.config",
+              "RelativeDocumentMoniker": "EnglishWeb\\Web.config",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Web.config",
+              "RelativeToolTip": "EnglishWeb\\Web.config",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-14T04:32:49.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "About.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\About.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\About.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\About.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\About.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\About.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\About.cshtml",
               "ViewState": "AgIAAB0AAAAAAAAAAAAqwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -87,75 +226,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Edit.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Edit.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Edit.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAqwCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T13:21:27.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "LessonController.cs",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
               "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\LessonController.cs",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
               "RelativeToolTip": "EnglishWeb\\Controllers\\LessonController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwBcAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAUwN8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T16:55:51.951Z"
+              "WhenOpened": "2025-06-05T16:55:51.951Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Details.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Details.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Details.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAqwCoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Contact.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\Downloads\\c#\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Contact.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T16:50:15.93Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Delete.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Delete.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Delete.cshtml",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwCkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T16:50:17.047Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Create.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Create.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Create.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAqwCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T14:45:00.594Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Th\u00E0nh Nam\\source\\repos\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAG0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T14:00:37.968Z"
+              "WhenOpened": "2025-06-06T14:23:16.969Z"
             }
           ]
         }
