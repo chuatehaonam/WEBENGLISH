@@ -1,0 +1,24 @@
+﻿@model List<EnglishWeb.Models.LessonViewModel>
+@{
+    ViewBag.Title = "Select Vocabulary Lesson";
+}
+
+<h2 class="text-center">🧠 Select a Vocabulary Lesson</h2>
+
+<div class="row mt-4">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 text-center mb-4">
+            <div class="card shadow-sm">
+                <a href="@Url.Action("SelectMode", "Game", new { lessonId = item.LessonId })">
+                    <img src="@item.ImagePath" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text text-muted">@item.Description</p>
+                    <a href="@Url.Action("SelectMode", "Game", new { lessonId = item.LessonId })" class="btn btn-primary">Play</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,11 +1,37 @@
 ﻿@model List<EnglishWeb.Models.Vocabulary>
+@using EnglishWeb.Models
 
 @{
     ViewBag.Title = "Vocabulary Detail";
     var lessonTitle = Model.FirstOrDefault()?.Lesson?.Title ?? "Lesson";
+    var lessonId = Model.FirstOrDefault()?.LessonId ?? 0;
+    var user = Session["User"] as User;
+
+    // Truy vấn danh sách các WordId đã yêu thích (nếu đã đăng nhập)
+    var favoriteWordIds = new List<int>();
+    if (user != null)
+    {
+        using (var db = new dbEnglishDataContext())
+        {
+            favoriteWordIds = db.UserVocabularyHistories
+                                .Where(h => h.UserId == user.UserId)
+                                .Select(h => h.WordId)
+                                .ToList();
+        }
+    }
 }
 
 <h2>@lessonTitle - Vocabulary</h2>
+
+<!-- Thông báo thành công -->
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
 
 <table class="table">
     <thead>
@@ -34,23 +60,36 @@
                     }
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.WordId }, new { @class = "btn btn-sm btn-warning" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.WordId }, new { @class = "btn btn-sm btn-danger" }) |
-                    @using (Html.BeginForm("AddToFavorites", "Vocabulary", FormMethod.Post))
+                    @Html.ActionLink("Edit", "Edit", new { id = item.WordId }, new { @class = "btn btn-sm btn-warning" })
+                    |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.WordId }, new { @class = "btn btn-sm btn-danger" })
+                    |
+                    @if (user != null && favoriteWordIds.Contains(item.WordId))
                     {
-                        @Html.Hidden("wordId", item.WordId)
-                        <button type="submit" class="btn btn-sm btn-primary">Add to Favorite</button>
+                        <span class="text-success">❤ Đã yêu thích</span>
+                    }
+                    else if (user != null)
+                    {
+                        using (Html.BeginForm("AddToFavorites", "Vocabulary", FormMethod.Post))
+                        {
+                            @Html.Hidden("wordId", item.WordId)
+                            <button type="submit" class="btn btn-sm btn-primary">Thêm yêu thích</button>
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-muted">Đăng nhập để yêu thích</span>
                     }
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
 <p>
-    @Html.ActionLink("Create New Vocabulary", "Create", "Vocabulary", new { lessonId = Model.FirstOrDefault()?.LessonId }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Create New Vocabulary", "Create", "Vocabulary", new { lessonId = lessonId }, new { @class = "btn btn-success" })
 </p>
 
 <p>
-
     @Html.ActionLink("Back to List", "Index", "Vocabulary", null, new { @class = "btn btn-secondary" })
 </p>

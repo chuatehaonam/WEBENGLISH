@@ -54,20 +54,8 @@
       <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="User_Image" Member="Images" ThisKey="UserId" OtherKey="UserId" Type="Image" />
       <Association Name="User_UserLessonProgress" Member="UserLessonProgresses" ThisKey="UserId" OtherKey="UserId" Type="UserLessonProgress" />
-      <Association Name="User_UserVocabularyHistory" Member="UserVocabularyHistories" ThisKey="UserId" OtherKey="UserId" Type="UserVocabularyHistory" />
       <Association Name="User_Video" Member="Videos" ThisKey="UserId" OtherKey="UserId" Type="Video" />
-    </Type>
-  </Table>
-  <Table Name="dbo.UserVocabularyHistory" Member="UserVocabularyHistories">
-    <Type Name="UserVocabularyHistory">
-      <Column Name="HistoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="WordId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LastReviewed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TimesReviewed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="User_UserVocabularyHistory" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
-      <Association Name="Vocabulary_UserVocabularyHistory" Member="Vocabulary" ThisKey="WordId" OtherKey="WordId" Type="Vocabulary" IsForeignKey="true" />
+      <Association Name="User_UserVocabularyHistory" Member="UserVocabularyHistories" ThisKey="UserId" OtherKey="UserId" Type="UserVocabularyHistory" />
     </Type>
   </Table>
   <Table Name="dbo.Video" Member="Videos">
@@ -93,9 +81,25 @@
       <Column Name="Example" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="PronunciationUrl" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Association Name="Vocabulary_Image" Member="Images" ThisKey="WordId" OtherKey="WordId" Type="Image" />
-      <Association Name="Vocabulary_UserVocabularyHistory" Member="UserVocabularyHistories" ThisKey="WordId" OtherKey="WordId" Type="UserVocabularyHistory" />
       <Association Name="Vocabulary_Video" Member="Videos" ThisKey="WordId" OtherKey="WordId" Type="Video" />
+      <Association Name="Vocabulary_UserVocabularyHistory" Member="UserVocabularyHistories" ThisKey="WordId" OtherKey="WordId" Type="UserVocabularyHistory" />
       <Association Name="Lesson_Vocabulary" Member="Lesson" ThisKey="LessonId" OtherKey="LessonId" Type="Lesson" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserVocabularyHistory" Member="UserVocabularyHistories">
+    <Type Name="UserVocabularyHistory">
+      <Column Name="HistoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WordId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastReviewed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimesReviewed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EasinessFactor" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Interval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NextReview" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Repetitions" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_UserVocabularyHistory" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="Vocabulary_UserVocabularyHistory" Member="Vocabulary" ThisKey="WordId" OtherKey="WordId" Type="Vocabulary" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

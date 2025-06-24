@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Edit Vocabulary";
+    string currentImagePath = ViewBag.ImagePath as string;
 }
 
 <h2>Edit Vocabulary</h2>
@@ -27,7 +28,7 @@
     </div>
 
     <div class="form-group">
-        <label>Current Pronunciation (if any):</label><br />
+        <label>Current Pronunciation:</label><br />
         @if (!string.IsNullOrEmpty(Model.PronunciationUrl))
         {
             <audio controls>
@@ -46,6 +47,24 @@
     <div class="form-group">
         <label>Replace Pronunciation File (MP3)</label>
         <input type="file" name="pronunciationFile" class="form-control" accept=".mp3" />
+    </div>
+
+    <div class="form-group">
+        <label>Current Image (if any):</label><br />
+        @if (!string.IsNullOrEmpty(currentImagePath))
+        {
+            <img src="@currentImagePath" alt="Image" width="150" height="150" /><br />
+            <small>@currentImagePath</small>
+        }
+        else
+        {
+            <span>No image uploaded.</span>
+        }
+    </div>
+
+    <div class="form-group">
+        <label>Replace Image File</label>
+        <input type="file" name="imageFile" class="form-control" accept="image/*" />
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>

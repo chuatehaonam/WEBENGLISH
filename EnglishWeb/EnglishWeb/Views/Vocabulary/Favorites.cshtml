@@ -23,6 +23,15 @@
                 <td>@item.Definition</td>
                 <td>@item.Example</td>
                 <td>
+                    @if (!string.IsNullOrEmpty(item.PronunciationUrl))
+                    {
+                        <audio controls>
+                            <source src="@item.PronunciationUrl" type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                        </audio>
+                    }
+                </td>
+                <td>
                     @using (Html.BeginForm("RemoveFromFavorites", "Vocabulary", FormMethod.Post))
                     {
                         @Html.Hidden("wordId", item.WordId)

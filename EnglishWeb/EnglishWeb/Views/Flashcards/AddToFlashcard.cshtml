@@ -1,0 +1,41 @@
+﻿@model List<EnglishWeb.Models.Vocabulary>
+
+@{
+    ViewBag.Title = "AddToFlashcard";
+    Layout = "~/Views/Flashcard.cshtml";
+}
+
+<h2>Thêm từ vào Flashcard</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Từ</th>
+            <th>Định nghĩa</th>
+            <th>Ví dụ</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var word in Model)
+        {
+            <tr>
+                <td>@word.Word</td>
+                <td>@word.Definition</td>
+                <td>@word.Example</td>
+                <td>
+                    @using (Html.BeginForm("AddToFlashcard", "Flashcards", FormMethod.Post))
+                    {
+                        @Html.Hidden("wordId", word.WordId)
+                        <button type="submit" class="btn btn-success">+ Flashcard</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

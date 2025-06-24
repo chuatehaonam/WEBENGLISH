@@ -66,36 +66,57 @@ namespace EnglishLearningSite.Controllers
 
 
         [HttpPost]
-        public ActionResult Create(Vocabulary vocab, HttpPostedFileBase pronunciationFile)
+        public ActionResult Create(Vocabulary vocab, HttpPostedFileBase pronunciationFile, HttpPostedFileBase imageFile)
         {
             if (ModelState.IsValid)
             {
+                // Lưu file âm thanh nếu có
                 if (pronunciationFile != null && pronunciationFile.ContentLength > 0)
                 {
-                    var uploadDir = Server.MapPath("~/Uploads/Audio");
-                    if (!Directory.Exists(uploadDir))
-                    {
-                        Directory.CreateDirectory(uploadDir);
-                    }
-
-                    var fileName = Path.GetFileName(pronunciationFile.FileName);
-                    var path = Path.Combine(uploadDir, fileName);
-                    pronunciationFile.SaveAs(path);
-                    vocab.PronunciationUrl = "/Uploads/Audio/" + fileName;
+                    var audioDir = Server.MapPath("~/Uploads/Audio");
+                    Directory.CreateDirectory(audioDir);
+                    var audioFile = Path.GetFileName(pronunciationFile.FileName);
+                    var audioPath = Path.Combine(audioDir, audioFile);
+                    pronunciationFile.SaveAs(audioPath);
+                    vocab.PronunciationUrl = "/Uploads/Audio/" + audioFile;
                 }
 
+                // Thêm từ vựng
                 db.Vocabularies.InsertOnSubmit(vocab);
                 db.SubmitChanges();
+
+                // Lưu ảnh nếu có
+                if (imageFile != null && imageFile.ContentLength > 0)
+                {
+                    var imageDir = Server.MapPath("~/Content/Images");
+                    Directory.CreateDirectory(imageDir);
+                    var imageFileName = Path.GetFileName(imageFile.FileName);
+                    var imagePath = Path.Combine(imageDir, imageFileName);
+                    imageFile.SaveAs(imagePath);
+
+                    var img = new Image
+                    {
+                        FileName = imageFileName,
+                        FilePath = "/Content/Images/" + imageFileName,
+                        UploadDate = DateTime.Now,
+                        UserId = 1, // Hoặc lấy user đăng nhập từ Session
+                        WordId = vocab.WordId
+                    };
+
+                    db.Images.InsertOnSubmit(img);
+                    db.SubmitChanges();
+                }
 
                 return RedirectToAction("Detail", new { id = vocab.LessonId });
             }
 
-            // Nếu ModelState không hợp lệ, cần load lại dropdown
-            var vocabularyLessons = db.Lessons.Where(l => l.TypeId == 7).ToList();
-            ViewBag.Lessons = new SelectList(vocabularyLessons, "LessonId", "Title", vocab.LessonId);
+            // Reload dropdown nếu có lỗi
+            var lessons = db.Lessons.Where(l => l.TypeId == 7).ToList();
+            ViewBag.Lessons = new SelectList(lessons, "LessonId", "Title", vocab.LessonId);
 
             return View(vocab);
         }
+
 
         // Sửa từ vựng
         public ActionResult Edit(int id)
@@ -103,11 +124,14 @@ namespace EnglishLearningSite.Controllers
             var vocab = db.Vocabularies.FirstOrDefault(v => v.WordId == id);
             if (vocab == null) return HttpNotFound();
 
+            var image = db.Images.FirstOrDefault(i => i.WordId == vocab.WordId);
+            ViewBag.ImagePath = image?.FilePath;
+
             return View(vocab);
         }
 
         [HttpPost]
-        public ActionResult Edit(Vocabulary model, HttpPostedFileBase pronunciationFile)
+        public ActionResult Edit(Vocabulary model, HttpPostedFileBase pronunciationFile, HttpPostedFileBase imageFile)
         {
             var vocab = db.Vocabularies.FirstOrDefault(v => v.WordId == model.WordId);
             if (vocab == null) return HttpNotFound();
@@ -116,12 +140,41 @@ namespace EnglishLearningSite.Controllers
             vocab.Definition = model.Definition;
             vocab.Example = model.Example;
 
+            // Cập nhật pronunciation
             if (pronunciationFile != null && pronunciationFile.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(pronunciationFile.FileName);
                 var path = Path.Combine(Server.MapPath("~/Uploads/Audio"), fileName);
                 pronunciationFile.SaveAs(path);
                 vocab.PronunciationUrl = "/Uploads/Audio/" + fileName;
+            }
+
+            // Cập nhật image
+            if (imageFile != null && imageFile.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(imageFile.FileName);
+                var path = Path.Combine(Server.MapPath("~/Uploads/Images"), fileName);
+                imageFile.SaveAs(path);
+
+                var img = db.Images.FirstOrDefault(i => i.WordId == vocab.WordId);
+                if (img != null)
+                {
+                    img.FileName = fileName;
+                    img.FilePath = "/Uploads/Images/" + fileName;
+                    img.UploadDate = DateTime.Now;
+                }
+                else
+                {
+                    db.Images.InsertOnSubmit(new Image
+                    {
+                        FileName = fileName,
+                        FilePath = "/Uploads/Images/" + fileName,
+                        UploadDate = DateTime.Now,
+                        UserId = 1, // hoặc lấy từ Session
+                        WordId = vocab.WordId,
+                        LessonId = vocab.LessonId
+                    });
+                }
             }
 
             db.SubmitChanges();
@@ -157,6 +210,7 @@ namespace EnglishLearningSite.Controllers
             var user = Session["User"] as User;
             if (user == null)
             {
+                TempData["Error"] = "Bạn cần đăng nhập để sử dụng chức năng yêu thích.";
                 return RedirectToAction("Login", "User");
             }
 
@@ -171,16 +225,23 @@ namespace EnglishLearningSite.Controllers
                     WordId = wordId,
                     Score = 100,
                     TimesReviewed = 1,
-                    LastReviewed = DateTime.Now,
-
+                    LastReviewed = DateTime.Now
                 };
 
                 db.UserVocabularyHistories.InsertOnSubmit(history);
                 db.SubmitChanges();
+
+                TempData["Message"] = "✅ Từ vựng đã được thêm vào danh sách yêu thích!";
+            }
+            else
+            {
+                TempData["Message"] = "ℹ Từ vựng này đã có trong danh sách yêu thích.";
             }
 
-            return RedirectToAction("Detail", new { id = db.Vocabularies.First(v => v.WordId == wordId).LessonId });
+            var vocab = db.Vocabularies.FirstOrDefault(v => v.WordId == wordId);
+            return RedirectToAction("Detail", new { id = vocab?.LessonId });
         }
+
         [HttpPost]
         public ActionResult RemoveFromFavorites(int wordId)
         {
@@ -222,11 +283,11 @@ namespace EnglishLearningSite.Controllers
 
     }
 
-    public class LessonViewModel
-    {
-        public int LessonId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string ImagePath { get; set; }
-    }
+    //public class LessonViewModel
+    //{
+    //    public int LessonId { get; set; }
+    //    public string Title { get; set; }
+    //    public string Description { get; set; }
+    //    public string ImagePath { get; set; }
+    //}
 }

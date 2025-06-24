@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Game Result";
+}
+
+<div class="text-center mt-5">
+    <h2>🎉 Congratulations! You’ve completed the game!🎉</h2>
+    <p>Your final score is: <strong style="font-size: 24px">@ViewBag.Score</strong></p>
+
+    <a href="@Url.Action("SelectLesson", "Game")" class="btn btn-success mt-3">Play Again</a>
+</div>

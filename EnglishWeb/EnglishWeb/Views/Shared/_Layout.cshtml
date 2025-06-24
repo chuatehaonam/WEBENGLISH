@@ -22,6 +22,9 @@
                     <li>@Html.ActionLink("About", "About", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Favorites", "Favorites", "Vocabulary", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("🎮 Game Vocab", "SelectLesson", "Game", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Flashcard", "Index", "FlashCards", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("History", "Index", "Historys", new { area = "" }, new { @class = "nav-link" })</li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -49,6 +52,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/translator.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

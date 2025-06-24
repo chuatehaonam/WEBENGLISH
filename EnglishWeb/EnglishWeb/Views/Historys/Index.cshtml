@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EnglishWeb.Models.UserVocabularyHistory>
+@{
+    ViewBag.Title = "Flashcard History";
+}
+
+<div class="container mt-4">
+    <h2>Your Flashcard Words</h2>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Word</th>
+                    <th>Definition</th>
+                    <th>Last Reviewed</th>
+                    <th>Next Review</th>
+                    <th>Score</th>
+                    <th>Times Reviewed</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Vocabulary.Word</td>
+                        <td>@item.Vocabulary.Definition</td>
+                        <td>@item.LastReviewed.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                        <td>@(item.NextReview.HasValue ? item.NextReview.Value.ToString("dd/MM/yyyy HH:mm:ss") : "")</td>
+                        <td>@item.Score</td>
+                        <td>@item.TimesReviewed</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info mt-3">You haven't added any words yet.</div>
+    }
+
+    @if (TempData["Message"] != null && TempData["Message"].ToString() != "⚠️ Please login to view your flashcard history.")
+    {
+        <div class="alert alert-warning mt-3">@TempData["Message"]</div>
+    }
+</div>

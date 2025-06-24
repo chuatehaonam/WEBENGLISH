@@ -1,0 +1,151 @@
+﻿@model EnglishWeb.Models.GameViewModel
+@{
+    ViewBag.Title = "Vocabulary Game";
+    var mode = Session["Mode"]?.ToString();
+    var totalTime = 7.0;
+    var imageReduceInterval = 1.5;
+    var correctImageId = ViewBag.CorrectImageId ?? 0;
+    var timeLeft = ViewBag.TimeLeft ?? totalTime;
+}
+
+<h2>Score: @Model.Score</h2>
+<h3>What image matches this word?</h3>
+<h2 style="color:blue">@Model.CurrentWord.Word</h2>
+
+@if (mode == "hard")
+{
+    <div class="progress mb-3" style="height: 25px;">
+        <div id="progressBar" class="progress-bar progress-bar-striped bg-danger" style="width: 100%; font-weight:bold;">
+            @timeLeft.ToString("0.0")s
+        </div>
+    </div>
+}
+
+<div class="row mt-4" id="imageContainer">
+    @foreach (var img in Model.Choices)
+    {
+        <div class="col-md-3 text-center mb-3 image-box" data-image-id="@img.ImageId">
+            <a href="#" onclick="submitAnswer(@Model.LessonId, @Model.CurrentWord.WordId, @img.ImageId); return false;">
+                <img src="@img.FilePath" class="img-fluid img-thumbnail" style="max-height: 180px;" />
+            </a>
+        </div>
+    }
+</div>
+
+<form id="answerForm" method="post" style="display:none;" action="@Url.Action("Answer", "Game")">
+    <input type="hidden" name="lessonId" value="@Model.LessonId" />
+    <input type="hidden" name="wordId" value="@Model.CurrentWord.WordId" />
+    <input type="hidden" name="imageId" id="imageIdInput" />
+    <input type="hidden" name="timeLeft" id="timeLeftInput" />
+</form>
+@section scripts {
+    @if (ViewBag.Mode == "hard")
+    {
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            let total = 7.0;
+            let timeLeft = parseFloat('@ViewBag.TimeLeft');
+            let correctImageId = parseInt('@ViewBag.CorrectImageId');
+            let interval = setInterval(updateProgressBar, 100);
+            let reduceImageTimer = null;
+            let reduceStarted = false;
+
+            function updateProgressBar() {
+                timeLeft = Math.max(0, timeLeft - 0.1);
+                const percent = (timeLeft / total) * 100;
+                const bar = document.getElementById("progressBar");
+                if (bar) {
+                    bar.style.width = percent + "%";
+                    bar.textContent = timeLeft.toFixed(1) + "s";
+                }
+
+                // Bắt đầu loại ảnh khi còn 6.0s
+                if (!reduceStarted && timeLeft <= 6.5) {
+                    reduceStarted = true;
+                    removeWrongImages();
+                    reduceImageTimer = setInterval(removeWrongImages, 1500);
+                }
+
+                // Hết giờ mà chưa trả lời → trừ 5 điểm
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    clearInterval(reduceImageTimer);
+
+                    $.post('@Url.Action("AnswerAjax", "Game")', {
+                        lessonId: @Model.LessonId,
+                        wordId: @Model.CurrentWord.WordId,
+                        imageId: 0,
+                        timeLeft: 0
+                    }, function (data) {
+                        window.location.href = data.redirect;
+                    });
+                }
+            }
+
+            function removeWrongImages() {
+                const allBoxes = document.querySelectorAll(".image-box");
+                const wrongBoxes = Array.from(allBoxes).filter(div => {
+                    const imgId = parseInt(div.dataset.imageId);
+                    return imgId !== correctImageId;
+                });
+
+                for (let i = 0; i < Math.min(2, wrongBoxes.length); i++) {
+                    wrongBoxes[i].remove();
+                }
+
+                if (wrongBoxes.length <= 2) {
+                    clearInterval(reduceImageTimer);
+                }
+            }
+
+            function submitAnswer(lessonId, wordId, imageId) {
+                const isCorrect = imageId === correctImageId;
+
+                if (isCorrect) {
+                    clearInterval(interval);
+                    clearInterval(reduceImageTimer);
+                    document.getElementById("imageIdInput").value = imageId;
+                    document.getElementById("timeLeftInput").value = timeLeft.toFixed(1);
+                    document.getElementById("answerForm").submit();
+                } else {
+                    $.post('@Url.Action("AnswerAjax", "Game")', {
+                        lessonId: lessonId,
+                        wordId: wordId,
+                        imageId: imageId,
+                        timeLeft: timeLeft.toFixed(1)
+                    }, function (data) {
+                        if (data.redirect) {
+                            window.location.href = data.redirect;
+                        } else if (!data.success) {
+                            alert("Error occurred.");
+                        } else {
+                            $('h2:contains("Score")').text("Score: " + data.score);
+                            correctImageId = data.correctImageId;
+
+                            const container = document.getElementById("imageContainer");
+                            container.innerHTML = "";
+                            data.choices.forEach(img => {
+                                container.innerHTML += `
+                                    <div class="col-md-3 text-center mb-3 image-box" data-image-id="${img.ImageId}">
+                                        <a href="#" onclick="submitAnswer(${lessonId}, ${wordId}, ${img.ImageId}); return false;">
+                                            <img src="${img.FilePath}" class="img-fluid img-thumbnail" style="max-height: 180px;" />
+                                        </a>
+                                    </div>`;
+                            });
+                        }
+                    });
+                }
+            }
+        </script>
+    }
+    else
+    {
+        <script>
+            function submitAnswer(lessonId, wordId, imageId) {
+                document.getElementById("imageIdInput").value = imageId;
+                document.getElementById("timeLeftInput").value = "0";
+                document.getElementById("answerForm").submit();
+            }
+        </script>
+    }
+}
