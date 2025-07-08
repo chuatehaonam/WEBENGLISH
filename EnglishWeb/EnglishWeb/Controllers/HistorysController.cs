@@ -7,7 +7,7 @@ namespace EnglishWeb.Controllers
 {
     public class HistorysController : Controller
     {
-        dbEnglishDataContext db = new dbEnglishDataContext();
+        EnglishLearningDataContext db = new EnglishLearningDataContext();
 
         // GET: History
         public ActionResult Index()

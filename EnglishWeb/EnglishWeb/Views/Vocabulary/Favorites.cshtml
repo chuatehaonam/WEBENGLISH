@@ -1,46 +1,46 @@
 ﻿@model List<EnglishWeb.Models.Vocabulary>
 
 @{
-    ViewBag.Title = "My Favorite Vocabulary";
+    ViewBag.Title = "Từ vựng yêu thích";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>🧠 Danh sách từ vựng yêu thích của bạn</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Word</th>
-            <th>Definition</th>
-            <th>Example</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+@if (!Model.Any())
+{
+    <p>Bạn chưa có từ vựng yêu thích nào.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
             <tr>
-                <td>@item.Word</td>
-                <td>@item.Definition</td>
-                <td>@item.Example</td>
-                <td>
-                    @if (!string.IsNullOrEmpty(item.PronunciationUrl))
-                    {
-                        <audio controls>
-                            <source src="@item.PronunciationUrl" type="audio/mpeg" />
-                            Your browser does not support the audio element.
-                        </audio>
-                    }
-                </td>
-                <td>
-                    @using (Html.BeginForm("RemoveFromFavorites", "Vocabulary", FormMethod.Post))
-                    {
-                        @Html.Hidden("wordId", item.WordId)
-                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-                    }
-                    @Html.ActionLink("Back to Lessons", "Index", "Vocabulary", null, new { @class = "btn btn-default" })
-
-                </td>
+                <th>Từ vựng</th>
+                <th>Định nghĩa</th>
+                <th>Ví dụ</th>
+                <th>Hành động</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><strong>@item.Word</strong></td>
+                    <td>@item.Definition</td>
+                    <td><em>@item.Example</em></td>
+
+                    <td>
+                        @using (Html.BeginForm("RemoveFromFavorites", "Vocabulary", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("wordId", item.WordId)
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="bi bi-x-circle"></i> Bỏ yêu thích
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} 

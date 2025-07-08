@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Create Vocabulary with AI";
+}
+
+<h2>Create Vocabulary with AI</h2>
+
+@using (Html.BeginForm("CreateWithAI", "Vocabulary", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="word">Word</label>
+        <input type="text" name="word" class="form-control" placeholder="Enter English word" required />
+    </div>
+
+    <div class="form-group">
+        <label for="lessonId">Lesson</label>
+        @Html.DropDownList("lessonId", (SelectList)ViewBag.LessonId, "Select Lesson", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Generate & Save</button>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}

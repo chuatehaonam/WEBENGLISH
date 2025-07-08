@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Grammar Checker";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Nếu dùng layout chung
+}
+
+<div class="container mt-5">
+    <div class="card shadow rounded p-4">
+        <h2 class="mb-4 text-primary">🔍 English Grammar Checker</h2>
+
+        @using (Html.BeginForm("Index", "Grammar", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="sentence">Enter a sentence:</label>
+                <textarea class="form-control" name="sentence" id="sentence" rows="3" placeholder="E.g., He go to school.">@ViewBag.Input</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Check Grammar</button>
+        }
+
+        <hr />
+
+        @if (ViewBag.Corrected != null)
+        {
+            <div class="alert alert-success mt-4">
+                <h5 class="text-success">✅ Corrected Result:</h5>
+                <pre style="white-space: pre-wrap; font-family: 'Segoe UI', sans-serif;">@Html.Raw(ViewBag.Corrected)</pre>
+            </div>
+        }
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger mt-4">
+                <strong>Error:</strong> @ViewBag.Error
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .container {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 24px;
+    }
+
+    textarea {
+        resize: vertical;
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    pre {
+        background: #f8f9fa;
+        border: 1px solid #ddd;
+        padding: 12px;
+        border-radius: 6px;
+        white-space: pre-wrap;
+    }
+</style>

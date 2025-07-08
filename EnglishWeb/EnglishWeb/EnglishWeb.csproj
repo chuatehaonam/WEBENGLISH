@@ -177,19 +177,23 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\FlashcardsController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\Grammarcontroller.cs" />
     <Compile Include="Controllers\HistorysController.cs" />
+    <Compile Include="Controllers\PragraphController.cs" />
     <Compile Include="Controllers\UserController .cs" />
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\VocabularyController.cs" />
+    <Compile Include="Models\EnglishLearning.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnglishLearning.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\dbEnglish.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbEnglish.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AIAPI.cs" />
+    <Compile Include="Models\DefinitionExampleResult.cs" />
     <Compile Include="Models\GameViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LessonViewModel.cs" />
@@ -216,7 +220,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Scripts\translator.js" />
+    <Content Include="Content\translator.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -226,13 +230,13 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Models\dbEnglish.dbml">
+    <Content Include="Models\EnglishLearning.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>dbEnglish.designer.cs</LastGenOutput>
+      <LastGenOutput>EnglishLearning.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Models\dbEnglish.dbml.layout">
-      <DependentUpon>dbEnglish.dbml</DependentUpon>
+    <None Include="Models\EnglishLearning.dbml.layout">
+      <DependentUpon>EnglishLearning.dbml</DependentUpon>
     </None>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -290,12 +294,16 @@
     <Content Include="Views\Flashcards\AddToFlashcard.cshtml" />
     <Content Include="Views\Flashcards\Index.cshtml" />
     <Content Include="Views\Historys\Index.cshtml" />
+    <Content Include="Views\Vocabulary\CreateWithAI.cshtml" />
+    <Content Include="Views\Pragraph\Index.cshtml" />
+    <Content Include="Views\Grammar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Images\" />
     <Folder Include="Uploads\Videos\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Views\Grammarcontroller\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -345,11 +353,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62251</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44355</IISUrl>
+          <IISUrl>http://localhost:62251/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://localhost:44355</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

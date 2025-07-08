@@ -1,4 +1,5 @@
 ﻿using EnglishLearningSite;
+using EnglishWeb;
 using EnglishWeb.Models;
 using System;
 using System.Data.Linq;
@@ -12,7 +13,7 @@ namespace EnglishLearningSite.Controllers
 {
     public class LessonController : Controller
     {
-        private dbEnglishDataContext db = new dbEnglishDataContext();
+        private EnglishLearningDataContext db = new EnglishLearningDataContext();
 
         // GET: Lesson
         public ActionResult About()
@@ -197,27 +198,35 @@ namespace EnglishLearningSite.Controllers
             Lesson lesson = db.Lessons.FirstOrDefault(l => l.LessonId == id);
             if (lesson != null)
             {
-                // Xóa ảnh liên kết
-                var images = db.Images.Where(i => i.LessonId == id).ToList();
-                foreach (var img in images)
-                {
-                    db.Images.DeleteOnSubmit(img);
-                }
+                // ❌ 1. Xóa ảnh liên kết với Lesson
+                var lessonImages = db.Images.Where(i => i.LessonId == id).ToList();
+                db.Images.DeleteAllOnSubmit(lessonImages);
 
-                // Xóa từ vựng liên kết
+                // ✅ 2. Xóa từ vựng & ảnh liên quan tới từ
                 var vocabularies = db.Vocabularies.Where(v => v.LessonId == id).ToList();
+
                 foreach (var vocab in vocabularies)
                 {
+                    // Xóa ảnh của từ vựng
+                    var wordImages = db.Images.Where(i => i.WordId == vocab.WordId).ToList();
+                    db.Images.DeleteAllOnSubmit(wordImages);
+
+                    // Xóa UserVocabularyHistory
+                    var histories = db.UserVocabularyHistories.Where(h => h.WordId == vocab.WordId).ToList();
+                    db.UserVocabularyHistories.DeleteAllOnSubmit(histories);
+
+                    // Xóa từ vựng
                     db.Vocabularies.DeleteOnSubmit(vocab);
                 }
 
-                // Sau đó xóa bài học
+                // ✅ 3. Xóa bài học
                 db.Lessons.DeleteOnSubmit(lesson);
                 db.SubmitChanges();
             }
 
             return RedirectToAction("Index", "Vocabulary");
         }
+
 
     }
 }

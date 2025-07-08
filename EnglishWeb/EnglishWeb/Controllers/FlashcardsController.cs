@@ -1,39 +1,49 @@
 ﻿using EnglishWeb.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace EnglishWeb.Controllers
 {
     public class FlashcardsController : Controller
     {
-        private dbEnglishDataContext db = new dbEnglishDataContext();
+        private EnglishLearningDataContext db = new EnglishLearningDataContext();
+        private readonly AIService _apiService = new AIService();
 
         private int GetCurrentUserId()
         {
             var user = Session["User"] as User;
-            return user?.UserId ?? 0;
+            if (user == null)
+            {
+                Response.Redirect("~/User/Login");
+                return 0; // tránh lỗi compile
+            }
+            return user.UserId;
         }
 
         public ActionResult Index()
         {
             int userId = GetCurrentUserId();
 
-            // Lấy danh sách các lịch sử ôn tập đã đến hạn của user
+            // Load Vocabulary cùng lúc khi lấy UserVocabularyHistory
+            DataLoadOptions dlo = new DataLoadOptions();
+            dlo.LoadWith<UserVocabularyHistory>(h => h.Vocabulary);
+            db.LoadOptions = dlo;
+
             var historiesToReview = db.UserVocabularyHistories
                 .Where(h => h.UserId == userId && h.NextReview <= DateTime.Now)
                 .OrderBy(h => h.NextReview)
                 .ThenBy(h => h.Repetitions)
                 .ToList();
 
-            // Lấy danh sách từ đã từng học của user này
             var userLearnedWordIds = db.UserVocabularyHistories
                 .Where(h => h.UserId == userId)
                 .Select(h => h.WordId)
                 .ToHashSet();
 
-            // Lấy danh sách từ vựng chưa từng học
             var allVocabularies = db.Vocabularies.ToList();
             foreach (var vocab in allVocabularies)
             {
@@ -68,19 +78,25 @@ namespace EnglishWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult ShowMeaning(int historyId, int wordId)
+        public async Task<ActionResult> ShowMeaning(int historyId, int wordId)
         {
             int userId = GetCurrentUserId();
+
+            // Load Vocabulary cùng lúc
+            DataLoadOptions dlo = new DataLoadOptions();
+            dlo.LoadWith<UserVocabularyHistory>(h => h.Vocabulary);
+            db.LoadOptions = dlo;
+
             UserVocabularyHistory currentHistory = null;
 
             if (historyId != 0)
             {
                 currentHistory = db.UserVocabularyHistories
-                    .SingleOrDefault(h => h.HistoryId == historyId && h.UserId == userId);
+                    .FirstOrDefault(h => h.HistoryId == historyId && h.UserId == userId);
             }
             else
             {
-                var vocab = db.Vocabularies.SingleOrDefault(v => v.WordId == wordId);
+                var vocab = db.Vocabularies.FirstOrDefault(v => v.WordId == wordId);
                 if (vocab != null)
                 {
                     currentHistory = new UserVocabularyHistory
@@ -100,6 +116,26 @@ namespace EnglishWeb.Controllers
 
             if (currentHistory != null)
             {
+                // 🧠 Gọi AI nếu định nghĩa hoặc ví dụ chưa đúng
+                var vocab = currentHistory.Vocabulary;
+                if (string.IsNullOrWhiteSpace(vocab.Definition) ||
+                    vocab.Definition.StartsWith("Definition of") ||
+                    string.IsNullOrWhiteSpace(vocab.Example) ||
+                    vocab.Example.StartsWith("Example using"))
+                {
+                    try
+                    {
+                        var defEx = await _apiService.GenerateDefinitionAndExampleAsync(vocab.Word);
+                        vocab.Definition = defEx?.Definition ?? "Không có định nghĩa";
+                        vocab.Example = defEx?.Example ?? "Không có ví dụ";
+                        db.SubmitChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        TempData["Message"] = "❌ AI Error: " + ex.Message;
+                    }
+                }
+
                 ViewBag.CurrentFlashcard = currentHistory;
                 ViewBag.ShowMeaning = true;
             }
@@ -113,6 +149,7 @@ namespace EnglishWeb.Controllers
             ViewBag.WordsToReviewCount = wordsToReviewCount;
             return View("Index");
         }
+
 
         [HttpPost]
         public ActionResult RateWord(int historyId, int wordId, int rating)
@@ -164,6 +201,7 @@ namespace EnglishWeb.Controllers
             double ef = history.EasinessFactor ?? 2.5;
             int repetitions = history.Repetitions ?? 0;
             int previousInterval = history.Interval ?? 1;
+
             if (quality < 3)
             {
                 repetitions = 0;
@@ -191,11 +229,9 @@ namespace EnglishWeb.Controllers
             history.Score = quality;
         }
 
-
         [HttpPost]
         public ActionResult AddToFlashcard(int wordId)
         {
-            // 1. Kiểm tra đăng nhập qua Session
             var user = Session["User"] as User;
             if (user == null)
             {
@@ -205,7 +241,6 @@ namespace EnglishWeb.Controllers
 
             int userId = user.UserId;
 
-            // 2. Kiểm tra xem từ đã tồn tại trong flashcard chưa
             bool exists = db.UserVocabularyHistories
                              .Any(x => x.UserId == userId && x.WordId == wordId);
 
@@ -237,21 +272,14 @@ namespace EnglishWeb.Controllers
             return RedirectToAction("Index", "History");
         }
 
-
-
-
-        // GET: Flashcard/AddNewWord
-        // GET: Flashcard/AddNewWord
         public ActionResult AddNewWord()
         {
             return View();
         }
 
-        // POST: Flashcard/AddNewWord
         [HttpPost]
         public ActionResult AddNewWord(string word, string meaning)
         {
-            // 1. Kiểm tra người dùng đã đăng nhập
             var user = Session["User"] as User;
             if (user == null)
             {
@@ -259,19 +287,16 @@ namespace EnglishWeb.Controllers
                 return RedirectToAction("Login", "User");
             }
 
-            // 2. Kiểm tra từ đã tồn tại trong bảng Vocabulary chưa
             var existing = db.Vocabularies.FirstOrDefault(v => v.Word == word);
             if (existing == null)
             {
-                // 2.1. Lấy một bài học mặc định
                 var defaultLesson = db.Lessons.FirstOrDefault();
                 if (defaultLesson == null)
                 {
-                    TempData["Message"] = "⚠️ Không có bài học nào tồn tại trong hệ thống. Vui lòng tạo ít nhất một Lesson trước.";
+                    TempData["Message"] = "⚠️ Không có bài học nào tồn tại trong hệ thống.";
                     return RedirectToAction("Index");
                 }
 
-                // 2.2. Thêm từ mới vào bảng Vocabulary
                 existing = new Vocabulary
                 {
                     Word = word.Trim(),
@@ -280,10 +305,9 @@ namespace EnglishWeb.Controllers
                 };
 
                 db.Vocabularies.InsertOnSubmit(existing);
-                db.SubmitChanges(); // Để lấy WordId
+                db.SubmitChanges();
             }
 
-            // 3. Kiểm tra từ đã nằm trong flashcard của user chưa
             bool inFlashcard = db.UserVocabularyHistories
                 .Any(h => h.UserId == user.UserId && h.WordId == existing.WordId);
 
@@ -294,7 +318,7 @@ namespace EnglishWeb.Controllers
                     UserId = user.UserId,
                     WordId = existing.WordId,
                     LastReviewed = DateTime.Now,
-                    NextReview = DateTime.Now.AddDays(1), // Bắt đầu ôn từ ngày mai
+                    NextReview = DateTime.Now.AddDays(1),
                     Interval = 1,
                     Repetitions = 0,
                     EasinessFactor = 2.5,
@@ -312,16 +336,14 @@ namespace EnglishWeb.Controllers
                 TempData["Message"] = "⚠️ Từ này đã có trong flashcard của bạn.";
             }
 
-            return RedirectToAction("Index"); // Trở về trang flashcard
+            return RedirectToAction("Index");
         }
-
-
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose(); // Đảm bảo đóng kết nối DB khi controller bị hủy
+                db.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -6,12 +6,11 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("EngLishWeb", "Index", "Vocabulary", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,8 +24,10 @@
                     <li>@Html.ActionLink("🎮 Game Vocab", "SelectLesson", "Game", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Flashcard", "Index", "FlashCards", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("History", "Index", "Historys", new { area = "" }, new { @class = "nav-link" })</li>
-
+                    <li>@Html.ActionLink("Grammar", "Index", "Grammar", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Pragraph", "Index", "Pragraph", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     @if (Session["User"] == null)
                     {
@@ -43,11 +44,11 @@
             </div>
         </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-        </footer>
+        <footer></footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

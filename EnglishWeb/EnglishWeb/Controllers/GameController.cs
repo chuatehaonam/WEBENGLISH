@@ -8,7 +8,7 @@ namespace EnglishWeb.Controllers
 {
     public class GameController : Controller
     {
-        dbEnglishDataContext db = new dbEnglishDataContext();
+        EnglishLearningDataContext db = new EnglishLearningDataContext();
 
         public ActionResult SelectLesson()
         {

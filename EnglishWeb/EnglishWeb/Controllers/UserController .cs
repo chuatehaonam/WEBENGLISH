@@ -1,4 +1,5 @@
-﻿using EnglishWeb.Models; // namespace đúng theo project của bạn
+﻿using EnglishWeb;
+using EnglishWeb.Models; // namespace đúng theo project của bạn
 using System;
 using System.Linq;
 using System.Web.Mvc;
@@ -8,7 +9,7 @@ namespace EnglishLearning.Controllers
 {
     public class UserController : Controller
     {
-        dbEnglishDataContext db = new dbEnglishDataContext();
+        EnglishLearningDataContext db = new EnglishLearningDataContext();
 
         // GET: User/Register
         [HttpGet]

@@ -1,84 +1,56 @@
 ﻿@model List<EnglishWeb.Models.Vocabulary>
-@using EnglishWeb.Models
 
 @{
-    ViewBag.Title = "Vocabulary Detail";
-    var lessonTitle = Model.FirstOrDefault()?.Lesson?.Title ?? "Lesson";
-    var lessonId = Model.FirstOrDefault()?.LessonId ?? 0;
-    var user = Session["User"] as User;
-
-    // Truy vấn danh sách các WordId đã yêu thích (nếu đã đăng nhập)
-    var favoriteWordIds = new List<int>();
-    if (user != null)
-    {
-        using (var db = new dbEnglishDataContext())
-        {
-            favoriteWordIds = db.UserVocabularyHistories
-                                .Where(h => h.UserId == user.UserId)
-                                .Select(h => h.WordId)
-                                .ToList();
-        }
-    }
+    ViewBag.Title = "Chi tiết Từ vựng";
+    var lesson = ViewBag.Lesson as EnglishWeb.Models.Lesson;
 }
 
-<h2>@lessonTitle - Vocabulary</h2>
+<h2>Từ vựng cho bài học: <strong>@lesson?.Title</strong></h2>
 
-<!-- Thông báo thành công -->
 @if (TempData["Message"] != null)
 {
-    <div class="alert alert-success">@TempData["Message"]</div>
-}
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">@TempData["Error"]</div>
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
 }
 
-<table class="table">
+<!-- Nút sinh từ vựng bằng AI -->
+@using (Html.BeginForm("GenerateVocabularyFromAI", "Vocabulary", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("lessonId", lesson.LessonId)
+    <button type="submit" class="btn btn-primary mb-3">
+        <i class="bi bi-stars"></i> Tạo từ vựng bằng AI
+    </button>
+}
+
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Word</th>
-            <th>Definition</th>
-            <th>Example</th>
-            <th>Pronunciation</th>
-            <th>Actions</th>
+            <th>Từ vựng</th>
+            <th>Định nghĩa</th>
+            <th>Ví dụ</th>
+            <th>Hành động</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Word</td>
+                <td><strong>@item.Word</strong></td>
                 <td>@item.Definition</td>
-                <td>@item.Example</td>
+                <td><em>@item.Example</em></td>
+             
                 <td>
-                    @if (!string.IsNullOrEmpty(item.PronunciationUrl))
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.WordId }, new { @class = "btn btn-sm btn-warning" }) |
+                    @Html.ActionLink("Xoá", "Delete", new { id = item.WordId }, new { @class = "btn btn-sm btn-danger" })|
+                    @using (Html.BeginForm("AddToFavorites", "Vocabulary", FormMethod.Post, new { style = "display:inline;" }))
                     {
-                        <audio controls>
-                            <source src="@item.PronunciationUrl" type="audio/mpeg" />
-                            Your browser does not support the audio element.
-                        </audio>
-                    }
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.WordId }, new { @class = "btn btn-sm btn-warning" })
-                    |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.WordId }, new { @class = "btn btn-sm btn-danger" })
-                    |
-                    @if (user != null && favoriteWordIds.Contains(item.WordId))
-                    {
-                        <span class="text-success">❤ Đã yêu thích</span>
-                    }
-                    else if (user != null)
-                    {
-                        using (Html.BeginForm("AddToFavorites", "Vocabulary", FormMethod.Post))
-                        {
-                            @Html.Hidden("wordId", item.WordId)
-                            <button type="submit" class="btn btn-sm btn-primary">Thêm yêu thích</button>
-                        }
-                    }
-                    else
-                    {
-                        <span class="text-muted">Đăng nhập để yêu thích</span>
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("wordId", item.WordId)
+                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-heart"></i> Yêu thích
+                        </button>
                     }
                 </td>
             </tr>
@@ -87,9 +59,6 @@
 </table>
 
 <p>
-    @Html.ActionLink("Create New Vocabulary", "Create", "Vocabulary", new { lessonId = lessonId }, new { @class = "btn btn-success" })
-</p>
-
-<p>
-    @Html.ActionLink("Back to List", "Index", "Vocabulary", null, new { @class = "btn btn-secondary" })
+    @Html.ActionLink("Thêm từ vựng mới", "Create", null, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Trở về danh sách bài học", "Index", "Vocabulary", null, new { @class = "btn btn-default" })
 </p>

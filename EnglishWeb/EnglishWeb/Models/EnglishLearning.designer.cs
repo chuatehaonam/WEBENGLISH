@@ -23,14 +23,10 @@ namespace EnglishWeb.Models
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="EnglishLearningDB")]
-	public partial class dbEnglishDataContext : System.Data.Linq.DataContext
+	public partial class EnglishLearningDataContext : System.Data.Linq.DataContext
 	{
-        public dbEnglishDataContext() :
-base(global::System.Configuration.ConfigurationManager.ConnectionStrings["EnglishLearningDBConnectionString"].ConnectionString, mappingSource)
-        {
-            OnCreated();
-        }
-        private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
+		
+		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
@@ -49,36 +45,40 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertUserVocabularyHistory(UserVocabularyHistory instance);
+    partial void UpdateUserVocabularyHistory(UserVocabularyHistory instance);
+    partial void DeleteUserVocabularyHistory(UserVocabularyHistory instance);
     partial void InsertVideo(Video instance);
     partial void UpdateVideo(Video instance);
     partial void DeleteVideo(Video instance);
     partial void InsertVocabulary(Vocabulary instance);
     partial void UpdateVocabulary(Vocabulary instance);
     partial void DeleteVocabulary(Vocabulary instance);
-    partial void InsertUserVocabularyHistory(UserVocabularyHistory instance);
-    partial void UpdateUserVocabularyHistory(UserVocabularyHistory instance);
-    partial void DeleteUserVocabularyHistory(UserVocabularyHistory instance);
-    #endregion
-		
-		public dbEnglishDataContext(string connection) : 
+        #endregion
+        public EnglishLearningDataContext() :
+      base(global::System.Configuration.ConfigurationManager.ConnectionStrings["EnglishLearningDBConnectionString"].ConnectionString, mappingSource)
+        {
+            OnCreated();
+        }
+        public EnglishLearningDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public dbEnglishDataContext(System.Data.IDbConnection connection) : 
+		public EnglishLearningDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public dbEnglishDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public EnglishLearningDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public dbEnglishDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public EnglishLearningDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -124,6 +124,14 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 			}
 		}
 		
+		public System.Data.Linq.Table<UserVocabularyHistory> UserVocabularyHistories
+		{
+			get
+			{
+				return this.GetTable<UserVocabularyHistory>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Video> Videos
 		{
 			get
@@ -137,14 +145,6 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 			get
 			{
 				return this.GetTable<Vocabulary>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserVocabularyHistory> UserVocabularyHistories
-		{
-			get
-			{
-				return this.GetTable<UserVocabularyHistory>();
 			}
 		}
 	}
@@ -1185,9 +1185,9 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 		
 		private EntitySet<UserLessonProgress> _UserLessonProgresses;
 		
-		private EntitySet<Video> _Videos;
-		
 		private EntitySet<UserVocabularyHistory> _UserVocabularyHistories;
+		
+		private EntitySet<Video> _Videos;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1207,8 +1207,8 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 		{
 			this._Images = new EntitySet<Image>(new Action<Image>(this.attach_Images), new Action<Image>(this.detach_Images));
 			this._UserLessonProgresses = new EntitySet<UserLessonProgress>(new Action<UserLessonProgress>(this.attach_UserLessonProgresses), new Action<UserLessonProgress>(this.detach_UserLessonProgresses));
-			this._Videos = new EntitySet<Video>(new Action<Video>(this.attach_Videos), new Action<Video>(this.detach_Videos));
 			this._UserVocabularyHistories = new EntitySet<UserVocabularyHistory>(new Action<UserVocabularyHistory>(this.attach_UserVocabularyHistories), new Action<UserVocabularyHistory>(this.detach_UserVocabularyHistories));
+			this._Videos = new EntitySet<Video>(new Action<Video>(this.attach_Videos), new Action<Video>(this.detach_Videos));
 			OnCreated();
 		}
 		
@@ -1318,19 +1318,6 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Video", Storage="_Videos", ThisKey="UserId", OtherKey="UserId")]
-		public EntitySet<Video> Videos
-		{
-			get
-			{
-				return this._Videos;
-			}
-			set
-			{
-				this._Videos.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserVocabularyHistory", Storage="_UserVocabularyHistories", ThisKey="UserId", OtherKey="UserId")]
 		public EntitySet<UserVocabularyHistory> UserVocabularyHistories
 		{
@@ -1341,6 +1328,19 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 			set
 			{
 				this._UserVocabularyHistories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Video", Storage="_Videos", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<Video> Videos
+		{
+			get
+			{
+				return this._Videos;
+			}
+			set
+			{
+				this._Videos.Assign(value);
 			}
 		}
 		
@@ -1388,18 +1388,6 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 			entity.User = null;
 		}
 		
-		private void attach_Videos(Video entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Videos(Video entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
 		private void attach_UserVocabularyHistories(UserVocabularyHistory entity)
 		{
 			this.SendPropertyChanging();
@@ -1411,641 +1399,17 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 			this.SendPropertyChanging();
 			entity.User = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Video")]
-	public partial class Video : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _VideoId;
-		
-		private string _FileName;
-		
-		private string _FilePath;
-		
-		private System.DateTime _UploadDate;
-		
-		private int _UserId;
-		
-		private System.Nullable<int> _LessonId;
-		
-		private System.Nullable<int> _WordId;
-		
-		private EntityRef<Lesson> _Lesson;
-		
-		private EntityRef<User> _User;
-		
-		private EntityRef<Vocabulary> _Vocabulary;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnVideoIdChanging(int value);
-    partial void OnVideoIdChanged();
-    partial void OnFileNameChanging(string value);
-    partial void OnFileNameChanged();
-    partial void OnFilePathChanging(string value);
-    partial void OnFilePathChanged();
-    partial void OnUploadDateChanging(System.DateTime value);
-    partial void OnUploadDateChanged();
-    partial void OnUserIdChanging(int value);
-    partial void OnUserIdChanged();
-    partial void OnLessonIdChanging(System.Nullable<int> value);
-    partial void OnLessonIdChanged();
-    partial void OnWordIdChanging(System.Nullable<int> value);
-    partial void OnWordIdChanged();
-    #endregion
-		
-		public Video()
-		{
-			this._Lesson = default(EntityRef<Lesson>);
-			this._User = default(EntityRef<User>);
-			this._Vocabulary = default(EntityRef<Vocabulary>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VideoId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int VideoId
-		{
-			get
-			{
-				return this._VideoId;
-			}
-			set
-			{
-				if ((this._VideoId != value))
-				{
-					this.OnVideoIdChanging(value);
-					this.SendPropertyChanging();
-					this._VideoId = value;
-					this.SendPropertyChanged("VideoId");
-					this.OnVideoIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string FileName
-		{
-			get
-			{
-				return this._FileName;
-			}
-			set
-			{
-				if ((this._FileName != value))
-				{
-					this.OnFileNameChanging(value);
-					this.SendPropertyChanging();
-					this._FileName = value;
-					this.SendPropertyChanged("FileName");
-					this.OnFileNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string FilePath
-		{
-			get
-			{
-				return this._FilePath;
-			}
-			set
-			{
-				if ((this._FilePath != value))
-				{
-					this.OnFilePathChanging(value);
-					this.SendPropertyChanging();
-					this._FilePath = value;
-					this.SendPropertyChanged("FilePath");
-					this.OnFilePathChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UploadDate", DbType="DateTime NOT NULL")]
-		public System.DateTime UploadDate
-		{
-			get
-			{
-				return this._UploadDate;
-			}
-			set
-			{
-				if ((this._UploadDate != value))
-				{
-					this.OnUploadDateChanging(value);
-					this.SendPropertyChanging();
-					this._UploadDate = value;
-					this.SendPropertyChanged("UploadDate");
-					this.OnUploadDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
-		public int UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonId", DbType="Int")]
-		public System.Nullable<int> LessonId
-		{
-			get
-			{
-				return this._LessonId;
-			}
-			set
-			{
-				if ((this._LessonId != value))
-				{
-					if (this._Lesson.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLessonIdChanging(value);
-					this.SendPropertyChanging();
-					this._LessonId = value;
-					this.SendPropertyChanged("LessonId");
-					this.OnLessonIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WordId", DbType="Int")]
-		public System.Nullable<int> WordId
-		{
-			get
-			{
-				return this._WordId;
-			}
-			set
-			{
-				if ((this._WordId != value))
-				{
-					if (this._Vocabulary.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnWordIdChanging(value);
-					this.SendPropertyChanging();
-					this._WordId = value;
-					this.SendPropertyChanged("WordId");
-					this.OnWordIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lesson_Video", Storage="_Lesson", ThisKey="LessonId", OtherKey="LessonId", IsForeignKey=true)]
-		public Lesson Lesson
-		{
-			get
-			{
-				return this._Lesson.Entity;
-			}
-			set
-			{
-				Lesson previousValue = this._Lesson.Entity;
-				if (((previousValue != value) 
-							|| (this._Lesson.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Lesson.Entity = null;
-						previousValue.Videos.Remove(this);
-					}
-					this._Lesson.Entity = value;
-					if ((value != null))
-					{
-						value.Videos.Add(this);
-						this._LessonId = value.LessonId;
-					}
-					else
-					{
-						this._LessonId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Lesson");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Video", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Videos.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Videos.Add(this);
-						this._UserId = value.UserId;
-					}
-					else
-					{
-						this._UserId = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vocabulary_Video", Storage="_Vocabulary", ThisKey="WordId", OtherKey="WordId", IsForeignKey=true)]
-		public Vocabulary Vocabulary
-		{
-			get
-			{
-				return this._Vocabulary.Entity;
-			}
-			set
-			{
-				Vocabulary previousValue = this._Vocabulary.Entity;
-				if (((previousValue != value) 
-							|| (this._Vocabulary.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Vocabulary.Entity = null;
-						previousValue.Videos.Remove(this);
-					}
-					this._Vocabulary.Entity = value;
-					if ((value != null))
-					{
-						value.Videos.Add(this);
-						this._WordId = value.WordId;
-					}
-					else
-					{
-						this._WordId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Vocabulary");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vocabulary")]
-	public partial class Vocabulary : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _WordId;
-		
-		private int _LessonId;
-		
-		private string _Word;
-		
-		private string _Definition;
-		
-		private string _Example;
-		
-		private string _PronunciationUrl;
-		
-		private EntitySet<Image> _Images;
-		
-		private EntitySet<Video> _Videos;
-		
-		private EntitySet<UserVocabularyHistory> _UserVocabularyHistories;
-		
-		private EntityRef<Lesson> _Lesson;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnWordIdChanging(int value);
-    partial void OnWordIdChanged();
-    partial void OnLessonIdChanging(int value);
-    partial void OnLessonIdChanged();
-    partial void OnWordChanging(string value);
-    partial void OnWordChanged();
-    partial void OnDefinitionChanging(string value);
-    partial void OnDefinitionChanged();
-    partial void OnExampleChanging(string value);
-    partial void OnExampleChanged();
-    partial void OnPronunciationUrlChanging(string value);
-    partial void OnPronunciationUrlChanged();
-    #endregion
-		
-		public Vocabulary()
-		{
-			this._Images = new EntitySet<Image>(new Action<Image>(this.attach_Images), new Action<Image>(this.detach_Images));
-			this._Videos = new EntitySet<Video>(new Action<Video>(this.attach_Videos), new Action<Video>(this.detach_Videos));
-			this._UserVocabularyHistories = new EntitySet<UserVocabularyHistory>(new Action<UserVocabularyHistory>(this.attach_UserVocabularyHistories), new Action<UserVocabularyHistory>(this.detach_UserVocabularyHistories));
-			this._Lesson = default(EntityRef<Lesson>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WordId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int WordId
-		{
-			get
-			{
-				return this._WordId;
-			}
-			set
-			{
-				if ((this._WordId != value))
-				{
-					this.OnWordIdChanging(value);
-					this.SendPropertyChanging();
-					this._WordId = value;
-					this.SendPropertyChanged("WordId");
-					this.OnWordIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonId", DbType="Int NOT NULL")]
-		public int LessonId
-		{
-			get
-			{
-				return this._LessonId;
-			}
-			set
-			{
-				if ((this._LessonId != value))
-				{
-					if (this._Lesson.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLessonIdChanging(value);
-					this.SendPropertyChanging();
-					this._LessonId = value;
-					this.SendPropertyChanged("LessonId");
-					this.OnLessonIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Word", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string Word
-		{
-			get
-			{
-				return this._Word;
-			}
-			set
-			{
-				if ((this._Word != value))
-				{
-					this.OnWordChanging(value);
-					this.SendPropertyChanging();
-					this._Word = value;
-					this.SendPropertyChanged("Word");
-					this.OnWordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Definition", DbType="NVarChar(MAX)")]
-		public string Definition
-		{
-			get
-			{
-				return this._Definition;
-			}
-			set
-			{
-				if ((this._Definition != value))
-				{
-					this.OnDefinitionChanging(value);
-					this.SendPropertyChanging();
-					this._Definition = value;
-					this.SendPropertyChanged("Definition");
-					this.OnDefinitionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Example", DbType="NVarChar(MAX)")]
-		public string Example
-		{
-			get
-			{
-				return this._Example;
-			}
-			set
-			{
-				if ((this._Example != value))
-				{
-					this.OnExampleChanging(value);
-					this.SendPropertyChanging();
-					this._Example = value;
-					this.SendPropertyChanged("Example");
-					this.OnExampleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PronunciationUrl", DbType="NVarChar(500)")]
-		public string PronunciationUrl
-		{
-			get
-			{
-				return this._PronunciationUrl;
-			}
-			set
-			{
-				if ((this._PronunciationUrl != value))
-				{
-					this.OnPronunciationUrlChanging(value);
-					this.SendPropertyChanging();
-					this._PronunciationUrl = value;
-					this.SendPropertyChanged("PronunciationUrl");
-					this.OnPronunciationUrlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vocabulary_Image", Storage="_Images", ThisKey="WordId", OtherKey="WordId")]
-		public EntitySet<Image> Images
-		{
-			get
-			{
-				return this._Images;
-			}
-			set
-			{
-				this._Images.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vocabulary_Video", Storage="_Videos", ThisKey="WordId", OtherKey="WordId")]
-		public EntitySet<Video> Videos
-		{
-			get
-			{
-				return this._Videos;
-			}
-			set
-			{
-				this._Videos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vocabulary_UserVocabularyHistory", Storage="_UserVocabularyHistories", ThisKey="WordId", OtherKey="WordId")]
-		public EntitySet<UserVocabularyHistory> UserVocabularyHistories
-		{
-			get
-			{
-				return this._UserVocabularyHistories;
-			}
-			set
-			{
-				this._UserVocabularyHistories.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lesson_Vocabulary", Storage="_Lesson", ThisKey="LessonId", OtherKey="LessonId", IsForeignKey=true)]
-		public Lesson Lesson
-		{
-			get
-			{
-				return this._Lesson.Entity;
-			}
-			set
-			{
-				Lesson previousValue = this._Lesson.Entity;
-				if (((previousValue != value) 
-							|| (this._Lesson.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Lesson.Entity = null;
-						previousValue.Vocabularies.Remove(this);
-					}
-					this._Lesson.Entity = value;
-					if ((value != null))
-					{
-						value.Vocabularies.Add(this);
-						this._LessonId = value.LessonId;
-					}
-					else
-					{
-						this._LessonId = default(int);
-					}
-					this.SendPropertyChanged("Lesson");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Images(Image entity)
-		{
-			this.SendPropertyChanging();
-			entity.Vocabulary = this;
-		}
-		
-		private void detach_Images(Image entity)
-		{
-			this.SendPropertyChanging();
-			entity.Vocabulary = null;
-		}
 		
 		private void attach_Videos(Video entity)
 		{
 			this.SendPropertyChanging();
-			entity.Vocabulary = this;
+			entity.User = this;
 		}
 		
 		private void detach_Videos(Video entity)
 		{
 			this.SendPropertyChanging();
-			entity.Vocabulary = null;
-		}
-		
-		private void attach_UserVocabularyHistories(UserVocabularyHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Vocabulary = this;
-		}
-		
-		private void detach_UserVocabularyHistories(UserVocabularyHistory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Vocabulary = null;
+			entity.User = null;
 		}
 	}
 	
@@ -2406,6 +1770,642 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["Englis
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Video")]
+	public partial class Video : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _VideoId;
+		
+		private string _FileName;
+		
+		private string _FilePath;
+		
+		private System.DateTime _UploadDate;
+		
+		private int _UserId;
+		
+		private System.Nullable<int> _LessonId;
+		
+		private System.Nullable<int> _WordId;
+		
+		private EntityRef<Lesson> _Lesson;
+		
+		private EntityRef<User> _User;
+		
+		private EntityRef<Vocabulary> _Vocabulary;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnVideoIdChanging(int value);
+    partial void OnVideoIdChanged();
+    partial void OnFileNameChanging(string value);
+    partial void OnFileNameChanged();
+    partial void OnFilePathChanging(string value);
+    partial void OnFilePathChanged();
+    partial void OnUploadDateChanging(System.DateTime value);
+    partial void OnUploadDateChanged();
+    partial void OnUserIdChanging(int value);
+    partial void OnUserIdChanged();
+    partial void OnLessonIdChanging(System.Nullable<int> value);
+    partial void OnLessonIdChanged();
+    partial void OnWordIdChanging(System.Nullable<int> value);
+    partial void OnWordIdChanged();
+    #endregion
+		
+		public Video()
+		{
+			this._Lesson = default(EntityRef<Lesson>);
+			this._User = default(EntityRef<User>);
+			this._Vocabulary = default(EntityRef<Vocabulary>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VideoId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int VideoId
+		{
+			get
+			{
+				return this._VideoId;
+			}
+			set
+			{
+				if ((this._VideoId != value))
+				{
+					this.OnVideoIdChanging(value);
+					this.SendPropertyChanging();
+					this._VideoId = value;
+					this.SendPropertyChanged("VideoId");
+					this.OnVideoIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string FileName
+		{
+			get
+			{
+				return this._FileName;
+			}
+			set
+			{
+				if ((this._FileName != value))
+				{
+					this.OnFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._FileName = value;
+					this.SendPropertyChanged("FileName");
+					this.OnFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string FilePath
+		{
+			get
+			{
+				return this._FilePath;
+			}
+			set
+			{
+				if ((this._FilePath != value))
+				{
+					this.OnFilePathChanging(value);
+					this.SendPropertyChanging();
+					this._FilePath = value;
+					this.SendPropertyChanged("FilePath");
+					this.OnFilePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UploadDate", DbType="DateTime NOT NULL")]
+		public System.DateTime UploadDate
+		{
+			get
+			{
+				return this._UploadDate;
+			}
+			set
+			{
+				if ((this._UploadDate != value))
+				{
+					this.OnUploadDateChanging(value);
+					this.SendPropertyChanging();
+					this._UploadDate = value;
+					this.SendPropertyChanged("UploadDate");
+					this.OnUploadDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
+		public int UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonId", DbType="Int")]
+		public System.Nullable<int> LessonId
+		{
+			get
+			{
+				return this._LessonId;
+			}
+			set
+			{
+				if ((this._LessonId != value))
+				{
+					if (this._Lesson.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLessonIdChanging(value);
+					this.SendPropertyChanging();
+					this._LessonId = value;
+					this.SendPropertyChanged("LessonId");
+					this.OnLessonIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WordId", DbType="Int")]
+		public System.Nullable<int> WordId
+		{
+			get
+			{
+				return this._WordId;
+			}
+			set
+			{
+				if ((this._WordId != value))
+				{
+					if (this._Vocabulary.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnWordIdChanging(value);
+					this.SendPropertyChanging();
+					this._WordId = value;
+					this.SendPropertyChanged("WordId");
+					this.OnWordIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lesson_Video", Storage="_Lesson", ThisKey="LessonId", OtherKey="LessonId", IsForeignKey=true)]
+		public Lesson Lesson
+		{
+			get
+			{
+				return this._Lesson.Entity;
+			}
+			set
+			{
+				Lesson previousValue = this._Lesson.Entity;
+				if (((previousValue != value) 
+							|| (this._Lesson.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Lesson.Entity = null;
+						previousValue.Videos.Remove(this);
+					}
+					this._Lesson.Entity = value;
+					if ((value != null))
+					{
+						value.Videos.Add(this);
+						this._LessonId = value.LessonId;
+					}
+					else
+					{
+						this._LessonId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Lesson");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Video", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Videos.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Videos.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(int);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vocabulary_Video", Storage="_Vocabulary", ThisKey="WordId", OtherKey="WordId", IsForeignKey=true)]
+		public Vocabulary Vocabulary
+		{
+			get
+			{
+				return this._Vocabulary.Entity;
+			}
+			set
+			{
+				Vocabulary previousValue = this._Vocabulary.Entity;
+				if (((previousValue != value) 
+							|| (this._Vocabulary.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Vocabulary.Entity = null;
+						previousValue.Videos.Remove(this);
+					}
+					this._Vocabulary.Entity = value;
+					if ((value != null))
+					{
+						value.Videos.Add(this);
+						this._WordId = value.WordId;
+					}
+					else
+					{
+						this._WordId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Vocabulary");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vocabulary")]
+	public partial class Vocabulary : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _WordId;
+		
+		private int _LessonId;
+		
+		private string _Word;
+		
+		private string _Definition;
+		
+		private string _Example;
+		
+		private string _PronunciationUrl;
+		
+		private EntitySet<Image> _Images;
+		
+		private EntitySet<UserVocabularyHistory> _UserVocabularyHistories;
+		
+		private EntitySet<Video> _Videos;
+		
+		private EntityRef<Lesson> _Lesson;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnWordIdChanging(int value);
+    partial void OnWordIdChanged();
+    partial void OnLessonIdChanging(int value);
+    partial void OnLessonIdChanged();
+    partial void OnWordChanging(string value);
+    partial void OnWordChanged();
+    partial void OnDefinitionChanging(string value);
+    partial void OnDefinitionChanged();
+    partial void OnExampleChanging(string value);
+    partial void OnExampleChanged();
+    partial void OnPronunciationUrlChanging(string value);
+    partial void OnPronunciationUrlChanged();
+    #endregion
+		
+		public Vocabulary()
+		{
+			this._Images = new EntitySet<Image>(new Action<Image>(this.attach_Images), new Action<Image>(this.detach_Images));
+			this._UserVocabularyHistories = new EntitySet<UserVocabularyHistory>(new Action<UserVocabularyHistory>(this.attach_UserVocabularyHistories), new Action<UserVocabularyHistory>(this.detach_UserVocabularyHistories));
+			this._Videos = new EntitySet<Video>(new Action<Video>(this.attach_Videos), new Action<Video>(this.detach_Videos));
+			this._Lesson = default(EntityRef<Lesson>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WordId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int WordId
+		{
+			get
+			{
+				return this._WordId;
+			}
+			set
+			{
+				if ((this._WordId != value))
+				{
+					this.OnWordIdChanging(value);
+					this.SendPropertyChanging();
+					this._WordId = value;
+					this.SendPropertyChanged("WordId");
+					this.OnWordIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonId", DbType="Int NOT NULL")]
+		public int LessonId
+		{
+			get
+			{
+				return this._LessonId;
+			}
+			set
+			{
+				if ((this._LessonId != value))
+				{
+					if (this._Lesson.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLessonIdChanging(value);
+					this.SendPropertyChanging();
+					this._LessonId = value;
+					this.SendPropertyChanged("LessonId");
+					this.OnLessonIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Word", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string Word
+		{
+			get
+			{
+				return this._Word;
+			}
+			set
+			{
+				if ((this._Word != value))
+				{
+					this.OnWordChanging(value);
+					this.SendPropertyChanging();
+					this._Word = value;
+					this.SendPropertyChanged("Word");
+					this.OnWordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Definition", DbType="NVarChar(MAX)")]
+		public string Definition
+		{
+			get
+			{
+				return this._Definition;
+			}
+			set
+			{
+				if ((this._Definition != value))
+				{
+					this.OnDefinitionChanging(value);
+					this.SendPropertyChanging();
+					this._Definition = value;
+					this.SendPropertyChanged("Definition");
+					this.OnDefinitionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Example", DbType="NVarChar(MAX)")]
+		public string Example
+		{
+			get
+			{
+				return this._Example;
+			}
+			set
+			{
+				if ((this._Example != value))
+				{
+					this.OnExampleChanging(value);
+					this.SendPropertyChanging();
+					this._Example = value;
+					this.SendPropertyChanged("Example");
+					this.OnExampleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PronunciationUrl", DbType="NVarChar(500)")]
+		public string PronunciationUrl
+		{
+			get
+			{
+				return this._PronunciationUrl;
+			}
+			set
+			{
+				if ((this._PronunciationUrl != value))
+				{
+					this.OnPronunciationUrlChanging(value);
+					this.SendPropertyChanging();
+					this._PronunciationUrl = value;
+					this.SendPropertyChanged("PronunciationUrl");
+					this.OnPronunciationUrlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vocabulary_Image", Storage="_Images", ThisKey="WordId", OtherKey="WordId")]
+		public EntitySet<Image> Images
+		{
+			get
+			{
+				return this._Images;
+			}
+			set
+			{
+				this._Images.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vocabulary_UserVocabularyHistory", Storage="_UserVocabularyHistories", ThisKey="WordId", OtherKey="WordId")]
+		public EntitySet<UserVocabularyHistory> UserVocabularyHistories
+		{
+			get
+			{
+				return this._UserVocabularyHistories;
+			}
+			set
+			{
+				this._UserVocabularyHistories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vocabulary_Video", Storage="_Videos", ThisKey="WordId", OtherKey="WordId")]
+		public EntitySet<Video> Videos
+		{
+			get
+			{
+				return this._Videos;
+			}
+			set
+			{
+				this._Videos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lesson_Vocabulary", Storage="_Lesson", ThisKey="LessonId", OtherKey="LessonId", IsForeignKey=true)]
+		public Lesson Lesson
+		{
+			get
+			{
+				return this._Lesson.Entity;
+			}
+			set
+			{
+				Lesson previousValue = this._Lesson.Entity;
+				if (((previousValue != value) 
+							|| (this._Lesson.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Lesson.Entity = null;
+						previousValue.Vocabularies.Remove(this);
+					}
+					this._Lesson.Entity = value;
+					if ((value != null))
+					{
+						value.Vocabularies.Add(this);
+						this._LessonId = value.LessonId;
+					}
+					else
+					{
+						this._LessonId = default(int);
+					}
+					this.SendPropertyChanged("Lesson");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Images(Image entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vocabulary = this;
+		}
+		
+		private void detach_Images(Image entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vocabulary = null;
+		}
+		
+		private void attach_UserVocabularyHistories(UserVocabularyHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vocabulary = this;
+		}
+		
+		private void detach_UserVocabularyHistories(UserVocabularyHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vocabulary = null;
+		}
+		
+		private void attach_Videos(Video entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vocabulary = this;
+		}
+		
+		private void detach_Videos(Video entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vocabulary = null;
 		}
 	}
 }
