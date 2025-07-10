@@ -1,110 +1,90 @@
-﻿//using EnglishWeb.Models;
-//using System;
-//using System.Linq;
-//using System.Net;
-//using System.Web.Mvc;
+using System;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using EnglishWeb.Models;
 
-//namespace EnglishLearningSite.Controllers
-//{
-//    public class VocabularyController : Controller
-//    {
-//        private dbEnglishDataContext db = new dbEnglishDataContext();
+namespace EnglishWeb.Controllers
+{
+    public class VocabularyController : Controller
+    {
+        private readonly AIService _aiService;
 
-//        // GET: Vocabulary/Edit/5
-//        public ActionResult Edit(int? id)
-//        {
-//            if (id == null)
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        public VocabularyController()
+        {
+            _aiService = new AIService();
+        }
 
-//            Vocabulary vocabulary = db.Vocabularies.FirstOrDefault(v => v.WordId == id);
-//            if (vocabulary == null)
-//                return HttpNotFound();
+        // GET: Vocabulary/AskAI
+        public ActionResult AskAI()
+        {
+            return View();
+        }
 
-//            // Lấy TypeId của bài học hiện tại để chọn LessonType đúng
-//            int? currentTypeId = null;
-//            if (vocabulary.LessonId != null)
-//            {
-//                var lesson = db.Lessons.FirstOrDefault(l => l.LessonId == vocabulary.LessonId);
-//                if (lesson != null)
-//                    currentTypeId = lesson.TypeId;
-//            }
+        // GET: Vocabulary/Edit
+        public ActionResult Edit()
+        {
+            return View();
+        }
 
-//            ViewBag.LessonTypes = new SelectList(db.LessonTypes, "TypeId", "TypeName", currentTypeId);
+        // POST: Vocabulary/GetAIResponse
+        [HttpPost]
+        public async Task<JsonResult> GetAIResponse(string question)
+        {
+            var result = await _aiService.AskQuestionAsync(question);
+            
+            return Json(new { 
+                success = result.Success, 
+                response = result.Content, 
+                error = result.ErrorMessage 
+            });
+        }
 
-//            if (currentTypeId != null)
-//            {
-//                ViewBag.Lessons = new SelectList(db.Lessons.Where(l => l.TypeId == currentTypeId), "LessonId", "Title", vocabulary.LessonId);
-//            }
-//            else
-//            {
-//                ViewBag.Lessons = new SelectList(Enumerable.Empty<SelectListItem>());
-//            }
+        // POST: Vocabulary/TranslateText
+        [HttpPost]
+        public async Task<JsonResult> TranslateText(string text, string direction)
+        {
+            var result = await _aiService.TranslateAsync(text, direction);
+            
+            return Json(new { 
+                success = result.Success, 
+                translation = result.Content, 
+                error = result.ErrorMessage 
+            });
+        }
 
-//            return View(vocabulary);
-//        }
+        // POST: Vocabulary/GenerateLesson
+        [HttpPost]
+        public async Task<JsonResult> GenerateLesson(string topic, string level = "beginner")
+        {
+            var result = await _aiService.GenerateLessonAsync(topic, level);
+            
+            return Json(new { 
+                success = result.Success, 
+                lesson = result.Content, 
+                error = result.ErrorMessage 
+            });
+        }
 
-//        // POST: Vocabulary/Edit/5
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Edit([Bind(Include = "WordId,Word,Definition,Example,PronunciationUrl,LessonId")] Vocabulary vocabulary)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                var existing = db.Vocabularies.FirstOrDefault(v => v.WordId == vocabulary.WordId);
-//                if (existing != null)
-//                {
-//                    existing.Word = vocabulary.Word;
-//                    existing.Definition = vocabulary.Definition;
-//                    existing.Example = vocabulary.Example;
-//                    existing.PronunciationUrl = vocabulary.PronunciationUrl;
-//                    existing.LessonId = vocabulary.LessonId;
+        // POST: Vocabulary/GenerateQuiz
+        [HttpPost]
+        public async Task<JsonResult> GenerateQuiz(string topic, int numberOfQuestions = 5)
+        {
+            var result = await _aiService.GenerateQuizAsync(topic, numberOfQuestions);
+            
+            return Json(new { 
+                success = result.Success, 
+                quiz = result.Content, 
+                error = result.ErrorMessage 
+            });
+        }
 
-//                    db.SubmitChanges();
-//                    return RedirectToAction("Index");
-//                }
-//                return HttpNotFound();
-//            }
-
-//            // Nếu lỗi, load lại dropdown
-//            int? currentTypeId = null;
-//            if (vocabulary.LessonId != null)
-//            {
-//                var lesson = db.Lessons.FirstOrDefault(l => l.LessonId == vocabulary.LessonId);
-//                if (lesson != null)
-//                    currentTypeId = lesson.TypeId;
-//            }
-
-//            ViewBag.LessonTypes = new SelectList(db.LessonTypes, "TypeId", "TypeName", currentTypeId);
-
-//            if (currentTypeId != null)
-//            {
-//                ViewBag.Lessons = new SelectList(db.Lessons.Where(l => l.TypeId == currentTypeId), "LessonId", "Title", vocabulary.LessonId);
-//            }
-//            else
-//            {
-//                ViewBag.Lessons = new SelectList(Enumerable.Empty<SelectListItem>());
-//            }
-
-//            return View(vocabulary);
-//        }
-
-//        // Ajax call để lấy danh sách Lesson theo TypeId
-//        public JsonResult GetLessonsByType(int typeId)
-//        {
-//            var lessons = db.Lessons
-//                .Where(l => l.TypeId == typeId)
-//                .Select(l => new { l.LessonId, l.Title })
-//                .ToList();
-//            return Json(lessons, JsonRequestBehavior.AllowGet);
-//        }
-
-//        protected override void Dispose(bool disposing)
-//        {
-//            if (disposing)
-//            {
-//                db.Dispose();
-//            }
-//            base.Dispose(disposing);
-//        }
-//    }
-//}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _aiService?.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+} 

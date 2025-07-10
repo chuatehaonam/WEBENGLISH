@@ -175,12 +175,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\PragraphController.cs" />
     <Compile Include="Controllers\UserController .cs" />
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\VocabularyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AIAPI.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\dbEnglish.designer.cs">
       <AutoGen>True</AutoGen>
@@ -268,6 +270,7 @@
     <Content Include="Views\Lesson\Edit.cshtml" />
     <Content Include="Views\Lesson\About.cshtml" />
     <Content Include="Views\Lesson\Contact.cshtml" />
+    <Content Include="Views\Pragraph\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

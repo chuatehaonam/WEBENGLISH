@@ -29,33 +29,22 @@ function showPopup(word, x, y) {
     popup.id = 'popup-box';
     popup.style.position = 'absolute';
     popup.style.zIndex = 9999;
-    popup.style.background = '#fff';
-    popup.style.border = '1px solid #ccc';
-    popup.style.padding = '10px';
-    popup.style.borderRadius = '8px';
-    popup.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
-    popup.style.maxWidth = '400px';
-    popup.style.maxHeight = '600px';
+    popup.style.background = 'linear-gradient(145deg, #f8fbff, #ffffff)';
+    popup.style.border = '2px solid #4a90e2';
+    popup.style.padding = '8px';
+    popup.style.borderRadius = '6px';
+    popup.style.boxShadow = '0 3px 15px rgba(74, 144, 226, 0.2)';
+    popup.style.maxWidth = '300px';
+    popup.style.maxHeight = '350px';
     popup.style.overflowY = 'auto';
-    popup.style.fontSize = '14px';
+    popup.style.fontSize = '12px';
 
     popup.innerHTML = `
-        <div style="margin-bottom: 8px;">
-            <strong>Selected word:</strong> ${word}
+        <div style="margin-bottom: 6px; padding: 6px; background: linear-gradient(90deg, #e3f2fd, #bbdefb); border-radius: 4px;">
+            <strong style="color: #1565c0;">📚 ${word}</strong>
         </div>
-        <div style="margin-bottom: 8px;">
-            <input type="text" value="${word}" id="edit-word" style="width: 100%; padding: 4px; border: 1px solid #ddd; border-radius: 4px;" />
-        </div>
-        <div style="margin-bottom: 8px;">
-            <button onclick="translateWord()" style="background: #007bff; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px;" title="Dịch và tra từ điển">📝 Dịch & Từ điển</button>
-
-            <button onclick="hidePopup()" style="background: #6c757d; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">❌ Đóng</button>
-        </div>
-        <div id="translation-result" style="margin-top: 10px;"></div>
-        <div id="dictionary-result" style="margin-top: 10px;"></div>
-        <div style="margin-top: 8px; padding: 6px; background: #fff3cd; border-radius: 4px; font-size: 11px; color: #856404;">
-            
-        </div>
+        <div id="translation-result" style="margin-top: 6px;"></div>
+        <div id="dictionary-result" style="margin-top: 6px;"></div>
     `;
 
     document.body.appendChild(popup);
@@ -73,15 +62,8 @@ function showPopup(word, x, y) {
     popup.style.top = `${Math.max(10, y)}px`;
     popup.style.display = 'block';
 
-    // Focus vào input
-    document.getElementById('edit-word').focus();
-
-    // Enter key để translate
-    document.getElementById('edit-word').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            translateWord();
-        }
-    });
+    // Tự động tra cứu từ
+    translateWordAuto(word);
 }
 
 function hidePopup() {
@@ -91,20 +73,19 @@ function hidePopup() {
     }
 }
 
-async function translateWord() {
-    const word = document.getElementById('edit-word').value.trim();
+async function translateWordAuto(word) {
     const resultDiv = document.getElementById('translation-result');
     const dictDiv = document.getElementById('dictionary-result');
 
     if (!word) {
-        resultDiv.innerHTML = '<div style="color: red;">Vui lòng nhập từ cần dịch</div>';
+        resultDiv.innerHTML = '<div style="color: #1565c0; font-size: 11px;">Không có từ để tra cứu</div>';
         dictDiv.innerHTML = '';
         return;
     }
 
     // Hiển thị loading cho cả hai phần
-    resultDiv.innerHTML = '<div style="color: #007bff;">Đang dịch...</div>';
-    dictDiv.innerHTML = '<div style="color: #007bff;">Đang tra từ điển...</div>';
+    resultDiv.innerHTML = '<div style="color: #1976d2; font-size: 11px;">Đang dịch...</div>';
+    dictDiv.innerHTML = '<div style="color: #1976d2; font-size: 11px;">Đang tra từ điển...</div>';
 
     // Chạy song song cả dịch thuật và từ điển
     const translationPromise = getTranslation(word);
@@ -115,23 +96,23 @@ async function translateWord() {
 
         // Hiển thị kết quả dịch
         if (translation) {
-            resultDiv.innerHTML = `<div style="color: #28a745; padding: 8px; background: #f8f9fa; border-radius: 4px; margin-bottom: 10px;">
+            resultDiv.innerHTML = `<div style="color: white; padding: 6px; background: linear-gradient(135deg, #2196f3, #1976d2); border-radius: 4px; margin-bottom: 6px; font-size: 11px; box-shadow: 0 2px 6px rgba(33, 150, 243, 0.3);">
                 <strong>🔄 Bản dịch:</strong> ${translation}
             </div>`;
         } else {
-            resultDiv.innerHTML = '<div style="color: red;">Không thể dịch từ này</div>';
+            resultDiv.innerHTML = '<div style="color: #1565c0; font-size: 11px;">Không thể dịch từ này</div>';
         }
 
         // Hiển thị từ điển cơ bản
         if (dictData) {
             displayBasicWordInfo(dictData);
         } else {
-            dictDiv.innerHTML = '<div style="color: #666; font-style: italic;">Không tìm thấy thông tin từ điển</div>';
+            dictDiv.innerHTML = '<div style="color: #1565c0; font-style: italic; font-size: 11px;">Không tìm thấy thông tin từ điển</div>';
         }
 
     } catch (error) {
         console.error('Error:', error);
-        resultDiv.innerHTML = '<div style="color: red;"><strong>Lỗi:</strong> Không thể kết nối đến internet.</div>';
+        resultDiv.innerHTML = '<div style="color: #1565c0; font-size: 11px;"><strong>Lỗi:</strong> Không thể kết nối đến internet.</div>';
         dictDiv.innerHTML = '';
     }
 }
@@ -170,34 +151,31 @@ function displayBasicWordInfo(wordData) {
     const resultDiv = document.getElementById('dictionary-result');
     let html = '';
 
-    // Phát âm (ngắn gọn)
+    // Phiên âm (không có nút phát âm)
     if (wordData.phonetics && wordData.phonetics.length > 0) {
         const phonetic = wordData.phonetics.find(p => p.text) || wordData.phonetics[0];
         if (phonetic.text) {
-            html += `<div style="margin-bottom: 8px; padding: 6px; background: #e3f2fd; border-radius: 4px; font-size: 13px;">
-                        <strong>📢</strong> ${phonetic.text}`;
-            if (phonetic.audio) {
-                html += ` <button onclick="playAudio('${phonetic.audio}')" style="background: #2196f3; color: white; border: none; padding: 1px 4px; border-radius: 2px; cursor: pointer; font-size: 11px;">🔊</button>`;
-            }
-            html += `</div>`;
+            html += `<div style="margin-bottom: 6px; padding: 4px; background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-radius: 4px; font-size: 11px;">
+                        <strong style="color: #1565c0;">📢</strong> ${phonetic.text}
+                     </div>`;
         }
     }
 
     // Nghĩa gọn gàng (chỉ 1-2 nghĩa chính)
     if (wordData.meanings && wordData.meanings.length > 0) {
         wordData.meanings.slice(0, 2).forEach((meaning) => {
-            html += `<div style="margin-bottom: 6px; padding: 6px; background: #f5f5f5; border-radius: 4px;">
+            html += `<div style="margin-bottom: 4px; padding: 4px; background: linear-gradient(135deg, #f3f9ff, #e1f5fe); border-radius: 4px;">
                         <strong style="color: #1976d2;">🏷️ ${meaning.partOfSpeech}</strong>`;
 
             if (meaning.definitions && meaning.definitions.length > 0) {
                 const def = meaning.definitions[0].definition;
-                html += `<div style="margin-top: 2px; font-size: 13px;">${def}</div>`;
+                html += `<div style="margin-top: 2px; font-size: 11px; color: #0277bd;">${def}</div>`;
             }
 
             // Từ đồng nghĩa (rất gọn)
             if (meaning.synonyms && meaning.synonyms.length > 0) {
-                html += `<div style="margin-top: 4px; font-size: 12px;">
-                            <span style="color: #4caf50;">🔄 ${meaning.synonyms.slice(0, 3).join(', ')}</span>
+                html += `<div style="margin-top: 3px; font-size: 10px;">
+                            <span style="color: #29b6f6;">🔄 ${meaning.synonyms.slice(0, 3).join(', ')}</span>
                          </div>`;
             }
 
@@ -205,139 +183,15 @@ function displayBasicWordInfo(wordData) {
         });
     }
 
-    resultDiv.innerHTML = html || '<div style="color: #666; font-style: italic;">Không có thông tin từ điển</div>';
-}
-
-async function getDetailedWordInfo() {
-    const word = document.getElementById('edit-word').value.trim();
-    const resultDiv = document.getElementById('dictionary-result');
-    const translateDiv = document.getElementById('translation-result');
-
-    // Clear translation results
-    translateDiv.innerHTML = '';
-
-    if (!word) {
-        resultDiv.innerHTML = '<div style="color: red;">Vui lòng nhập từ cần tra</div>';
-        return;
-    }
-
-    // Hiển thị loading
-    resultDiv.innerHTML = '<div style="color: #007bff;">Đang tra từ điển chi tiết...</div>';
-
-    try {
-        // Lấy thông tin từ Free Dictionary API
-        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        if (data && data.length > 0) {
-            const wordData = data[0];
-            displayDetailedWordInfo(wordData);
-        } else {
-            resultDiv.innerHTML = '<div style="color: red;">Không tìm thấy thông tin từ này</div>';
-        }
-
-    } catch (error) {
-        console.error('Dictionary error:', error);
-        if (error.message.includes('404')) {
-            resultDiv.innerHTML = '<div style="color: red;">Từ này không có trong từ điển tiếng Anh</div>';
-        } else {
-            resultDiv.innerHTML = '<div style="color: red;"><strong>Lỗi:</strong> Không thể tra từ điển. Kiểm tra kết nối mạng.</div>';
-        }
-    }
-}
-
-function displayDetailedWordInfo(wordData) {
-    const resultDiv = document.getElementById('dictionary-result');
-    let html = '';
-
-    // Phát âm
-    if (wordData.phonetics && wordData.phonetics.length > 0) {
-        const phonetic = wordData.phonetics.find(p => p.text) || wordData.phonetics[0];
-        if (phonetic.text) {    
-            html += `<div style="margin-bottom: 10px; padding: 8px; background: #f8f9fa; border-radius: 4px;">
-                        <strong>📢 Phát âm:</strong> ${phonetic.text}`;
-            if (phonetic.audio) {
-                html += ` <button onclick="playAudio('${phonetic.audio}')" style="background: #17a2b8; color: white; border: none; padding: 2px 6px; border-radius: 3px; cursor: pointer; font-size: 12px;">🔊</button>`;
-            }
-            html += `</div>`;
-        }
-    }
-
-    // Nghĩa của từ
-    if (wordData.meanings && wordData.meanings.length > 0) {
-        html += '<div style="margin-bottom: 10px;">';
-
-        wordData.meanings.forEach((meaning, index) => {
-            html += `<div style="margin-bottom: 8px; padding: 8px; border-left: 4px solid #007bff; background: #f8f9fa;">
-                        <strong>🏷️ ${meaning.partOfSpeech}</strong>`;
-
-            if (meaning.definitions && meaning.definitions.length > 0) {
-                html += '<ul style="margin: 5px 0; padding-left: 20px;">';
-                meaning.definitions.slice(0, 3).forEach(def => {
-                    html += `<li style="margin-bottom: 3px;">${def.definition}`;
-                    if (def.example) {
-                        html += `<br><em style="color: #666;">Ví dụ: "${def.example}"</em>`;
-                    }
-                    html += '</li>';
-                });
-                html += '</ul>';
-            }
-
-            // Từ đồng nghĩa
-            if (meaning.synonyms && meaning.synonyms.length > 0) {
-                html += `<div style="margin-top: 5px;">
-                            <strong>🔄 Từ đồng nghĩa:</strong> `;
-                meaning.synonyms.slice(0, 5).forEach((synonym, i) => {
-                    html += `<span onclick="lookupWord('${synonym}')" style="color: #28a745; cursor: pointer; text-decoration: underline; margin-right: 5px;" title="Click để tra từ">${synonym}</span>`;
-                    if (i < meaning.synonyms.slice(0, 5).length - 1) html += ', ';
-                });
-                html += `</div>`;
-            }
-
-            // Từ trái nghĩa
-            if (meaning.antonyms && meaning.antonyms.length > 0) {
-                html += `<div style="margin-top: 5px;">
-                            <strong>🔀 Từ trái nghĩa:</strong> `;
-                meaning.antonyms.slice(0, 5).forEach((antonym, i) => {
-                    html += `<span onclick="lookupWord('${antonym}')" style="color: #dc3545; cursor: pointer; text-decoration: underline; margin-right: 5px;" title="Click để tra từ">${antonym}</span>`;
-                    if (i < meaning.antonyms.slice(0, 5).length - 1) html += ', ';
-                });
-                html += `</div>`;
-            }
-
-            html += '</div>';
-        });
-
-        html += '</div>';
-    }
-
-    // Nguồn gốc từ
-    if (wordData.origin) {
-        html += `<div style="margin-top: 10px; padding: 8px; background: #fff3cd; border-radius: 4px; font-size: 12px;">
-                    <strong>📚 Nguồn gốc:</strong> ${wordData.origin}
-                 </div>`;
-    }
-
-    resultDiv.innerHTML = html || '<div style="color: red;">Không có thông tin chi tiết cho từ này</div>';
-}
-
-function playAudio(audioUrl) {
-    if (audioUrl) {
-        const audio = new Audio(audioUrl);
-        audio.play().catch(error => {
-            console.error('Không thể phát âm thanh:', error);
-        });
-    }
+    resultDiv.innerHTML = html || '<div style="color: #1565c0; font-style: italic; font-size: 11px;">Không có thông tin từ điển</div>';
 }
 
 function lookupWord(word) {
-    // Cập nhật input với từ mới
-    document.getElementById('edit-word').value = word;
-    // Tự động tra từ điển chi tiết cho từ mới
-    getDetailedWordInfo();
+    // Cập nhật header với từ mới
+    const headerDiv = document.querySelector('#popup-box div');
+    if (headerDiv) {
+        headerDiv.innerHTML = `<strong style="color: #1565c0;">📚 ${word}</strong>`;
+    }
+    // Tự động tra từ mới
+    translateWordAuto(word);
 } 
