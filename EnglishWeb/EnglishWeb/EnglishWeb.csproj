@@ -183,17 +183,17 @@
     <Compile Include="Controllers\UserController .cs" />
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\VocabularyController.cs" />
-    <Compile Include="Models\EnglishLearning.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EnglishLearning.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AIAPI.cs" />
     <Compile Include="Models\DefinitionExampleResult.cs" />
+    <Compile Include="Models\EnglishLearning.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnglishLearning.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Models\GameViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LessonViewModel.cs" />

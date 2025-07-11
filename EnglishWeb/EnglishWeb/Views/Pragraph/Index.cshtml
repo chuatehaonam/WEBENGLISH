@@ -7,12 +7,7 @@
         <div class="col-md-12">
             <h2><i class="fas fa-book-open"></i> Generate Paragraphs from Bilingual Books</h2>
 
-            <!-- AI Mode Notice -->
-            <div class="alert alert-success" role="alert">
-                <i class="fas fa-robot"></i>
-                <strong>AI Mode:</strong> System is connected to <strong>DeepSeek AI</strong> via OpenRouter.
-                Generating fresh <strong>50-word paragraphs</strong> on demand with fallback to 50 curated examples.
-            </div>
+
 
             <hr />
             <div class="card mb-4">
@@ -50,16 +45,11 @@
                 </div>
 
                 <div id="resultCard" class="card mb-4" style="display: none;">
-                    <div id="resultHeader" class="card-header text-white">
-                        <h5><i class="fas fa-file-text"></i> <span id="resultTitle"></span></h5>
+                    <div id="resultHeader" class="card-header text-white" style="color: #ffffff !important;">
+                        <h5 style="color:black !important;"><i class="fas fa-file-text"></i> <span id="resultTitle" style="color: #ffffff !important;"></span></h5>
                     </div>
                     <div class="card-body">
-                        <div id="resultContent" class="generated-paragraph" style="line-height: 1.8; font-size: 16px; text-align: justify;"></div>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
-                            <i class="fas fa-robot"></i> <span id="resultFooter"></span> | <i class="fas fa-cloud"></i> AI Generated
-                        </small>
+                        <div id="resultContent" class="generated-paragraph" style="line-height: 1.8; font-size: 16px; text-align: justify; color:black"></div>
                     </div>
                 </div>
             </div>
@@ -144,13 +134,13 @@
     .card-header.bg-primary {
         background: linear-gradient(135deg, var(--primary-base) 0%, var(--primary-dark) 100%) !important;
         border-bottom: none;
-        color: white;
+        color: #ffffff;
     }
 
     .card-header.bg-success {
         background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-medium) 100%) !important;
         border-bottom: none;
-        color: white;
+        color: #ffffff;
     }
 
     .btn-primary {
@@ -159,7 +149,7 @@
         padding: 12px 24px;
         font-weight: bold;
         transition: all 0.3s ease;
-        color: white;
+        color: #ffffff;
     }
 
     .btn-success {
@@ -168,7 +158,7 @@
         padding: 12px 24px;
         font-weight: bold;
         transition: all 0.3s ease;
-        color: white;
+        color: #ffffff;
     }
 
     .btn-info {
@@ -177,7 +167,7 @@
         padding: 12px 24px;
         font-weight: bold;
         transition: all 0.3s ease;
-        color: white;
+        color: var(--primary-dark);
     }
 
         .btn-primary:hover, .btn-success:hover, .btn-info:hover {
@@ -189,7 +179,7 @@
     .card-header.bg-info {
         background: linear-gradient(135deg, var(--primary-lighter) 0%, var(--primary-base) 100%) !important;
         border-bottom: none;
-        color: white;
+        color: #ffffff;
     }
 
     .card-header.bg-warning {

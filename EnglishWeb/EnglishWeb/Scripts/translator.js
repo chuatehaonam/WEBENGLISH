@@ -1,4 +1,4 @@
-﻿// Simple Word Translator Script - Double-click để dịch từ
+// Simple Word Translator Script - Double-click để dịch từ
 // Hỗ trợ: Anh-Việt, Việt-Anh, Trung-Việt, Nhật-Việt, Hàn-Việt
 
 document.addEventListener('DOMContentLoaded', function () {

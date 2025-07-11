@@ -54,19 +54,21 @@ namespace EnglishWeb.Models
     partial void InsertVocabulary(Vocabulary instance);
     partial void UpdateVocabulary(Vocabulary instance);
     partial void DeleteVocabulary(Vocabulary instance);
-        #endregion
-        public EnglishLearningDataContext() :
-      base(global::System.Configuration.ConfigurationManager.ConnectionStrings["EnglishLearningDBConnectionString"].ConnectionString, mappingSource)
-        {
-            OnCreated();
-        }
-        public EnglishLearningDataContext(string connection) : 
+    #endregion
+		
+		public EnglishLearningDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
-		
-		public EnglishLearningDataContext(System.Data.IDbConnection connection) : 
+
+        public EnglishLearningDataContext() :
+              base(global::System.Configuration.ConfigurationManager.ConnectionStrings["EnglishLearningDBConnectionString"].ConnectionString, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public EnglishLearningDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();

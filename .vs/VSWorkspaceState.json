@@ -3,8 +3,10 @@
     "",
     "\\EnglishWeb",
     "\\EnglishWeb\\EnglishWeb",
-    "\\EnglishWeb\\EnglishWeb\\Content",
-    "\\EnglishWeb\\EnglishWeb\\Controllers"
+    "\\EnglishWeb\\EnglishWeb\\Controllers",
+    "\\EnglishWeb\\EnglishWeb\\Models",
+    "\\EnglishWeb\\EnglishWeb\\Views",
+    "\\EnglishWeb\\EnglishWeb\\Views\\Pragraph"
   ],
   "PreviewInSolutionExplorer": false
 }

@@ -1,59 +1,362 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name="description" content="English Learning Web Application - Master English with interactive lessons, vocabulary games, flashcards, and grammar exercises">
+    <meta name="keywords" content="English learning, vocabulary, grammar, flashcards, language education">
+    <meta name="author" content="English Web App">
+    <title>@ViewBag.Title - EnglishWeb | Learn English Interactively</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+    
+    <!-- Critical CSS Inline - Above the Fold -->
+    <style>
+        /* CRITICAL INLINE CSS - Monochromatic Blue */
+        :root{--primary-darkest:#0a1929;--primary-darker:#1e3a8a;--primary-dark:#1d4ed8;--primary:#3b82f6;--primary-light:#60a5fa;--primary-lighter:#93c5fd;--primary-lightest:#dbeafe;--neutral-darkest:#1e293b;--neutral-dark:#334155;--neutral:#64748b;--neutral-light:#94a3b8;--neutral-lighter:#cbd5e1;--neutral-lightest:#f1f5f9;--accent:#0ea5e9;--accent-light:#38bdf8;--text-primary:var(--primary-darkest);--text-secondary:var(--primary-dark);--text-inverse:#fff;--bg-primary:#fff;--bg-secondary:var(--neutral-lightest);--spacing-sm:.5rem;--spacing-md:1rem;--spacing-lg:1.5rem;--transition-fast:.15s ease-in-out;--border-radius-md:.5rem;--shadow-md:0 4px 6px -1px rgba(59,130,246,.1),0 2px 4px -1px rgba(59,130,246,.06)}
+        html,body{margin:0;padding:0;background:var(--bg-primary)!important;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--text-primary);line-height:1.6}
+        .container,.container-fluid{background:transparent!important}
+        .main-content{background:var(--bg-primary)!important}
+        .navbar{background:linear-gradient(135deg,var(--primary-darkest),var(--primary-darker))!important;box-shadow:var(--shadow-md);border:0!important;padding:var(--spacing-md) 0!important;margin-bottom:0!important;position:relative;z-index:1030}
+        .navbar.navbar-dark,.navbar.navbar-expand-lg,.navbar.fixed-top{background:linear-gradient(135deg,var(--primary-darkest),var(--primary-darker))!important}
+        .navbar-brand{color:var(--text-inverse)!important;font-weight:700!important;font-size:1.75rem!important;text-decoration:none!important;background:linear-gradient(45deg,var(--accent-light),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .navbar-nav{background:transparent!important}
+        .navbar-nav .nav-link{color:var(--neutral-lighter)!important;font-weight:500!important;padding:var(--spacing-sm) var(--spacing-md)!important;transition:all var(--transition-fast)!important;background:transparent!important;text-decoration:none!important}
+        .navbar-nav .nav-link:hover{color:var(--text-inverse)!important;background:rgba(255,255,255,.1)!important;text-decoration:none!important}
+        .navbar-toggler{border:1px solid rgba(255,255,255,.3)!important;background:transparent!important}
+        .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important}
+        .btn{padding:var(--spacing-sm) var(--spacing-lg);border-radius:var(--border-radius-md);text-decoration:none!important;font-weight:500}
+        .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-light))!important;color:var(--text-inverse)!important;border-color:var(--primary)!important}
+        .btn-outline-light{background:transparent!important;color:var(--neutral-lighter)!important;border-color:rgba(255,255,255,.3)!important}
+        .bg-white{background:var(--bg-primary)!important}
+        .text-dark{color:var(--text-primary)!important}
+        .text-white{color:var(--text-inverse)!important}
+        
+        /* Translator Popup Enhancement */
+        #popup-box {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+    </style>
+    
+    <!-- Preload Full CSS -->
+    <link rel="preload" href="@Styles.Url("~/Content/css")" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>@Styles.Render("~/Content/css")</noscript>
+    
+    <!-- CSS Bundles -->
     @Styles.Render("~/Content/css")
+    
+    <!-- Google Fonts with Display Swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Modernizr -->
     @Scripts.Render("~/bundles/modernizr")
+    
+    <!-- Custom Meta for Theme -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="msapplication-navbutton-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="sr-only sr-only-focusable btn btn-primary">Skip to main content</a>
+    
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" aria-label="Main navigation">
         <div class="container">
-            @Html.ActionLink("EngLishWeb", "Index", "Vocabulary", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Brand Logo -->
+            @Html.ActionLink("🌟 EnglishWeb", "Index", "Vocabulary", new { area = "" }, new { @class = "navbar-brand fade-in-up", title = "EnglishWeb - Learn English Interactively" })
+            
+            <!-- Mobile Toggle Button -->
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" 
+                    title="Toggle navigation" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Vocabulary", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Favorites", "Favorites", "Vocabulary", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("🎮 Game Vocab", "SelectLesson", "Game", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Flashcard", "Index", "FlashCards", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("History", "Index", "Historys", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Grammar", "Index", "Grammar", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Pragraph", "Index", "Pragraph", new { area = "" }, new { @class = "nav-link" })</li>
+            
+            <!-- Main Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        @Html.ActionLink("🏠 Home", "Index", "Vocabulary", new { area = "" }, new { @class = "nav-link", title = "Go to Homepage" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("📚 Lessons", "About", "Lesson", new { area = "" }, new { @class = "nav-link", title = "Browse Lessons" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("❤️ Favorites", "Favorites", "Vocabulary", new { area = "" }, new { @class = "nav-link", title = "Your Favorite Words" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("🎮 Vocabulary Game", "SelectLesson", "Game", new { area = "" }, new { @class = "nav-link game-nav", title = "Play Vocabulary Games" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("🗂️ Flashcards", "Index", "FlashCards", new { area = "" }, new { @class = "nav-link", title = "Study with Flashcards" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("📖 Grammar", "Index", "Grammar", new { area = "" }, new { @class = "nav-link", title = "Learn Grammar Rules" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("📝 Reading", "Index", "Pragraph", new { area = "" }, new { @class = "nav-link", title = "Practice Reading" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("📊 History", "Index", "Historys", new { area = "" }, new { @class = "nav-link", title = "Your Learning History" })
+                    </li>
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
+
+
+                <!-- User Authentication Menu -->
+                <ul class="navbar-nav ms-auto">
                     @if (Session["User"] == null)
                     {
-                        <li><a href="@Url.Action("Login", "User")">Login</a></li>
-                        <li><a href="@Url.Action("Register", "User")">Register</a></li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Login", "User")" class="nav-link" title="Login to your account">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Register", "User")" class="btn btn-outline-light ms-2" title="Create new account">
+                                Register
+                            </a>
+                        </li>
                     }
                     else
                     {
                         var user = (EnglishWeb.Models.User)Session["User"];
-                        <li><span class="navbar-text">Welcome, @user.FullName</span></li>
-                        <li><a href="@Url.Action("Logout", "User")">Logout</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle"></i> Welcome, @user.FullName
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="@Url.Action("Profile", "User")">👤 Profile</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Settings", "User")">⚙️ Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Logout", "User")">🚪 Logout</a></li>
+                            </ul>
+                        </li>
                     }
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer></footer>
-    </div>
+    <!-- Main Content Area -->
+    <main id="main-content" class="main-content" role="main" style="margin-top: 80px;">
+        <div class="container-fluid body-content fade-in-up">
+            <!-- Breadcrumb Navigation (if needed) -->
+            @if (ViewBag.ShowBreadcrumb == true)
+            {
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Vocabulary")</li>
+                        @if (ViewBag.BreadcrumbItems != null)
+                        {
+                            foreach (var item in ViewBag.BreadcrumbItems)
+                            {
+                                <li class="breadcrumb-item active" aria-current="page">@item</li>
+                            }
+                        }
+                    </ol>
+                </nav>
+            }
 
+            <!-- Alert Messages -->
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i> @TempData["ErrorMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            @if (TempData["InfoMessage"] != null)
+            {
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <i class="fas fa-info-circle"></i> @TempData["InfoMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <!-- Page Content -->
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-5" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-3">🌟 EnglishWeb</h5>
+                    <p class="text-light">
+                        Your comprehensive platform for learning English through interactive lessons, 
+                        vocabulary games, flashcards, and grammar exercises.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-white mb-3">Learning</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="@Url.Action("Index", "Vocabulary")" class="text-light">Vocabulary</a></li>
+                        <li><a href="@Url.Action("Index", "Grammar")" class="text-light">Grammar</a></li>
+                        <li><a href="@Url.Action("Index", "Pragraph")" class="text-light">Reading</a></li>
+                        <li><a href="@Url.Action("Index", "FlashCards")" class="text-light">Flashcards</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-white mb-3">Practice</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="@Url.Action("SelectLesson", "Game")" class="text-light">Games</a></li>
+                        <li><a href="@Url.Action("Index", "Historys")" class="text-light">Progress</a></li>
+                        <li><a href="@Url.Action("Favorites", "Vocabulary")" class="text-light">Favorites</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-white mb-3">Account</h6>
+                    <ul class="list-unstyled">
+                        @if (Session["User"] == null)
+                        {
+                            <li><a href="@Url.Action("Login", "User")" class="text-light">Login</a></li>
+                            <li><a href="@Url.Action("Register", "User")" class="text-light">Register</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("Profile", "User")" class="text-light">Profile</a></li>
+                            <li><a href="@Url.Action("Settings", "User")" class="text-light">Settings</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-white mb-3">Connect</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-light" title="Follow us on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-light" title="Follow us on Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-light" title="Subscribe to our YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-light" title="Connect on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-light mb-0">
+                        &copy; @DateTime.Now.Year EnglishWeb. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="@Url.Action("Contact", "Lesson")" class="text-light me-3">Contact</a>
+                    <a href="#" class="text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-light">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4" 
+            style="display: none; z-index: 1000; border-radius: 50%; width: 50px; height: 50px;" 
+            title="Back to top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/translator.js"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" defer></script>
+    
+    
+
+    <!-- Custom Translator Script -->
+    <script src="~/Content/translator.js"></script>
+    
+    <!-- Custom Enhancement Scripts -->
+    <script>
+        $(document).ready(function() {
+            // Back to top button functionality
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) {
+                    $('#backToTop').fadeIn();
+                } else {
+                    $('#backToTop').fadeOut();
+                }
+            });
+
+            $('#backToTop').click(function() {
+                $('html, body').animate({scrollTop: 0}, 600);
+                return false;
+            });
+
+            // Auto-dismiss only TempData alerts after 5 seconds (not AI results)
+            setTimeout(function() {
+                $('.alert.alert-dismissible').fadeOut('slow');
+            }, 5000);
+
+            // Add loading state to forms
+            $('form').submit(function() {
+                $(this).find('button[type="submit"]').prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Processing...');
+            });
+
+            // Enhance navigation active states
+            var currentPath = window.location.pathname;
+            $('.navbar-nav .nav-link').each(function() {
+                if ($(this).attr('href') === currentPath) {
+                    $(this).addClass('active');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            $('a[href*="#"]:not([href="#"])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 80
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+
+            // Add fade-in animation to cards
+            $('.card, .vocabulary-card, .lesson-item').each(function(index) {
+                $(this).delay(index * 100).queue(function() {
+                    $(this).addClass('fade-in-up').dequeue();
+                });
+            });
+
+            // Tooltip initialization for Bootstrap
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+    
+    <!-- Page-specific scripts -->
     @RenderSection("scripts", required: false)
+    
+    <!-- Analytics or other tracking scripts can go here -->
+    @RenderSection("analytics", required: false)
 </body>
 </html>

@@ -258,7 +258,7 @@ namespace EnglishWeb.Models
         public DeepSeekAI()
         {
             // Sử dụng OpenRouter API với key mới
-            this.apiKey = "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";
+            this.apiKey = "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";
             this.baseUrl = "https://openrouter.ai/api/v1";
             this.httpClient = new HttpClient();
             this.httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
@@ -401,7 +401,7 @@ namespace EnglishWeb.Models
         // Hàm tạo đoạn văn 50 từ bằng tiếng Anh từ sách song ngữ
         public async Task<string> GenerateEnglishParagraphAsync()
         {
-            string prompt = "Write 30 words in English about education. Simple and interesting.";
+            string prompt = "Write paragraph below 30 words in English in Dual-language book Vietnamese-english . Simple and interesting. just english dont add anything";
 
             try
             {
@@ -439,7 +439,7 @@ namespace EnglishWeb.Models
         // Hàm tạo đoạn văn 50 từ bằng tiếng Việt từ sách song ngữ
         public async Task<string> GenerateVietnameseParagraphAsync()
         {
-            string prompt = "Viết 30 từ tiếng Việt về giáo dục. Đơn giản và thú vị.";
+            string prompt = "Viết đoạn văn dưới 30 từ tiếng Việt lấy từ sách song ngữ việt - english. Đơn giản và thú vị.chỉ việt nam không viết thêm gì cả";
 
             try
             {

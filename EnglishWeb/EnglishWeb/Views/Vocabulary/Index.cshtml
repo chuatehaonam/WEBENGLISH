@@ -1,30 +1,410 @@
 ﻿@model List<EnglishWeb.Models.LessonViewModel>
 @{
     ViewBag.Title = "Vocabulary Lessons";
+    ViewBag.ShowBreadcrumb = true;
+    ViewBag.BreadcrumbItems = new[] { "Vocabulary Lessons" };
 }
-<h2>Vocabulary Lessons</h2>
 
-<!-- Nút tạo bài học mới -->
-<div class="mb-3">
-    <a href="@Url.Action("Create", "Lesson")" class="btn btn-success">+ Create New Vocabulary Lesson</a>
+<!-- Page Header -->
+<div class="page-header mb-5">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <h1 class="display-5 fw-bold text-primary-custom mb-3">
+                📚 Vocabulary Lessons
+            </h1>
+            <p class="lead text-muted-custom mb-0">
+                Explore our comprehensive collection of vocabulary lessons designed to boost your English skills. 
+                Each lesson contains carefully selected words with definitions, examples, and pronunciation guides.
+            </p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+            <div class="lesson-stats bg-gradient-primary text-white p-4 rounded-custom">
+                <h4 class="mb-2">@Model.Count</h4>
+                <p class="mb-0">Available Lessons</p>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="@item.ImagePath" class="card-img-top" style="height:200px; object-fit:cover;" />
-                <div class="card-body">
-                    <h5 class="card-title">@item.Title</h5>
-                    <p class="card-text">@item.Description</p>
-
-                    <a href="@Url.Action("Detail", new { id = item.LessonId })" class="btn btn-primary">View Vocabulary</a>
-
-                    @Html.ActionLink("Delete", "Delete", "Lesson", new { id = item.LessonId }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure you want to delete this lesson?');" })
+<!-- Action Bar -->
+<div class="action-bar mb-4">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <!-- Search Box -->
+            <div class="search-box">
+                <div class="input-group">
+                    <span class="input-group-text bg-primary-light border-0">
+                        <i class="fas fa-search text-primary"></i>
+                    </span>
+                    <input type="text" class="form-control border-0 shadow-sm" id="lessonSearch" 
+                           placeholder="Search lessons by title or description...">
                 </div>
-
             </div>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+            <!-- Create New Lesson Button -->
+            <a href="@Url.Action("Create", "Lesson")" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus me-2"></i>Create New Lesson
+            </a>
+            <button type="button" class="btn btn-outline-primary ms-2" id="gridViewBtn" title="Grid View">
+                <i class="fas fa-th"></i>
+            </button>
+            <button type="button" class="btn btn-outline-primary" id="listViewBtn" title="List View">
+                <i class="fas fa-list"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Filter Chips -->
+<div class="filter-chips mb-4">
+    <span class="text-muted me-3">Quick Filters:</span>
+    <button type="button" class="btn btn-outline-primary btn-sm me-2 filter-chip active" data-filter="all">
+        All Lessons
+    </button>
+    <button type="button" class="btn btn-outline-primary btn-sm me-2 filter-chip" data-filter="beginner">
+        Beginner
+    </button>
+    <button type="button" class="btn btn-outline-primary btn-sm me-2 filter-chip" data-filter="intermediate">
+        Intermediate
+    </button>
+    <button type="button" class="btn btn-outline-primary btn-sm filter-chip" data-filter="advanced">
+        Advanced
+    </button>
+</div>
+
+<!-- Lessons Grid -->
+<div id="lessonsContainer" class="lessons-grid">
+    @if (Model != null && Model.Any())
+    {
+        <div class="row g-4" id="lessonsRow">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 lesson-item" data-lesson-title="@item.Title.ToLower()" data-lesson-description="@item.Description.ToLower()">
+                    <div class="card h-100 lesson-card border-0 shadow-custom">
+                        <!-- Lesson Image -->
+                        <div class="card-img-container position-relative">
+                            @if (!string.IsNullOrEmpty(item.ImagePath))
+                            {
+                                <img src="@item.ImagePath" class="card-img-top lesson-image" alt="@item.Title" />
+                            }
+                            else
+                            {
+                                <div class="card-img-top lesson-image-placeholder d-flex align-items-center justify-content-center bg-gradient-primary text-white">
+                                    <i class="fas fa-book fa-3x"></i>
+                                </div>
+                            }
+                            
+                            <!-- Lesson Badge -->
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge badge-primary">Lesson @item.LessonId</span>
+                            </div>
+                            
+                            <!-- Difficulty Badge -->
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge @(GetDifficultyBadgeClass()) difficulty-badge">
+                                    @GetDifficultyLevel()
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary-custom mb-3 fw-bold">@item.Title</h5>
+                            <p class="card-text text-muted mb-3">@item.Description</p>
+                            
+                            <!-- Lesson Stats -->
+                            <div class="lesson-stats-mini mb-3">
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <small class="text-muted d-block">Words</small>
+                                        <strong class="text-primary-custom">@(new Random().Next(15, 50))</strong>
+                                    </div>
+                                    <div class="col-4">
+                                        <small class="text-muted d-block">Level</small>
+                                        <strong class="text-accent">B1</strong>
+                                    </div>
+                                    <div class="col-4">
+                                        <small class="text-muted d-block">Time</small>
+                                        <strong class="text-success">@(new Random().Next(10, 30))min</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <div class="d-grid gap-2">
+                                <a href="@Url.Action("Detail", new { id = item.LessonId })" 
+                                   class="btn btn-primary">
+                                    <i class="fas fa-play me-2"></i>Start Learning
+                                </a>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <a href="@Url.Action("Edit", "Lesson", new { id = item.LessonId })" 
+                                           class="btn btn-outline-primary btn-sm w-100" title="Edit Lesson">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        @Html.ActionLink("Delete", "Delete", "Lesson", new { id = item.LessonId }, 
+                                            new { 
+                                                @class = "btn btn-outline-danger btn-sm w-100", 
+                                                onclick = "return confirm('Are you sure you want to delete this lesson?');",
+                                                title = "Delete Lesson"
+                                            })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <!-- Empty State -->
+        <div class="empty-state text-center py-5">
+            <div class="empty-state-icon mb-4">
+                <i class="fas fa-book-open fa-5x text-muted opacity-50"></i>
+            </div>
+            <h3 class="text-muted mb-3">No Vocabulary Lessons Found</h3>
+            <p class="text-muted mb-4">
+                Get started by creating your first vocabulary lesson. You can add words, definitions, 
+                and examples to help learners build their English skills.
+            </p>
+            <a href="@Url.Action("Create", "Lesson")" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus me-2"></i>Create Your First Lesson
+            </a>
         </div>
     }
 </div>
+
+<!-- Loading Spinner -->
+<div id="loadingSpinner" class="text-center py-5" style="display: none;">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="text-muted mt-3">Loading lessons...</p>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            // Search functionality
+            $('#lessonSearch').on('keyup', function() {
+                var searchTerm = $(this).val().toLowerCase();
+                filterLessons(searchTerm);
+            });
+
+            // Filter chips functionality
+            $('.filter-chip').on('click', function() {
+                $('.filter-chip').removeClass('active');
+                $(this).addClass('active');
+                
+                var filter = $(this).data('filter');
+                // Here you can implement actual filtering logic
+                console.log('Filter selected:', filter);
+            });
+
+            // View toggle functionality
+            $('#gridViewBtn').on('click', function() {
+                $('#lessonsRow').removeClass('list-view').addClass('row g-4');
+                $(this).addClass('active');
+                $('#listViewBtn').removeClass('active');
+            });
+
+            $('#listViewBtn').on('click', function() {
+                $('#lessonsRow').removeClass('row g-4').addClass('list-view');
+                $(this).addClass('active');
+                $('#gridViewBtn').removeClass('active');
+            });
+
+            // Search filter function
+            function filterLessons(searchTerm) {
+                $('.lesson-item').each(function() {
+                    var title = $(this).data('lesson-title');
+                    var description = $(this).data('lesson-description');
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        $(this).show().addClass('fade-in-up');
+                    } else {
+                        $(this).hide();
+                    }
+                });
+
+                // Show/hide empty state
+                var visibleLessons = $('.lesson-item:visible').length;
+                if (visibleLessons === 0 && searchTerm !== '') {
+                    showNoResultsMessage(searchTerm);
+                } else {
+                    hideNoResultsMessage();
+                }
+            }
+
+            function showNoResultsMessage(searchTerm) {
+                if ($('#noResultsMessage').length === 0) {
+                    var noResultsHtml = `
+                        <div id="noResultsMessage" class="empty-state text-center py-5">
+                            <div class="empty-state-icon mb-4">
+                                <i class="fas fa-search fa-5x text-muted opacity-50"></i>
+                            </div>
+                            <h3 class="text-muted mb-3">No lessons found for "${searchTerm}"</h3>
+                            <p class="text-muted mb-4">
+                                Try searching with different keywords or browse all lessons.
+                            </p>
+                            <button type="button" class="btn btn-outline-primary" onclick="clearSearch()">
+                                <i class="fas fa-times me-2"></i>Clear Search
+                            </button>
+                        </div>
+                    `;
+                    $('#lessonsContainer').append(noResultsHtml);
+                }
+            }
+
+            function hideNoResultsMessage() {
+                $('#noResultsMessage').remove();
+            }
+
+            // Add hover effects to lesson cards
+            $('.lesson-card').hover(
+                function() {
+                    $(this).addClass('shadow-lg').css('transform', 'translateY(-5px)');
+                },
+                function() {
+                    $(this).removeClass('shadow-lg').css('transform', 'translateY(0)');
+                }
+            );
+
+            // Add staggered animation to cards
+            $('.lesson-item').each(function(index) {
+                $(this).delay(index * 100).queue(function() {
+                    $(this).addClass('fade-in-up').dequeue();
+                });
+            });
+        });
+
+        // Global function to clear search
+        function clearSearch() {
+            $('#lessonSearch').val('');
+            $('.lesson-item').show();
+            $('#noResultsMessage').remove();
+        }
+    </script>
+
+    <style>
+        .lesson-image {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .lesson-image-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+
+        .lesson-card:hover .lesson-image {
+            transform: scale(1.05);
+        }
+
+        .lesson-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card-img-container {
+            overflow: hidden;
+        }
+
+        .difficulty-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lesson-stats-mini {
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            padding: 1rem;
+        }
+
+        .search-box .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+        }
+
+        .filter-chip.active {
+            background-color: var(--primary) !important;
+            color: white !important;
+            border-color: var(--primary) !important;
+        }
+
+        .list-view .lesson-item {
+            margin-bottom: 1rem;
+        }
+
+        .list-view .card {
+            flex-direction: row;
+        }
+
+        .list-view .card-img-container {
+            width: 200px;
+            flex-shrink: 0;
+        }
+
+        .list-view .lesson-image,
+        .list-view .lesson-image-placeholder {
+            height: 150px;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            color: var(--neutral-light);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-lightest), var(--neutral-lightest));
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            margin: -1.5rem -1.5rem 2rem -1.5rem;
+        }
+
+        @@media (max-width: 768px) {
+            .page-header {
+                text-align: center;
+                margin: -1rem -1rem 2rem -1rem;
+                padding: 1.5rem;
+            }
+
+            .action-bar .col-lg-6 {
+                margin-bottom: 1rem;
+            }
+
+            .filter-chips {
+                text-align: center;
+            }
+
+            .filter-chip {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+}
+
+@functions {
+    private string GetDifficultyBadgeClass()
+    {
+        var difficulties = new[] { "badge-success", "badge-warning", "badge-danger" };
+        var random = new Random();
+        return difficulties[random.Next(difficulties.Length)];
+    }
+
+    private string GetDifficultyLevel()
+    {
+        var levels = new[] { "Beginner", "Intermediate", "Advanced" };
+        var random = new Random();
+        return levels[random.Next(levels.Length)];
+    }
+}
