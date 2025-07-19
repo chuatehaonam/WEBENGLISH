@@ -56,22 +56,6 @@
     </div>
 </div>
 
-<!-- Filter Chips -->
-<div class="filter-chips mb-4">
-    <span class="text-muted me-3">Quick Filters:</span>
-    <button type="button" class="btn btn-outline-primary btn-sm me-2 filter-chip active" data-filter="all">
-        All Lessons
-    </button>
-    <button type="button" class="btn btn-outline-primary btn-sm me-2 filter-chip" data-filter="beginner">
-        Beginner
-    </button>
-    <button type="button" class="btn btn-outline-primary btn-sm me-2 filter-chip" data-filter="intermediate">
-        Intermediate
-    </button>
-    <button type="button" class="btn btn-outline-primary btn-sm filter-chip" data-filter="advanced">
-        Advanced
-    </button>
-</div>
 
 <!-- Lessons Grid -->
 <div id="lessonsContainer" class="lessons-grid">
@@ -267,16 +251,7 @@
                 $('#noResultsMessage').remove();
             }
 
-            // Add hover effects to lesson cards
-            $('.lesson-card').hover(
-                function() {
-                    $(this).addClass('shadow-lg').css('transform', 'translateY(-5px)');
-                },
-                function() {
-                    $(this).removeClass('shadow-lg').css('transform', 'translateY(0)');
-                }
-            );
-
+       
             // Add staggered animation to cards
             $('.lesson-item').each(function(index) {
                 $(this).delay(index * 100).queue(function() {
@@ -305,10 +280,7 @@
             background: linear-gradient(135deg, var(--primary), var(--accent));
         }
 
-        .lesson-card:hover .lesson-image {
-            transform: scale(1.05);
-        }
-
+       
         .lesson-card {
             transition: all 0.3s ease;
             overflow: hidden;

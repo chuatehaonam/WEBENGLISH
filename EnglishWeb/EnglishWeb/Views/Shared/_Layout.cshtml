@@ -23,7 +23,7 @@
         .navbar-brand{color:var(--text-inverse)!important;font-weight:700!important;font-size:1.75rem!important;text-decoration:none!important;background:linear-gradient(45deg,var(--accent-light),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
         .navbar-nav{background:transparent!important}
         .navbar-nav .nav-link{color:var(--neutral-lighter)!important;font-weight:500!important;padding:var(--spacing-sm) var(--spacing-md)!important;transition:all var(--transition-fast)!important;background:transparent!important;text-decoration:none!important}
-        .navbar-nav .nav-link:hover{color:var(--text-inverse)!important;background:rgba(255,255,255,.1)!important;text-decoration:none!important}
+
         .navbar-toggler{border:1px solid rgba(255,255,255,.3)!important;background:transparent!important}
         .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important}
         .btn{padding:var(--spacing-sm) var(--spacing-lg);border-radius:var(--border-radius-md);text-decoration:none!important;font-weight:500}
@@ -38,6 +38,119 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             backdrop-filter: blur(10px) !important;
             -webkit-backdrop-filter: blur(10px) !important;
+        }
+        
+        /* Translator Hints */
+        .translator-hint {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: #1565c0;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        /* Translatable Content Styling */
+        .translatable-content {
+            border-radius: 4px;
+            padding: 2px;
+        }
+        
+        /* Ensure all AI content is translatable */
+        .translatable-content, .ai-response-content {
+            user-select: text !important;
+            cursor: text !important;
+            word-wrap: break-word;
+        }
+        
+        /* Animation for hints */
+       fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* User Account Modal Styles */
+        #userAccountModal .modal-content {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        #userAccountModal .modal-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+            border: none;
+            padding: 1.5rem;
+        }
+        
+        #userAccountModal .modal-body {
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+        
+        #userAccountModal .user-avatar {
+            position: relative;
+            display: inline-block;
+        }
+        
+        #userAccountModal .user-avatar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+        
+        #userAccountModal .card {
+            transition: transform 0.2s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        #userAccountModal .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        #userAccountModal .badge {
+            font-size: 0.75rem;
+            padding: 0.4rem 0.6rem;
+        }
+        
+        #userAccountModal .modal-footer {
+            background: white;
+            padding: 1.5rem 2rem;
+        }
+        
+        /* User Account Button in Navbar */
+        .navbar-nav .nav-item button.nav-link {
+            color: var(--neutral-lighter) !important;
+            font-weight: 500 !important;
+            padding: var(--spacing-sm) var(--spacing-md) !important;
+            transition: all var(--transition-fast) !important;
+            background: transparent !important;
+            text-decoration: none !important;
+        }
+        
+        .navbar-nav .nav-item button.nav-link:hover {
+            color: var(--primary-light) !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-radius: var(--border-radius-md);
+        }
+        
+        .navbar-nav .nav-item button.nav-link:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
         }
     </style>
     
@@ -84,7 +197,7 @@
                         @Html.ActionLink("🏠 Home", "Index", "Vocabulary", new { area = "" }, new { @class = "nav-link", title = "Go to Homepage" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("📚 Lessons", "About", "Lesson", new { area = "" }, new { @class = "nav-link", title = "Browse Lessons" })
+                        @Html.ActionLink("📚 About", "About", "Lesson", new { area = "" }, new { @class = "nav-link", title = "Browse Lessons" })
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("❤️ Favorites", "Favorites", "Vocabulary", new { area = "" }, new { @class = "nav-link", title = "Your Favorite Words" })
@@ -93,7 +206,7 @@
                         @Html.ActionLink("🎮 Vocabulary Game", "SelectLesson", "Game", new { area = "" }, new { @class = "nav-link game-nav", title = "Play Vocabulary Games" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("🗂️ Flashcards", "Index", "FlashCards", new { area = "" }, new { @class = "nav-link", title = "Study with Flashcards" })
+                        @Html.ActionLink("🗂️ Flashcards", "Index", "Flashcards", new { area = "" }, new { @class = "nav-link", title = "Study with Flashcards" })
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("📖 Grammar", "Index", "Grammar", new { area = "" }, new { @class = "nav-link", title = "Learn Grammar Rules" })
@@ -126,16 +239,11 @@
                     else
                     {
                         var user = (EnglishWeb.Models.User)Session["User"];
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link" style="border: none; background: none; color: inherit;" 
+                                    data-bs-toggle="modal" data-bs-target="#userAccountModal" title="Account Information">
                                 <i class="fas fa-user-circle"></i> Welcome, @user.FullName
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="@Url.Action("Profile", "User")">👤 Profile</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Settings", "User")">⚙️ Settings</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Logout", "User")">🚪 Logout</a></li>
-                            </ul>
+                            </button>
                         </li>
                     }
                 </ul>
@@ -210,7 +318,7 @@
                         <li><a href="@Url.Action("Index", "Vocabulary")" class="text-light">Vocabulary</a></li>
                         <li><a href="@Url.Action("Index", "Grammar")" class="text-light">Grammar</a></li>
                         <li><a href="@Url.Action("Index", "Pragraph")" class="text-light">Reading</a></li>
-                        <li><a href="@Url.Action("Index", "FlashCards")" class="text-light">Flashcards</a></li>
+                        <li><a href="@Url.Action("Index", "Flashcards")" class="text-light">Flashcards</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
@@ -277,21 +385,125 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- User Account Modal -->
+    @if (Session["User"] != null)
+    {
+        var user = (EnglishWeb.Models.User)Session["User"];
+        <div class="modal fade" id="userAccountModal" tabindex="-1" aria-labelledby="userAccountModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="userAccountModalLabel">
+                            <i class="fas fa-user-circle me-2"></i>Thông tin tài khoản
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center mb-4">
+                            <div class="user-avatar mb-3">
+                                <i class="fas fa-user-circle fa-5x text-primary"></i>
+                            </div>
+                            <h4 class="fw-bold text-primary">@user.FullName</h4>
+                            <p class="text-muted mb-0">@user.Email</p>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body p-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class="fas fa-envelope text-primary me-2"></i>
+                                            <strong>Email:</strong>
+                                        </div>
+                                        <p class="mb-0 ms-4">@user.Email</p>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            
+                            <div class="col-12">
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body p-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class="fas fa-trophy text-primary me-2"></i>
+                                            <strong>Thống kê học tập:</strong>
+                                        </div>
+                                        <div class="ms-4">
+                                            <small class="text-muted d-block">Từ vựng đã học: <span class="badge bg-primary">@(ViewBag.VocabularyCount ?? 0)</span></small>
+                                            <small class="text-muted d-block">Bài học hoàn thành: <span class="badge bg-success">@(ViewBag.CompletedLessons ?? 0)</span></small>
+                                            <small class="text-muted d-block">Điểm số cao nhất: <span class="badge bg-warning">@(ViewBag.HighestScore ?? 0)</span></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <div class="d-grid gap-2 w-100">
+                          
+                            <div class="row g-2 mt-2">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">
+                                        <i class="fas fa-times me-2"></i>Đóng
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <a href="@Url.Action("Logout", "User")" class="btn btn-danger w-100" 
+                                       onclick="return confirm('LogOut?')">
+                                        <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
     <!-- Scripts -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/translator")
     
     <!-- Font Awesome for Icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" defer></script>
     
-    
-
-    <!-- Custom Translator Script -->
-    <script src="~/Content/translator.js"></script>
-    
     <!-- Custom Enhancement Scripts -->
     <script>
+        // Universal Translator Initialization for AI Content
+        function initializeUniversalTranslator() {
+            // Find all translatable content
+            var elements = $('.translatable-content, .ai-response-content');
+            
+            elements.each(function() {
+                var $element = $(this);
+                
+                // Ensure text selection is enabled
+                $element.css({
+                    'user-select': 'text',
+                    'cursor': 'text',
+                    '-webkit-user-select': 'text',
+                    '-moz-user-select': 'text',
+                    '-ms-user-select': 'text'
+                });
+            });
+        }
+        
+        // Function to reinitialize translator when new content is loaded
+        function reinitializeTranslator() {
+            setTimeout(function() {
+                initializeUniversalTranslator();
+            }, 100);
+        }
+        
+        // Make reinitializeTranslator globally available
+        window.reinitializeTranslator = reinitializeTranslator;
+
         $(document).ready(function() {
+            // Initialize translator on page load
+            initializeUniversalTranslator();
+            
             // Back to top button functionality
             $(window).scroll(function() {
                 if ($(this).scrollTop() > 300) {
@@ -344,6 +556,47 @@
                     $(this).addClass('fade-in-up').dequeue();
                 });
             });
+
+            // User Account Modal functionality
+            $('#userAccountModal').on('show.bs.modal', function () {
+                // Add animation class when modal opens
+                $(this).find('.modal-content').addClass('animate__animated animate__zoomIn');
+            });
+
+            $('#userAccountModal').on('hidden.bs.modal', function () {
+                // Remove animation class when modal closes
+                $(this).find('.modal-content').removeClass('animate__animated animate__zoomIn');
+            });
+
+            // Logout confirmation with enhanced styling
+            $('a[href*="Logout"]').on('click', function(e) {
+                e.preventDefault();
+                var href = $(this).attr('href');
+                
+                if (confirm('🚪 Bạn có chắc chắn muốn đăng xuất?\n\nTất cả dữ liệu chưa lưu sẽ bị mất.')) {
+                    // Add loading state
+                    $(this).html('<i class="fas fa-spinner fa-spin me-2"></i>Đang đăng xuất...');
+                    
+                    // Redirect after short delay for better UX
+                    setTimeout(function() {
+                        window.location.href = href;
+                    }, 500);
+                }
+            });
+
+            // Enhance modal cards hover effect
+            $('#userAccountModal .card').on('mouseenter', function() {
+                $(this).addClass('shadow-lg');
+            }).on('mouseleave', function() {
+                $(this).removeClass('shadow-lg');
+            });
+
+            // Auto-close modal on successful actions (if needed)
+            if (window.location.hash === '#profile-updated') {
+                setTimeout(function() {
+                    $('#userAccountModal').modal('hide');
+                }, 2000);
+            }
 
             // Tooltip initialization for Bootstrap
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

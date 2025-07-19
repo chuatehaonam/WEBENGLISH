@@ -2,76 +2,515 @@
 
 @{
     ViewBag.Title = "Flashcard Review";
-    var word = ViewBag.CurrentFlashcard as EnglishWeb.Models.UserVocabularyHistory;
-    bool showMeaning = ViewBag.ShowMeaning ?? false;
+    var flashcardList = ViewBag.FlashcardList as List<EnglishWeb.Models.UserVocabularyHistory>;
     int totalWords = ViewBag.WordsToReviewCount ?? 0;
 }
 
-<div class="container">
-    <h2>🧠 Flashcard Review</h2>
-    <a href="@Url.Action("AddNewWord", "Flashcards")" class="btn btn-outline-success mb-3">➕ Thêm từ mới</a>
 
-    @if (word != null && word.Vocabulary != null)
-    {
-        <div class="card mt-4 p-4 border shadow-sm">
-            <h3 class="mb-3 text-primary">@word.Vocabulary.Word</h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 data-translate="flashcard_title">🧠 Flashcard Review</h2>
+                <div>
+                    <a href="@Url.Action("AddNewWord", "Flashcards")" class="btn btn-outline-success me-2" data-translate="add_new_word">
+                        ➕ Add New Word
+                    </a>
+                    <span class="badge bg-primary fs-6" data-translate="words_to_review">@totalWords words to review</span>
+                </div>
+            </div>
 
-            @* Phát âm (nếu có) *@
-            @if (!string.IsNullOrEmpty(word.Vocabulary.PronunciationUrl))
+            @if (totalWords > 0)
             {
-                <audio controls>
-                    <source src="@word.Vocabulary.PronunciationUrl" type="audio/mpeg" />
-                    Trình duyệt của bạn không hỗ trợ audio.
-                </audio>
-            }
-
-            @* Ảnh minh họa *@
-            @{
-                var image = word.Vocabulary.Images?.FirstOrDefault();
-            }
-            @if (image != null)
-            {
-                <img src="@image.FilePath" alt="Image for @word.Vocabulary.Word" class="img-thumbnail my-3" style="max-width: 200px;" />
-            }
-
-            @if (showMeaning)
-            {
-                <p><strong>📖 Nghĩa:</strong> @word.Vocabulary.Definition</p>
-                <p><strong>💡 Ví dụ:</strong> <em>@word.Vocabulary.Example</em></p>
-
-                <form method="post" action="@Url.Action("RateWord", "Flashcards")">
-                    <input type="hidden" name="historyId" value="@word.HistoryId" />
-                    <input type="hidden" name="wordId" value="@word.WordId" />
-                    <div class="rating">
-                        <label class="d-block mb-2">📊 Mức độ nhớ (0 - quên sạch, 5 - nhớ rất rõ):</label>
-                        <div class="d-flex flex-wrap">
-                            @for (int i = 0; i <= 5; i++)
-                            {
-                                <button type="submit" name="rating" value="@i" class="btn btn-outline-primary m-1">@i</button>
-                            }
-                        </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <small class="text-muted" data-translate="learning_progress">Today's learning progress</small>
+                        <small class="text-muted" data-translate="showing_words">Showing: <strong>@(flashcardList?.Count ?? 0)</strong> / @totalWords words</small>
                     </div>
-                </form>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-gradient bg-success" role="progressbar" 
+                             style="width: @(totalWords > 0 ? Math.Min(100, ((flashcardList?.Count ?? 0) * 100.0 / totalWords)) : 0)%"></div>
+                    </div>
+                </div>
+            }
+
+            @if (flashcardList != null && flashcardList.Any())
+            {
+                <div class="row g-4">
+                    @foreach (var word in flashcardList)
+                    {
+                        if (word?.Vocabulary != null)
+                        {
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card flashcard-item h-100 shadow-sm border-0" data-word-id="@word.WordId" data-history-id="@word.HistoryId">
+                                    <div class="card-body d-flex flex-column">
+                                        <div class="text-center mb-3">
+                                            <h4 class="card-title text-primary fw-bold word-display">@word.Vocabulary.Word</h4>
+                                            @if (!string.IsNullOrEmpty(word.Vocabulary.PronunciationUrl))
+                                            {
+                                                <audio controls class="w-100 mt-2" style="max-width: 200px;">
+                                                    <source src="@word.Vocabulary.PronunciationUrl" type="audio/mpeg" />
+                                                </audio>
+                                            }
+                                        </div>
+
+                                        @{
+                                            var image = word.Vocabulary.Images?.FirstOrDefault();
+                                        }
+                                        @if (image != null)
+                                        {
+                                            <div class="text-center mb-3">
+                                                <img src="@image.FilePath" alt="@word.Vocabulary.Word" 
+                                                     class="img-fluid rounded vocabulary-image" 
+                                                     style="max-height: 120px; object-fit: cover;" />
+                                            </div>
+                                        }
+
+          
+                                        <div class="meaning-content d-none">
+                                            <div class="alert alert-light border-0 bg-light-custom p-3 mb-3">
+                                                <p class="mb-2"><strong data-translate="definition_label">📖 Definition:</strong> <span class="definition-text">@word.Vocabulary.Definition</span></p>
+                                                <p class="mb-0"><strong data-translate="example_label">💡 Example:</strong> <em class="example-text">@word.Vocabulary.Example</em></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-auto">
+                                            <div class="show-meaning-section">
+                                                <button type="button" class="btn btn-primary w-100 show-meaning-btn" 
+                                                        data-word-id="@word.WordId" data-history-id="@word.HistoryId" data-translate="show_meaning">
+                                                    👁️ Show Meaning
+                                                </button>
+                                            </div>
+
+                                            <div class="rating-section d-none">
+                                                <label class="form-label mb-2 text-center d-block">
+                                                    <strong data-translate="memory_level">📊 Memory Level:</strong>
+                                                </label>
+                                                <div class="row g-1 rating-buttons">
+                                                    @for (int i = 0; i <= 5; i++)
+                                                    {
+                                                        <div class="col-2">
+                                                            <button type="button" class="btn btn-sm w-100 rating-btn" 
+                                                                    data-rating="@i" data-word-id="@word.WordId" data-history-id="@word.HistoryId">
+                                                                @i
+                                                            </button>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="mt-2 text-center">
+                                                    <small class="text-muted" data-translate="rating_help">0: Don't remember → 5: Remember well</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+       
+                <div class="text-center mt-4">
+                    <a href="@Url.Action("Index", "Flashcards")" class="btn btn-outline-primary" data-translate="load_more_words">
+                        🔄 Load More Words
+                    </a>
+                </div>
             }
             else
             {
-                <form method="post" action="@Url.Action("ShowMeaning", "Flashcards")">
-                    <input type="hidden" name="historyId" value="@word.HistoryId" />
-                    <input type="hidden" name="wordId" value="@word.WordId" />
-                    <button type="submit" class="btn btn-success mt-3">👁 Hiển thị nghĩa & ví dụ</button>
-                </form>
+                <div class="text-center py-5">
+                    <div class="alert alert-success shadow-lg border-0">
+                        <i class="fas fa-trophy fa-4x text-warning mb-4"></i>
+                        <h4 data-translate="congratulations">🎉 Congratulations!</h4>
+                        <p class="mb-3" data-translate="completed_all_flashcards">You have completed all flashcards for today!</p>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="@Url.Action("AddNewWord", "Flashcards")" class="btn btn-primary" data-translate="add_new_word">
+                                ➕ Add New Word
+                            </a>
+                            <a href="@Url.Action("Index", "Vocabulary")" class="btn btn-outline-primary" data-translate="view_vocabulary">
+                                📚 View Vocabulary
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
+                    @ViewBag.Message
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             }
         </div>
-
-        <p class="mt-3">📌 Còn lại: <strong>@totalWords</strong> từ cần ôn tập</p>
-    }
-    else
-    {
-        <div class="alert alert-info mt-4">🎉 Bạn đã hoàn thành toàn bộ flashcards hôm nay!</div>
-    }
-
-    @if (ViewBag.Message != null)
-    {
-        <div class="alert alert-warning mt-3">@ViewBag.Message</div>
-    }
+    </div>
 </div>
+
+<!-- Hidden form for ratings -->
+<form id="ratingForm" method="post" action="@Url.Action("RateWord", "Flashcards")" style="display: none;">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="historyId" id="ratingHistoryId" />
+    <input type="hidden" name="wordId" id="ratingWordId" />
+    <input type="hidden" name="rating" id="ratingValue" />
+</form>
+
+<style>
+.flashcard-item {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 15px !important;
+    overflow: hidden;
+}
+
+.flashcard-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+}
+
+.vocabulary-image {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.vocabulary-image:hover {
+    transform: scale(1.05);
+}
+
+.word-display {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.rating-btn {
+    transition: all 0.2s ease;
+    border-radius: 8px !important;
+    font-weight: bold;
+}
+
+.rating-btn:hover {
+    transform: scale(1.1);
+}
+
+.rating-btn[data-rating="0"] { border-color: #dc3545; color: #dc3545; }
+.rating-btn[data-rating="1"] { border-color: #fd7e14; color: #fd7e14; }
+.rating-btn[data-rating="2"] { border-color: #ffc107; color: #ffc107; }
+.rating-btn[data-rating="3"] { border-color: #17a2b8; color: #17a2b8; }
+.rating-btn[data-rating="4"] { border-color: #28a745; color: #28a745; }
+.rating-btn[data-rating="5"] { border-color: #007bff; color: #007bff; }
+
+.rating-btn[data-rating="0"]:hover { background-color: #dc3545; color: white; }
+.rating-btn[data-rating="1"]:hover { background-color: #fd7e14; color: white; }
+.rating-btn[data-rating="2"]:hover { background-color: #ffc107; color: black; }
+.rating-btn[data-rating="3"]:hover { background-color: #17a2b8; color: white; }
+.rating-btn[data-rating="4"]:hover { background-color: #28a745; color: white; }
+.rating-btn[data-rating="5"]:hover { background-color: #007bff; color: white; }
+
+.show-meaning-btn {
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+    transition: all 0.3s ease;
+}
+
+.show-meaning-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+}
+
+.meaning-content {
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.bg-light-custom {
+    background-color: #f8f9fa !important;
+    border-left: 4px solid #007bff;
+}
+
+ fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.progress {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.badge {
+    padding: 0.5rem 1rem;
+}
+</style>
+
+<script>
+// Translations object
+const translations = {
+    vi: {
+        flashcard_title: "🧠 Ôn tập Flashcard",
+        add_new_word: "➕ Thêm từ mới",
+        words_to_review: "@totalWords từ cần ôn",
+        learning_progress: "Tiến độ học tập hôm nay",
+        showing_words: "Đang hiển thị: <strong>@(flashcardList?.Count ?? 0)</strong> / @totalWords từ",
+        definition_label: "📖 Nghĩa:",
+        example_label: "💡 Ví dụ:",
+        show_meaning: "👁️ Hiển thị nghĩa",
+        memory_level: "📊 Mức độ nhớ:",
+        rating_help: "0: Không nhớ → 5: Nhớ rõ",
+        load_more_words: "🔄 Tải thêm từ mới",
+        congratulations: "🎉 Tuyệt vời!",
+        completed_all_flashcards: "Bạn đã hoàn thành tất cả flashcards hôm nay!",
+        view_vocabulary: "📚 Xem từ vựng",
+        loading: "⏳ Đang tải...",
+        error_loading: "❌ Có lỗi xảy ra khi tải nghĩa từ",
+        excellent: "🎉 Xuất sắc!",
+        good: "😃 Tốt lắm!",
+        okay: "👍 Ổn đấy!",
+        need_practice: "😊 Tạm được, tiếp tục cố gắng!",
+        difficult: "🤔 Cần ôn tập thêm nhé!",
+        forgot: "😅 Không sao, lần sau sẽ nhớ tốt hơn!"
+    },
+    en: {
+        flashcard_title: "🧠 Flashcard Review",
+        add_new_word: "➕ Add New Word",
+        words_to_review: "@totalWords words to review",
+        learning_progress: "Today's learning progress",
+        showing_words: "Showing: <strong>@(flashcardList?.Count ?? 0)</strong> / @totalWords words",
+        definition_label: "📖 Definition:",
+        example_label: "💡 Example:",
+        show_meaning: "👁️ Show Meaning",
+        memory_level: "📊 Memory Level:",
+        rating_help: "0: Don't remember → 5: Remember well",
+        load_more_words: "🔄 Load More Words",
+        congratulations: "🎉 Congratulations!",
+        completed_all_flashcards: "You have completed all flashcards for today!",
+        view_vocabulary: "📚 View Vocabulary",
+        loading: "⏳ Loading...",
+        error_loading: "❌ Error loading word meaning",
+        excellent: "🎉 Excellent!",
+        good: "😃 Great job!",
+        okay: "👍 Good!",
+        need_practice: "😊 Keep practicing!",
+        difficult: "🤔 Need more practice!",
+        forgot: "😅 Don't worry, you'll remember next time!"
+    }
+};
+
+let currentLanguage = localStorage.getItem('appLanguage') || 'en';
+
+// Language change function
+function changeLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('appLanguage', lang);
+    
+    // Update toggle buttons
+    document.querySelectorAll('.btn-group .btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('lang-' + lang).classList.add('active');
+    
+    // Translate all elements
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+}
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Set correct language button as active
+    document.querySelectorAll('.btn-group .btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('lang-' + currentLanguage).classList.add('active');
+    
+    // Apply translations
+    changeLanguage(currentLanguage);
+});
+
+$(document).ready(function() {
+    console.log('Flashcard JavaScript initialized');
+    
+    // Show meaning functionality with enhanced error handling
+    $(document).on('click', '.show-meaning-btn', function(e) {
+        e.preventDefault();
+        console.log('Show meaning button clicked');
+        
+        var wordId = $(this).data('word-id');
+        var historyId = $(this).data('history-id');
+        var card = $(this).closest('.flashcard-item');
+        var btn = $(this);
+        
+        console.log('WordId:', wordId, 'HistoryId:', historyId);
+        
+        // Show loading state
+        var originalText = btn.html();
+        btn.prop('disabled', true).html(translations[currentLanguage].loading);
+        
+        // Get anti-forgery token
+        var token = $('input[name="__RequestVerificationToken"]').val();
+        
+        // AJAX call to get meaning with proper error handling
+        $.ajax({
+            url: '@Url.Action("ShowMeaning", "Flashcards")',
+            method: 'POST',
+            data: {
+                wordId: wordId,
+                historyId: historyId,
+                __RequestVerificationToken: token
+            },
+            dataType: 'json',
+            timeout: 10000 // 10 second timeout
+        })
+        .done(function(response) {
+            console.log('AJAX Response:', response);
+            if (response && response.success) {
+                // Update definition and example
+                card.find('.definition-text').text(response.definition || 'No definition available');
+                card.find('.example-text').text(response.example || 'No example available');
+                
+                // Show meaning content with animation
+                card.find('.meaning-content').removeClass('d-none').hide().fadeIn(500);
+                card.find('.show-meaning-section').fadeOut(300);
+                card.find('.rating-section').delay(400).fadeIn(500);
+            } else {
+                alert(response?.message || translations[currentLanguage].error_loading);
+                btn.prop('disabled', false).html(originalText);
+            }
+        })
+        .fail(function(xhr, status, error) {
+            console.error('AJAX Error:', error, 'Status:', status, 'XHR:', xhr);
+            var errorMessage = translations[currentLanguage].error_loading;
+            
+            if (xhr.status === 0) {
+                errorMessage += ' (Network error)';
+            } else if (xhr.status === 404) {
+                errorMessage += ' (Page not found)';
+            } else if (xhr.status === 500) {
+                errorMessage += ' (Server error)';
+            } else if (status === 'timeout') {
+                errorMessage += ' (Request timeout)';
+            }
+            
+            alert(errorMessage);
+            btn.prop('disabled', false).html(originalText);
+        });
+    });
+
+    // Rating functionality with enhanced feedback
+    $(document).on('click', '.rating-btn', function(e) {
+        e.preventDefault();
+        console.log('Rating button clicked');
+        
+        var rating = $(this).data('rating');
+        var wordId = $(this).data('word-id');
+        var historyId = $(this).data('history-id');
+        var card = $(this).closest('.flashcard-item');
+        var btn = $(this);
+        
+        // Disable all rating buttons for this card
+        card.find('.rating-btn').prop('disabled', true);
+        
+        // Animate button click
+        btn.addClass('btn-success').html('✓');
+        
+        // Submit rating
+        $('#ratingHistoryId').val(historyId);
+        $('#ratingWordId').val(wordId);
+        $('#ratingValue').val(rating);
+        
+        // Show appropriate message based on rating
+        var message = '';
+        switch (rating) {
+            case 0:
+                message = translations[currentLanguage].forgot;
+                break;
+            case 1:
+                message = translations[currentLanguage].difficult;
+                break;
+            case 2:
+                message = translations[currentLanguage].need_practice;
+                break;
+            case 3:
+                message = translations[currentLanguage].okay;
+                break;
+            case 4:
+                message = translations[currentLanguage].good;
+                break;
+            case 5:
+                message = translations[currentLanguage].excellent;
+                break;
+        }
+        
+        // Show temporary message
+        if (message) {
+            var messageDiv = $('<div class="alert alert-info text-center mt-2" style="font-size: 12px;">' + message + '</div>');
+            card.find('.card-body').append(messageDiv);
+            setTimeout(function() {
+                messageDiv.fadeOut();
+            }, 2000);
+        }
+        
+        // Add completion effect
+        setTimeout(function() {
+            card.fadeOut(500, function() {
+                $(this).remove();
+                
+                // Check if no more cards
+                if ($('.flashcard-item:visible').length === 0) {
+                    // Show completion message
+                    $('<div class="text-center mt-4"><div class="alert alert-success"><h4>' + translations[currentLanguage].congratulations + '</h4><p>Loading more words...</p></div></div>')
+                        .insertAfter('.row.g-4');
+                    
+                    // Auto reload after short delay
+                    setTimeout(function() {
+                        location.reload();
+                    }, 2000);
+                } else {
+                    // Update progress bar
+                    updateProgressBar();
+                }
+            });
+            
+            // Submit the form (this will redirect on success)
+            $('#ratingForm').submit();
+        }, 1000);
+    });
+    
+    // Update progress bar function
+    function updateProgressBar() {
+        var remainingCards = $('.flashcard-item:visible').length;
+        var total = @totalWords;
+        var progress = Math.max(0, ((total - remainingCards) / total) * 100);
+        $('.progress-bar').css('width', progress + '%');
+        
+        // Update counter with current language
+        var counterText = currentLanguage === 'vi' ? 
+            'Đang hiển thị: <strong>' + remainingCards + '</strong> / ' + total + ' từ' :
+            'Showing: <strong>' + remainingCards + '</strong> / ' + total + ' words';
+        $('.text-muted:contains("Showing"), .text-muted:contains("Đang hiển thị")').html(counterText);
+    }
+    
+    // Add smooth scrolling for better UX
+    $('.flashcard-item').on('mouseenter', function() {
+        $(this).addClass('shadow-lg');
+    }).on('mouseleave', function() {
+        $(this).removeClass('shadow-lg');
+    });
+    
+    // Handle form submission errors
+    $('#ratingForm').on('submit', function() {
+        // Add a small delay to show the card removal animation
+        return true;
+    });
+});
+</script>

@@ -10,7 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (word && word.length > 0) {
             // Ngăn default selection behavior
             e.preventDefault();
-            showPopup(word, e.pageX, e.pageY);
+            
+            // Lấy vị trí chính xác của mouse click
+            const clickX = e.clientX + window.pageXOffset;
+            const clickY = e.clientY + window.pageYOffset;
+            
+            showPopup(word, clickX, clickY);
         }
     });
     
@@ -56,18 +61,38 @@ function showPopup(word, x, y) {
 
     document.body.appendChild(popup);
 
-    // Điều chỉnh vị trí popup để không bị tràn màn hình
+    // Tính toán vị trí để popup xuất hiện ngay tại chỗ double-click
+    popup.style.left = `${x}px`;
+    popup.style.top = `${y}px`;
+    popup.style.display = 'block';
+
+    // Sau khi hiển thị, điều chỉnh nếu bị tràn màn hình
     const rect = popup.getBoundingClientRect();
-    if (x + rect.width > window.innerWidth) {
-        x = window.innerWidth - rect.width - 10;
+    let adjustedX = x;
+    let adjustedY = y;
+
+    // Kiểm tra tràn bên phải
+    if (rect.right > window.innerWidth) {
+        adjustedX = window.innerWidth - rect.width - 10;
     }
-    if (y + rect.height > window.innerHeight) {
-        y = window.innerHeight - rect.height - 10;
+    
+    // Kiểm tra tràn bên dưới
+    if (rect.bottom > window.innerHeight) {
+        adjustedY = y - rect.height - 10; // Hiển thị phía trên thay vì dưới
+    }
+    
+    // Kiểm tra tràn bên trái
+    if (adjustedX < 10) {
+        adjustedX = 10;
+    }
+    
+    // Kiểm tra tràn bên trên
+    if (adjustedY < 10) {
+        adjustedY = y + 20; // Hiển thị dưới cursor
     }
 
-    popup.style.left = `${Math.max(10, x)}px`;
-    popup.style.top = `${Math.max(10, y)}px`;
-    popup.style.display = 'block';
+    popup.style.left = `${adjustedX}px`;
+    popup.style.top = `${adjustedY}px`;
 
     // Tự động tra cứu từ
     translateWordAuto(word);

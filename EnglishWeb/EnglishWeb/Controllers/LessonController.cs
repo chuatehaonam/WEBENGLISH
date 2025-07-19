@@ -15,7 +15,7 @@ namespace EnglishLearningSite.Controllers
     {
         private EnglishLearningDataContext db = new EnglishLearningDataContext();
 
-        // GET: Lesson
+   
         public ActionResult About()
         {
             ViewBag.Message = " ";
@@ -29,7 +29,7 @@ namespace EnglishLearningSite.Controllers
         }
         public ActionResult Index(int? typeId)
         {
-            // Load LessonType và Images cùng lúc (eager load)
+      
             DataLoadOptions dlo = new DataLoadOptions();
             dlo.LoadWith<Lesson>(l => l.LessonType);
             dlo.LoadWith<Lesson>(l => l.Images);

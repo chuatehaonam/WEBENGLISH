@@ -150,10 +150,7 @@ a {
   transition: color var(--transition-fast);
 }
 
-a:hover {
-  color: var(--primary-dark);
-  text-decoration: underline;
-}
+
 
 strong, b {
   font-weight: 600;
@@ -263,13 +260,7 @@ code {
   box-shadow: var(--shadow-md);
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  text-decoration: none;
-  color: var(--text-inverse);
-}
+
 
 .btn-secondary {
   background-color: transparent;
@@ -277,11 +268,7 @@ code {
   border-color: var(--primary);
 }
 
-.btn-secondary:hover {
-  background-color: var(--primary);
-  color: var(--text-inverse);
-  text-decoration: none;
-}
+
 
 .btn-outline {
   background-color: transparent;
@@ -289,12 +276,7 @@ code {
   border-color: var(--border-color);
 }
 
-.btn-outline:hover {
-  background-color: var(--primary-lightest);
-  border-color: var(--primary);
-  text-decoration: none;
-  color: var(--primary-dark);
-}
+
 
 .btn-lg {
   padding: var(--spacing-md) var(--spacing-xl);
@@ -316,10 +298,7 @@ code {
   border: 1px solid var(--border-color);
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-}
+
 
 .card-header {
   padding: var(--spacing-lg);
@@ -360,10 +339,7 @@ code {
   text-decoration: none;
 }
 
-.navbar-brand:hover {
-  color: var(--primary-lighter);
-  text-decoration: none;
-}
+
 
 .navbar-nav {
   display: flex;
@@ -380,10 +356,7 @@ code {
   transition: color var(--transition-fast);
 }
 
-.navbar-nav a:hover {
-  color: var(--text-inverse);
-  text-decoration: none;
-}
+
 
 .navbar-nav a::after {
   content: '';
@@ -396,9 +369,7 @@ code {
   transition: width var(--transition-fast);
 }
 
-.navbar-nav a:hover::after {
-  width: 100%;
-}
+
 
 /* FORMS */
 .form-group {
@@ -656,30 +627,34 @@ code {
 }
 
 .fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .pulse {
   animation: pulse 2s infinite;
 }
 
+
+
 /* DARK MODE SUPPORT */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-primary: var(--primary-darkest);
-    --bg-secondary: var(--neutral-darkest);
-    --surface: var(--neutral-darkest);
-    --text-primary: var(--neutral-lightest);
-    --text-secondary: var(--neutral-lighter);
-    --border-color: var(--neutral-dark);
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2a2a2a;
+    --surface: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --border-color: #444444;
   }
   
   .card {
-    background-color: var(--neutral-darkest);
+    background-color: var(--surface);
+    color: var(--text-primary);
   }
   
   .form-control {
-    background-color: var(--neutral-darkest);
+    background-color: var(--surface);
     color: var(--text-primary);
+    border-color: var(--border-color);
   }
 } 

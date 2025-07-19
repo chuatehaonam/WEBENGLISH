@@ -1,0 +1,73 @@
+﻿@model EnglishWeb.Models.GameReorderViewModel
+@{
+    ViewBag.Title = "Reorder Game";
+    var totalTime = 10.0; // 10 giây
+}
+
+<h2>Score: @Model.Score</h2>
+<h3>Sắp xếp các chữ cái sau để tạo thành một từ đúng:</h3>
+<h2 style="color:blue">@Model.ShuffledWord</h2>
+
+@if (ViewBag.IsWrong != null && ViewBag.IsWrong)
+{
+    <div class="alert alert-danger mt-3">
+        @Html.Raw(ViewBag.CorrectAnswer)
+    </div>
+}
+
+<!-- Thanh tiến trình -->
+<div class="progress mb-3" style="height: 25px;">
+    <div id="progressBar" class="progress-bar progress-bar-striped bg-warning" style="width: 100%; font-weight:bold;">
+        @totalTime.ToString("0.0")s
+    </div>
+</div>
+
+@using (Html.BeginForm("AnswerReorder", "Game", FormMethod.Post, new { id = "answerForm" }))
+{
+    @Html.HiddenFor(m => m.WordId)
+    <input type="hidden" name="userAnswer" id="userAnswerInput" />
+
+    <div class="form-group">
+        <label>Nhập từ đúng:</label>
+        <input type="text" id="userAnswerBox" class="form-control" required autocomplete="off" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" onclick="submitNow()">Xác nhận</button>
+}
+
+@section scripts {
+    <script>
+        let totalTime = @totalTime;
+        let timeLeft = totalTime;
+        let answered = false;
+        const bar = document.getElementById("progressBar");
+
+        const timer = setInterval(() => {
+            if (answered) return;
+
+            timeLeft = Math.max(0, timeLeft - 0.1);
+            const percent = (timeLeft / totalTime) * 100;
+            bar.style.width = percent + "%";
+            bar.textContent = timeLeft.toFixed(1) + "s";
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                answered = true;
+
+                // Gửi form với input rỗng để xử lý trừ điểm
+                document.getElementById("userAnswerInput").value = "";
+                document.getElementById("answerForm").submit();
+            }
+        }, 100);
+
+        function submitNow() {
+            if (answered) return false;
+            answered = true;
+            clearInterval(timer);
+
+            const input = document.getElementById("userAnswerBox").value;
+            document.getElementById("userAnswerInput").value = input;
+            return true;
+        }
+    </script>
+}

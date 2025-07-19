@@ -29,13 +29,7 @@ namespace EnglishWeb.Controllers
             return View(lessons);
         }
 
-        public ActionResult SelectMode(int lessonId)
-        {
-            ViewBag.LessonId = lessonId;
-            return View();
-        }
-
-        public ActionResult Play(int lessonId, string mode = "easy")
+        public ActionResult PlayReorder(int lessonId)
         {
             var words = db.Vocabularies
                 .Where(v => v.LessonId == lessonId)
@@ -45,202 +39,81 @@ namespace EnglishWeb.Controllers
 
             if (!words.Any()) return RedirectToAction("SelectLesson");
 
-            Session["GameWords"] = words;
-            Session["LessonId"] = lessonId;
-            Session["Score"] = 0;
-            Session["CurrentIndex"] = 0;
-            Session["Mode"] = mode.ToLower();
-            Session["LastChoices"] = null;
+            Session["ReorderWords"] = words;
+            Session["ReorderIndex"] = 0;
+            Session["ReorderScore"] = 0;
 
-            return RedirectToAction("Next");
+            return RedirectToAction("NextReorder");
         }
 
-        public ActionResult Next()
+        public ActionResult NextReorder()
         {
-            if (Session["GameWords"] == null || Session["CurrentIndex"] == null)
-                return RedirectToAction("SelectLesson");
-
-            int index = (int)Session["CurrentIndex"];
-            var words = (List<Vocabulary>)Session["GameWords"];
+            var words = Session["ReorderWords"] as List<Vocabulary>;
+            int index = (int)Session["ReorderIndex"];
 
             if (index >= words.Count)
-                return RedirectToAction("Result");
+                return RedirectToAction("ResultReorder");
 
             var currentWord = words[index];
-            var correctImage = db.Images.FirstOrDefault(i => i.WordId == currentWord.WordId);
-            if (correctImage == null)
+            var cleanWord = new string(currentWord.Word.Where(char.IsLetter).ToArray()).ToUpper();
+            var shuffled = cleanWord.ToCharArray().OrderBy(x => Guid.NewGuid()).ToArray();
+
+            var model = new GameReorderViewModel
             {
-                Session["CurrentIndex"] = index + 1;
-                return RedirectToAction("Next");
-            }
-
-            var wrongImages = db.Images
-                .Where(i => i.WordId != currentWord.WordId && i.WordId != null)
-                .GroupBy(i => i.WordId)
-                .Select(g => g.FirstOrDefault())
-                .OrderBy(x => Guid.NewGuid())
-                .Take(9)
-                .ToList();
-
-            if (wrongImages.Count < 9)
-            {
-                Session["CurrentIndex"] = index + 1;
-                return RedirectToAction("Next");
-            }
-
-            var allChoices = wrongImages.Concat(new[] { correctImage })
-                .OrderBy(x => Guid.NewGuid())
-                .ToList();
-
-            Session["LastChoices"] = allChoices;
-            ViewBag.CorrectImageId = correctImage.ImageId;
-            ViewBag.TimeLeft = 7.0;
-            ViewBag.Mode = Session["Mode"];
-
-            var model = new GameViewModel
-            {
-                LessonId = (int)Session["LessonId"],
-                CurrentWord = currentWord,
-                Choices = allChoices,
-                Score = (int)Session["Score"]
+                LessonId = currentWord.LessonId,
+                WordId = currentWord.WordId,
+                OriginalWord = cleanWord,
+                ShuffledWord = string.Join(" / ", shuffled),
+                Score = (int)Session["ReorderScore"]
             };
 
-            return View("Play", model);
+            if (TempData["AnswerResult"] != null)
+            {
+                ViewBag.IsWrong = true;
+                ViewBag.CorrectAnswer = TempData["AnswerResult"];
+            }
+
+            return View("PlayReorder", model);
         }
 
-        public ActionResult Answer(int lessonId, int wordId, int imageId, string timeLeft)
-        {
-            var image = db.Images.FirstOrDefault(i => i.ImageId == imageId);
-            var word = db.Vocabularies.FirstOrDefault(w => w.WordId == wordId);
-            if (image == null || word == null)
-                return RedirectToAction("Next");
-
-            int score = (int)Session["Score"];
-            var currentChoices = (List<Image>)Session["LastChoices"];
-            var mode = (string)Session["Mode"];
-
-            if (image.WordId == wordId)
-            {
-                if (mode == "hard")
-                {
-                    double.TryParse(timeLeft, out double timeRemaining);
-                    int points = Math.Min(5, (int)Math.Ceiling(timeRemaining * (10.0 / 7.0)));
-                    score += points;
-                }
-                else
-                {
-                    score += 5;
-                }
-
-                Session["Score"] = score;
-                Session["CurrentIndex"] = (int)Session["CurrentIndex"] + 1;
-                return RedirectToAction("Next");
-            }
-            else
-            {
-                score -= 1;
-                Session["Score"] = score;
-
-                var wrongs = currentChoices
-                    .Where(i => i.WordId != wordId)
-                    .OrderBy(x => Guid.NewGuid())
-                    .Take(2)
-                    .ToList();
-
-                foreach (var w in wrongs)
-                    currentChoices.Remove(w);
-
-                Session["LastChoices"] = currentChoices;
-
-                ViewBag.CorrectImageId = currentChoices.FirstOrDefault(i => i.WordId == wordId)?.ImageId ?? 0;
-                double.TryParse(timeLeft, out double timeLeftValue);
-                ViewBag.TimeLeft = timeLeftValue;
-                ViewBag.Mode = mode;
-
-                var model = new GameViewModel
-                {
-                    LessonId = lessonId,
-                    CurrentWord = word,
-                    Choices = currentChoices,
-                    Score = score
-                };
-
-                return View("Play", model);
-            }
-        }
 
         [HttpPost]
-        public JsonResult AnswerAjax(int lessonId, int wordId, int imageId, string timeLeft)
+        public ActionResult AnswerReorder(int wordId, string userAnswer)
         {
-            var mode = (string)Session["Mode"];
-            int score = (int)Session["Score"];
-            var currentChoices = (List<Image>)Session["LastChoices"];
+            var words = Session["ReorderWords"] as List<Vocabulary>;
+            int index = (int)Session["ReorderIndex"];
+            int score = (int)Session["ReorderScore"];
 
-            // ❗ Nếu không chọn ảnh (imageId == 0): hết giờ => trừ 5 điểm
-            if (imageId == 0)
+            var currentWord = words[index];
+            var correctAnswer = new string(currentWord.Word.Where(char.IsLetter).ToArray()).ToUpper();
+            var userInput = new string((userAnswer ?? "").Where(char.IsLetter).ToArray()).ToUpper();
+
+            bool isCorrect = !string.IsNullOrWhiteSpace(userInput) &&
+                             string.Equals(userInput, correctAnswer, StringComparison.OrdinalIgnoreCase);
+
+            if (isCorrect)
             {
-                score -= 5;
-                Session["Score"] = score;
-                Session["CurrentIndex"] = (int)Session["CurrentIndex"] + 1;
-
-                return Json(new
-                {
-                    success = true,
-                    redirect = Url.Action("Next", "Game")
-                });
-            }
-
-            var image = db.Images.FirstOrDefault(i => i.ImageId == imageId);
-            var word = db.Vocabularies.FirstOrDefault(w => w.WordId == wordId);
-            if (image == null || word == null)
-            {
-                return Json(new { success = false });
-            }
-
-            if (image.WordId == wordId)
-            {
-                double.TryParse(timeLeft, out double timeRemaining);
-                int points = (mode == "hard")
-                    ? Math.Min(5, (int)Math.Ceiling(timeRemaining * (10.0 / 7.0)))
-                    : 5;
-
-                score += points;
-                Session["Score"] = score;
-                Session["CurrentIndex"] = (int)Session["CurrentIndex"] + 1;
-
-                return Json(new { success = true, redirect = Url.Action("Next", "Game") });
+                score += 5;
+                Session["ReorderScore"] = score;
+                Session["ReorderIndex"] = index + 1;
+                return RedirectToAction("NextReorder");
             }
             else
             {
-                score -= 1;
-                Session["Score"] = score;
+                if (index > 0) score = Math.Max(0, score - 3);
 
-                var wrongs = currentChoices
-                    .Where(i => i.WordId != wordId)
-                    .OrderBy(x => Guid.NewGuid())
-                    .Take(2)
-                    .ToList();
+                Session["ReorderScore"] = score;
+                Session["ReorderIndex"] = index + 1;
 
-                foreach (var w in wrongs)
-                    currentChoices.Remove(w);
-
-                Session["LastChoices"] = currentChoices;
-                int correctId = currentChoices.FirstOrDefault(i => i.WordId == wordId)?.ImageId ?? 0;
-
-                return Json(new
-                {
-                    success = true,
-                    isCorrect = false,
-                    score = score,
-                    correctImageId = correctId,
-                    choices = currentChoices.Select(i => new { i.ImageId, i.FilePath }).ToList()
-                });
+                TempData["AnswerResult"] = $"❌ Sai rồi! Đáp án đúng là: <strong>{correctAnswer}</strong>";
+                return RedirectToAction("NextReorder");
             }
         }
 
-        public ActionResult Result()
+
+        public ActionResult ResultReorder()
         {
-            ViewBag.Score = Session["Score"] ?? 0;
+            ViewBag.Score = Session["ReorderScore"] ?? 0;
             return View();
         }
     }

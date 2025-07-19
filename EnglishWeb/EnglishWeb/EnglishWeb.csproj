@@ -18,7 +18,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort>44314</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -194,6 +195,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EnglishLearning.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\GameReorderViewModel.cs" />
     <Compile Include="Models\GameViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LessonViewModel.cs" />
@@ -297,6 +299,8 @@
     <Content Include="Views\Vocabulary\CreateWithAI.cshtml" />
     <Content Include="Views\Pragraph\Index.cshtml" />
     <Content Include="Views\Grammar\Index.cshtml" />
+    <Content Include="Views\Game\PlayReorder.cshtml" />
+    <Content Include="Views\Game\ResultReorder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

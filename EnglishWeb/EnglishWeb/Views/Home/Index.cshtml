@@ -1,4 +1,4 @@
-﻿@{
+﻿f@{
     ViewBag.Title = "Welcome to EnglishWeb";
     ViewBag.ShowBreadcrumb = false;
 }
@@ -97,7 +97,7 @@
                             Review and memorize vocabulary with intelligent flashcard system. 
                             Spaced repetition helps you remember words for the long term.
                         </p>
-                        <a href="@Url.Action("Index", "FlashCards")" class="btn btn-primary">
+                        <a href="@Url.Action("Index", "Flashcards")" class="btn btn-primary">
                             Study Flashcards
                         </a>
                     </div>
@@ -267,46 +267,3 @@
         </div>
     </div>
 </section>
-
-@section scripts {
-    <script>
-        $(document).ready(function() {
-            // Add smooth animations for feature cards
-            $('.vocabulary-card').hover(
-                function() {
-                    $(this).addClass('pulse');
-                },
-                function() {
-                    $(this).removeClass('pulse');
-                }
-            );
-
-            // Animate stats on scroll
-            function animateStats() {
-                $('.hero-section h3').each(function() {
-                    var $this = $(this);
-                    var countTo = $this.attr('data-count') || parseInt($this.text());
-                    
-                    $({ countNum: 0 }).animate({
-                        countNum: countTo
-                    }, {
-                        duration: 2000,
-                        easing: 'swing',
-                        step: function() {
-                            $this.text(Math.floor(this.countNum) + '+');
-                        },
-                        complete: function() {
-                            $this.text(this.countNum + '+');
-                        }
-                    });
-                });
-            }
-
-            // Trigger animation when hero section is visible
-            var heroSection = $('.hero-section');
-            if (heroSection.length) {
-                setTimeout(animateStats, 1000);
-            }
-        });
-    </script>
-}

@@ -5,7 +5,7 @@
     var lesson = ViewBag.Lesson as EnglishWeb.Models.Lesson;
 }
 
-<h2>Từ vựng cho bài học: <strong>@lesson?.Title</strong></h2>
+<h2>Từ vựng cho bài học</h2>
 
 @if (TempData["Message"] != null)
 {
@@ -40,7 +40,7 @@
                 <td><strong>@item.Word</strong></td>
                 <td>@item.Definition</td>
                 <td><em>@item.Example</em></td>
-             
+
                 <td>
                     @Html.ActionLink("Sửa", "Edit", new { id = item.WordId }, new { @class = "btn btn-sm btn-warning" }) |
                     @Html.ActionLink("Xoá", "Delete", new { id = item.WordId }, new { @class = "btn btn-sm btn-danger" })|
@@ -62,3 +62,24 @@
     @Html.ActionLink("Thêm từ vựng mới", "Create", null, new { @class = "btn btn-success" }) |
     @Html.ActionLink("Trở về danh sách bài học", "Index", "Vocabulary", null, new { @class = "btn btn-default" })
 </p>
+
+<style>
+    /* Đảm bảo tất cả text có màu trắng */
+    h2, p, th, td, strong, em, .btn, .alert, label, span, div {
+        color: #ffffff !important;
+    }
+
+    .table th {
+        color: #ffffff !important;
+    }
+
+    .table td {
+        color: #ffffff !important;
+    }
+
+
+
+    .alert {
+        color: #ffffff !important;
+    }
+</style>

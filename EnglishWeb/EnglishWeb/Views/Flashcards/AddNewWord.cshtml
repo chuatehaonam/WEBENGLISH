@@ -1,23 +1,135 @@
 ﻿@{
-    ViewBag.Title = "Add New Word";
+    ViewBag.Title = "Thêm từ mới";
 }
 
-<h2>Add New Word to Flashcard</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">📝 Thêm từ mới vào Flashcard</h3>
+                </div>
+                <div class="card-body p-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Flashcards")">Flashcards</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Thêm từ mới</li>
+                        </ol>
+                    </nav>
 
-<form method="post" action="@Url.Action("AddNewWord", "Flashcards")">
-    <div class="form-group">
-        <label>Word:</label>
-        <input type="text" name="word" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label>Meaning:</label>
-        <textarea name="meaning" class="form-control" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">✔ Add Word</button>
-    <a href="@Url.Action("Index", "Flashcards")" class="btn btn-secondary mt-2">← Back</a>
-</form>
+                    <form method="post" action="@Url.Action("AddNewWord", "Flashcards")" id="addWordForm">
+                        <div class="mb-4">
+                            <label for="word" class="form-label fw-bold">
+                                <i class="fas fa-font"></i> Từ tiếng Anh:
+                            </label>
+                            <input type="text" 
+                                   name="word" 
+                                   id="word"
+                                   class="form-control form-control-lg" 
+                                   placeholder="Nhập từ tiếng Anh..."
+                                   required 
+                                   autocomplete="off" />
+                            <div class="invalid-feedback">
+                                Vui lòng nhập từ tiếng Anh
+                            </div>
+                        </div>
 
-@if (TempData["Message"] != null)
-{
-    <div class="alert alert-info mt-3">@TempData["Message"]</div>
-}
+                        <div class="mb-4">
+                            <label for="meaning" class="form-label fw-bold">
+                                <i class="fas fa-book"></i> Nghĩa tiếng Việt:
+                            </label>
+                            <textarea name="meaning" 
+                                      id="meaning"
+                                      class="form-control" 
+                                      rows="3"
+                                      placeholder="Nhập nghĩa của từ..."
+                                      required></textarea>
+                            <div class="invalid-feedback">
+                                Vui lòng nhập nghĩa của từ
+                            </div>
+                            <div class="form-text">
+                                💡 Bạn có thể thêm nhiều nghĩa, ví dụ sử dụng...
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-plus-circle"></i> Thêm vào Flashcard
+                            </button>
+                            <a href="@Url.Action("Index", "Flashcards")" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+                    <i class="fas fa-info-circle"></i> @TempData["Message"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <!-- Gợi ý sử dụng -->
+            <div class="card mt-4 border-0 bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">
+                        <i class="fas fa-lightbulb"></i> Mẹo học hiệu quả:
+                    </h6>
+                    <ul class="list-unstyled mb-0 small text-muted">
+                        <li>• Thêm nghĩa chi tiết để dễ nhớ hơn</li>
+                        <li>• Sử dụng câu ví dụ cụ thể</li>
+                        <li>• Ôn tập đều đặn để ghi nhớ lâu dài</li>
+                        <li>• Đánh giá trung thực mức độ nhớ từ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Form validation
+document.getElementById('addWordForm').addEventListener('submit', function(e) {
+    const wordInput = document.getElementById('word');
+    const meaningInput = document.getElementById('meaning');
+    let isValid = true;
+
+    // Reset validation states
+    wordInput.classList.remove('is-invalid');
+    meaningInput.classList.remove('is-invalid');
+
+    // Validate word
+    if (!wordInput.value.trim()) {
+        wordInput.classList.add('is-invalid');
+        isValid = false;
+    }
+
+    // Validate meaning
+    if (!meaningInput.value.trim()) {
+        meaningInput.classList.add('is-invalid');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        e.preventDefault();
+    }
+});
+
+// Real-time validation
+document.getElementById('word').addEventListener('input', function() {
+    if (this.value.trim()) {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+    }
+});
+
+document.getElementById('meaning').addEventListener('input', function() {
+    if (this.value.trim()) {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+    }
+});
+</script>

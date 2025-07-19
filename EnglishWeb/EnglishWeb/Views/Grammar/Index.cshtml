@@ -3,9 +3,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; // Nếu dùng layout chung
 }
 
-<div class="container mt-5">
-    <div class="card shadow rounded p-4">
-        <h2 class="mb-4 text-primary">🔍 English Grammar Checker</h2>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+            <div class="card shadow rounded p-4 mt-5">
+                <h2 class="mb-4 text-primary text-center">🔍 English Grammar Checker</h2>
 
         @using (Html.BeginForm("Index", "Grammar", FormMethod.Post))
         {
@@ -26,10 +28,11 @@
                     <h5 class="text-success mb-3">✅ Corrected Result:</h5>
                     <button type="button" class="btn-close btn-close-green" aria-label="Close result" onclick="this.parentElement.parentElement.style.display='none'"></button>
                 </div>
-                <pre style="white-space: pre-wrap; font-family: 'Segoe UI', sans-serif; background: #f8f9fa; border: 1px solid #d1ecf1; padding: 15px; border-radius: 8px; line-height: 1.6;">@Html.Raw(ViewBag.Corrected)</pre>
-                <div class="mt-3">
-                    <small class="text-muted">💡 Tip: Kết quả này sẽ hiển thị cho đến khi bạn nhấn nút X hoặc tải lại trang.</small>
+                <!-- Thêm class translatable-content để translator hoạt động -->
+                <div class="translatable-content ai-response-content" id="ai-response-content">
+                    <pre style="white-space: pre-wrap; font-family: 'Segoe UI', sans-serif; background: #f8f9fa; border: 1px solid #d1ecf1; padding: 15px; border-radius: 8px; line-height: 1.6; user-select: text;">@Html.Raw(ViewBag.Corrected)</pre>
                 </div>
+                
             </div>
         }
 
@@ -39,12 +42,23 @@
                 <strong>Error:</strong> @ViewBag.Error
             </div>
         }
+            </div>
+        </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            // Universal translator initialization is now handled by the layout
+            // No need for custom translator initialization here
+        });
+    </script>
+}
+
 <style>
-    .container {
-        max-width: 800px;
-        margin: auto;
+    .container-fluid {
+        padding: 20px;
     }
 
     .card {
@@ -52,16 +66,48 @@
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         padding: 24px;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    /* Responsive adjustments */
+ (min-width: 768px) {
+        .container-fluid {
+            padding: 40px 20px;
+        }
     }
 
     textarea {
         resize: vertical;
         font-size: 16px;
+        width: 100%;
+        border-radius: 8px;
+        border: 2px solid #e2e8f0;
+        transition: border-color 0.2s ease;
+    }
+
+    textarea:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        outline: none;
     }
 
     button {
         font-size: 16px;
-        padding: 8px 16px;
+        padding: 12px 24px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        border: none;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
 
     pre {
@@ -89,12 +135,8 @@
         transition: opacity 0.3s ease;
     }
 
-    .btn-close-green:hover {
-        opacity: 1;
-        transform: scale(1.1);
-    }
 
-    @keyframes slideInFromTop {
+slideInFromTop {
         from {
             transform: translateY(-20px);
             opacity: 0;
@@ -102,6 +144,52 @@
         to {
             transform: translateY(0);
             opacity: 1;
+        }
+    }
+
+    /* Grammar-specific styles */
+    .translatable-content pre {
+        margin: 0;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    /* Enhanced popup positioning for grammar checker */
+    #popup-box {
+        z-index: 10000 !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    /* Center alignment and spacing improvements */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    /* Mobile responsiveness */
+  (max-width: 576px) {
+        .container-fluid {
+            padding: 15px 10px;
+        }
+        
+        .card {
+            padding: 16px;
+            margin: 10px 0;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        button {
+            width: 100%;
         }
     }
 </style>

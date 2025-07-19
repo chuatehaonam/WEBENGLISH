@@ -3,32 +3,118 @@
   "WorkspaceRootPath": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\views\\flashcards\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\flashcards\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\models\\aiapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\models\\aiapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\content\\translator.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\content\\translator.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|d:\\lam game\\basicproject\\webenglish\\englishweb\\englishweb\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\grammar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\grammar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\flashcardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\flashcardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\models\\englishlearning.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\models\\englishlearning.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|"
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\flashcards\\addtoflashcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\flashcards\\addtoflashcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\flashcards\\addnewword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\flashcards\\addnewword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\game\\resultreorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\game\\resultreorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\PlayReorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\game\\selectlesson.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\game\\selectlesson.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Documents\\Zalo Received Files\\SelectLesson.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\usercontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\usercontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\pragraph\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\pragraph\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\vocabulary\\favorites.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\favorites.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\vocabulary\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\vocabulary\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\content\\bootstrap-grid.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\content\\bootstrap-grid.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\content\\bootstrap-grid.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\content\\bootstrap-grid.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\vocabularycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\vocabularycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\pragraphcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\pragraphcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\grammarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\grammarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\historyscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\historyscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\content\\translator.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\content\\translator.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +123,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\historys\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\historys\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\pragraph\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\pragraph\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -55,44 +137,8 @@
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\grammar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\grammar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\grammarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\grammarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\pragraphcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\pragraphcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\vocabularycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\vocabularycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\models\\definitionexampleresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\models\\definitionexampleresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\usercontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\usercontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\controllers\\historyscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\controllers\\historyscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\vocabulary\\favorites.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\favorites.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\vocabulary\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\models\\lessonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -101,18 +147,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\lesson\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\flashcards\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\flashcards\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\vocabulary\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\vocabulary\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\lesson\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -139,18 +173,6 @@
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\game\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\flashcards\\addtoflashcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\flashcards\\addtoflashcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\flashcards\\addnewword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\flashcards\\addnewword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\game\\selectlesson.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\game\\selectlesson.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\englishweb\\views\\game\\play.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D14BA1E3-160F-4DB0-A9C5-7E835AD79684}|EnglishWeb\\EnglishWeb.csproj|solutionrelative:englishweb\\views\\game\\play.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -166,45 +188,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AccountViewModels.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\AccountViewModels.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Models\\AccountViewModels.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\AccountViewModels.cs",
-              "RelativeToolTip": "EnglishWeb\\Models\\AccountViewModels.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "FlashcardsController.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\FlashcardsController.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\FlashcardsController.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\FlashcardsController.cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\FlashcardsController.cs",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAhwBoBAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T08:12:16.289Z",
+              "WhenOpened": "2025-07-08T07:39:22.728Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GameController.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\GameController.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\GameController.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\GameController.cs",
-              "RelativeToolTip": "EnglishWeb\\Controllers\\GameController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T13:42:25.062Z",
+              "DocumentIndex": 5,
+              "Title": "AddNewWord.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\AddNewWord.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Flashcards\\AddNewWord.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\AddNewWord.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Flashcards\\AddNewWord.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAIcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T04:18:12.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\Index.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Flashcards\\Index.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\Index.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Flashcards\\Index.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAG8AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T04:19:26.675Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "translator.js",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\translator.js",
-              "RelativeDocumentMoniker": "EnglishWeb\\Content\\translator.js",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\translator.js",
-              "RelativeToolTip": "EnglishWeb\\Content\\translator.js",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwAwBAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-07-08T08:36:01.469Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Grammar\\Index.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Grammar\\Index.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Grammar\\Index.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Grammar\\Index.cshtml",
+              "ViewState": "AgIAAGgAAAAAAAAAAIBZwLAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T09:30:29.04Z",
               "EditorCaption": ""
             },
             {
@@ -215,221 +250,283 @@
               "RelativeDocumentMoniker": "EnglishWeb\\Models\\AIAPI.cs",
               "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\AIAPI.cs",
               "RelativeToolTip": "EnglishWeb\\Models\\AIAPI.cs",
-              "ViewState": "AgIAAKcBAAAAAAAAAAAgwLkBAACbAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T04:47:40.076Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAD0AAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T09:05:38.675Z",
+              "WhenOpened": "2025-07-12T12:29:29.811Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "FlashcardsController.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\FlashcardsController.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\FlashcardsController.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\FlashcardsController.cs",
-              "RelativeToolTip": "EnglishWeb\\Controllers\\FlashcardsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T07:39:22.728Z",
+              "Title": "AddToFlashcard.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\AddToFlashcard.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Flashcards\\AddToFlashcard.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\AddToFlashcard.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Flashcards\\AddToFlashcard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-19T09:47:22.353Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EnglishLearning.dbml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Models\\EnglishLearning.dbml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml",
-              "RelativeToolTip": "EnglishWeb\\Models\\EnglishLearning.dbml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001722|",
-              "WhenOpened": "2025-07-11T02:38:42.213Z",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAALcAAAAAAAAAAAAMwMcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-19T06:09:18.779Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Global.asax.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Global.asax.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Global.asax.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Global.asax.cs",
-              "RelativeToolTip": "EnglishWeb\\Global.asax.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T06:38:59.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "packages.config",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\packages.config",
-              "RelativeDocumentMoniker": "EnglishWeb\\packages.config",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\packages.config",
-              "RelativeToolTip": "EnglishWeb\\packages.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-07-10T06:38:57.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Historys\\Index.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Historys\\Index.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Historys\\Index.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Historys\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Title": "ResultReorder.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\ResultReorder.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Game\\ResultReorder.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\ResultReorder.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Game\\ResultReorder.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-24T04:20:08.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Startup.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Startup.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Startup.cs",
-              "RelativeToolTip": "EnglishWeb\\Startup.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T06:39:00.566Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Web.config",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Web.config",
-              "RelativeDocumentMoniker": "EnglishWeb\\Web.config",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Web.config",
-              "RelativeToolTip": "EnglishWeb\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-07-10T06:39:01.474Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Pragraph\\Index.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Pragraph\\Index.cshtml",
-              "ViewState": "AgIAACgAAAAAAAAAAAAuwDMAAACWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T09:22:29.518Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Grammarcontroller.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\Grammarcontroller.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\Grammarcontroller.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\Grammarcontroller.cs",
-              "RelativeToolTip": "EnglishWeb\\Controllers\\Grammarcontroller.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwA0AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T09:15:25.982Z",
+              "WhenOpened": "2025-07-18T04:33:16.18Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Grammar\\Index.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Grammar\\Index.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Grammar\\Index.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Grammar\\Index.cshtml",
-              "ViewState": "AgIAACkAAAAAAAAAAAAqwGoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T09:30:29.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "PragraphController.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\PragraphController.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\PragraphController.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\PragraphController.cs",
-              "RelativeToolTip": "EnglishWeb\\Controllers\\PragraphController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBQAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T09:13:21.973Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "VocabularyController.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\VocabularyController.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
-              "RelativeToolTip": "EnglishWeb\\Controllers\\VocabularyController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAwEMAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T05:38:04.698Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "DefinitionExampleResult.cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\DefinitionExampleResult.cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Models\\DefinitionExampleResult.cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\DefinitionExampleResult.cs",
-              "RelativeToolTip": "EnglishWeb\\Models\\DefinitionExampleResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T06:58:38.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "UserController .cs",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\UserController .cs",
-              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\UserController .cs",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\UserController .cs",
-              "RelativeToolTip": "EnglishWeb\\Controllers\\UserController .cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T09:03:54.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
               "Title": "LessonController.cs",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
               "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\LessonController.cs",
               "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\LessonController.cs",
               "RelativeToolTip": "EnglishWeb\\Controllers\\LessonController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB8AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-08T04:50:15.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SelectLesson.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\Zalo Received Files\\SelectLesson.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\Zalo Received Files\\SelectLesson.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-18T04:30:13.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PlayReorder.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\PlayReorder.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\PlayReorder.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-18T04:30:38.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GameController.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\GameController.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\GameController.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\GameController.cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\GameController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T13:42:25.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SelectLesson.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\SelectLesson.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Game\\SelectLesson.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\SelectLesson.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Game\\SelectLesson.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-22T13:44:46.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Pragraph\\Index.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Pragraph\\Index.cshtml",
+              "ViewState": "AgIAACMAAAAAAAAAAAAuwEYAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T09:22:29.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserController .cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\UserController .cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\UserController .cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\UserController .cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\UserController .cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAhwC4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T09:03:54.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Favorites.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAIBJwEMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T07:56:09.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAUwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T06:45:58.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAEBVwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T05:39:58.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Index.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-08T08:28:36.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "bootstrap-grid.min.css",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\bootstrap-grid.min.css",
+              "RelativeDocumentMoniker": "EnglishWeb\\Content\\bootstrap-grid.min.css",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\bootstrap-grid.min.css",
+              "RelativeToolTip": "EnglishWeb\\Content\\bootstrap-grid.min.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-12T12:13:54.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "bootstrap-grid.css",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\bootstrap-grid.css",
+              "RelativeDocumentMoniker": "EnglishWeb\\Content\\bootstrap-grid.css",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\bootstrap-grid.css",
+              "RelativeToolTip": "EnglishWeb\\Content\\bootstrap-grid.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-12T12:13:53.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "VocabularyController.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\VocabularyController.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\VocabularyController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwGkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T05:38:04.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-12T11:56:58.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Home\\About.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-12T11:56:57.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Grammarcontroller.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\Grammarcontroller.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\Grammarcontroller.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\Grammarcontroller.cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\Grammarcontroller.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T09:15:25.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "PragraphController.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\PragraphController.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\PragraphController.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\PragraphController.cs",
+              "RelativeToolTip": "EnglishWeb\\Controllers\\PragraphController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T09:13:21.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "HistorysController.cs",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\HistorysController.cs",
               "RelativeDocumentMoniker": "EnglishWeb\\Controllers\\HistorysController.cs",
@@ -442,7 +539,111 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
+              "Title": "translator.js",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\translator.js",
+              "RelativeDocumentMoniker": "EnglishWeb\\Content\\translator.js",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Content\\translator.js",
+              "RelativeToolTip": "EnglishWeb\\Content\\translator.js",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAQwAwBAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-08T08:36:01.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AccountViewModels.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\AccountViewModels.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Models\\AccountViewModels.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\AccountViewModels.cs",
+              "RelativeToolTip": "EnglishWeb\\Models\\AccountViewModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T08:12:16.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Global.asax.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Global.asax.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Global.asax.cs",
+              "RelativeToolTip": "EnglishWeb\\Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T06:38:59.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\packages.config",
+              "RelativeDocumentMoniker": "EnglishWeb\\packages.config",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\packages.config",
+              "RelativeToolTip": "EnglishWeb\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-10T06:38:57.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Historys\\Index.cshtml",
+              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Historys\\Index.cshtml",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Historys\\Index.cshtml",
+              "RelativeToolTip": "EnglishWeb\\Views\\Historys\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T04:20:08.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Startup.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Startup.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Startup.cs",
+              "RelativeToolTip": "EnglishWeb\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T06:39:00.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Web.config",
+              "RelativeDocumentMoniker": "EnglishWeb\\Web.config",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Web.config",
+              "RelativeToolTip": "EnglishWeb\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-10T06:39:01.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DefinitionExampleResult.cs",
+              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\DefinitionExampleResult.cs",
+              "RelativeDocumentMoniker": "EnglishWeb\\Models\\DefinitionExampleResult.cs",
+              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\DefinitionExampleResult.cs",
+              "RelativeToolTip": "EnglishWeb\\Models\\DefinitionExampleResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T06:58:38.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "LessonViewModel.cs",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\LessonViewModel.cs",
               "RelativeDocumentMoniker": "EnglishWeb\\Models\\LessonViewModel.cs",
@@ -455,20 +656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Favorites.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Favorites.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T07:56:09.164Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 36,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Delete.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Delete.cshtml",
@@ -481,59 +669,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Lesson\\Index.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAABsAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T08:28:36.343Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJcAAABfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T06:45:58.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Detail.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-24T05:39:58.279Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\Index.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Flashcards\\Index.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\Index.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Flashcards\\Index.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAkwD0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-24T04:19:26.675Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 37,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Create.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Create.cshtml",
@@ -546,7 +682,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 38,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Lesson\\Details.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Lesson\\Details.cshtml",
@@ -559,7 +695,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 39,
               "Title": "CreateWithAI.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\CreateWithAI.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\CreateWithAI.cshtml",
@@ -572,20 +708,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 40,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Create.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Vocabulary\\Create.cshtml",
               "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Vocabulary\\Create.cshtml",
               "RelativeToolTip": "EnglishWeb\\Views\\Vocabulary\\Create.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAIBJwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-24T06:02:04.332Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 41,
               "Title": "VocabularyViewModel.cs",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\VocabularyViewModel.cs",
               "RelativeDocumentMoniker": "EnglishWeb\\Models\\VocabularyViewModel.cs",
@@ -598,7 +734,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 42,
               "Title": "Result.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\Result.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Game\\Result.cshtml",
@@ -611,33 +747,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "AddToFlashcard.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\AddToFlashcard.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Flashcards\\AddToFlashcard.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\AddToFlashcard.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Flashcards\\AddToFlashcard.cshtml",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAowBYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-24T04:18:54.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "AddNewWord.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\AddNewWord.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Flashcards\\AddNewWord.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Flashcards\\AddNewWord.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Flashcards\\AddNewWord.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-24T04:18:12.284Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 44,
               "Title": "SelectMode.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\SelectMode.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Game\\SelectMode.cshtml",
@@ -650,20 +760,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "SelectLesson.cshtml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\SelectLesson.cshtml",
-              "RelativeDocumentMoniker": "EnglishWeb\\Views\\Game\\SelectLesson.cshtml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\SelectLesson.cshtml",
-              "RelativeToolTip": "EnglishWeb\\Views\\Game\\SelectLesson.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-22T13:44:46.633Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 43,
               "Title": "Play.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Game\\Play.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\Views\\Game\\Play.cshtml",

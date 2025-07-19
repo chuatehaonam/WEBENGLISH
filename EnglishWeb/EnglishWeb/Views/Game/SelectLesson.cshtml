@@ -8,17 +8,18 @@
 <div class="row mt-4">
     @foreach (var item in Model)
     {
-        <div class="col-md-3 text-center mb-4">
-            <div class="card shadow-sm">
-                <a href="@Url.Action("SelectMode", "Game", new { lessonId = item.LessonId })">
-                    <img src="@item.ImagePath" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;" />
-                </a>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="@item.ImagePath" class="card-img-top" style="height:200px; object-fit:cover;" />
                 <div class="card-body">
                     <h5 class="card-title">@item.Title</h5>
-                    <p class="card-text text-muted">@item.Description</p>
-                    <a href="@Url.Action("SelectMode", "Game", new { lessonId = item.LessonId })" class="btn btn-primary">Play</a>
+                    <p class="card-text">@item.Description</p>
+
+                    <a href="@Url.Action("PlayReorder", "Game", new { lessonId = item.LessonId })"
+                       class="btn btn-warning">🧩 Chơi sắp chữ</a>
                 </div>
             </div>
         </div>
     }
+
 </div>
