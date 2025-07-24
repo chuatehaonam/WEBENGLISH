@@ -16,6 +16,12 @@ bld/
 [Oo]bj/
 [Ll]og/
 
+# Binary files that may contain secrets
+*.dll
+*.pdb
+*.exe
+bin/
+
 # Visual Studio files
 .vs/
 *.user
