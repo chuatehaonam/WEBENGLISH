@@ -1,0 +1,32 @@
+# Configuration files containing sensitive data
+appsettings.json
+appsettings.*.json
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+
+# Others
+*.cache
+*.log
+*.tmp 

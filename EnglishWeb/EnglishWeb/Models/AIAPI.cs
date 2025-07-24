@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Web.Hosting;
 
 namespace EnglishWeb.Models
 {
@@ -203,7 +204,8 @@ namespace EnglishWeb.Models
                 }
 
                 string comparison = await _deepSeekAI.CompareTranslationAsync(originalText, userTranslation, originalType);
-                return new AIResponse { Success = true, Content = comparison };
+                dynamic json = JsonConvert.DeserializeObject(comparison);
+                return new AIResponse { Success = true, Content = $"Semantic similarity: {json.score}/10" };
             }
             catch (Exception ex)
             {
@@ -251,14 +253,45 @@ namespace EnglishWeb.Models
 
         public DeepSeekAI()
         {
-
-            this.apiKey = "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";
-            this.baseUrl = "https://openrouter.ai/api/v1";
+            // Đọc cấu hình từ file appsettings.json
+            var config = LoadConfiguration();
+            this.apiKey = config.ApiKey;
+            this.baseUrl = config.BaseUrl;
+            
             this.httpClient = new HttpClient();
             this.httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
             this.httpClient.DefaultRequestHeaders.Add("HTTP-Referer", "https://localhost");
             this.httpClient.DefaultRequestHeaders.Add("X-Title", "EnglishWeb");
             this.httpClient.Timeout = TimeSpan.FromSeconds(30);
+        }
+
+        private ApiConfiguration LoadConfiguration()
+        {
+            try
+            {
+                string configPath = HostingEnvironment.MapPath("~/appsettings.json");
+                if (File.Exists(configPath))
+                {
+                    string json = File.ReadAllText(configPath);
+                    dynamic config = JsonConvert.DeserializeObject(json);
+                    return new ApiConfiguration
+                    {
+                        ApiKey = config.ApiSettings.OpenRouterApiKey,
+                        BaseUrl = config.ApiSettings.OpenRouterBaseUrl
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Lỗi đọc config: {ex.Message}");
+            }
+
+            // Fallback nếu không đọc được config
+            return new ApiConfiguration
+            {
+                ApiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ?? "your-api-key-here",
+                BaseUrl = "https://openrouter.ai/api/v1"
+            };
         }
 
 
@@ -311,8 +344,7 @@ namespace EnglishWeb.Models
                     string errorContent = await response.Content.ReadAsStringAsync();
                     System.Diagnostics.Debug.WriteLine($"API Error - Status: {response.StatusCode}, Content: {errorContent}");
 
- 
-                    return GetFallbackparagraph(question);
+                    return "AI service is temporarily unavailable.";
                 }
             }
             catch (Exception ex)
@@ -320,44 +352,11 @@ namespace EnglishWeb.Models
                 System.Diagnostics.Debug.WriteLine($"Exception in AskQuestionAsync: {ex.Message}");
                 System.Diagnostics.Debug.WriteLine($"Stack trace: {ex.StackTrace}");
 
-
-                return GetFallbackparagraph(question);
+                return "AI service is temporarily unavailable.";
             }
         }
 
-        private string GetFallbackparagraph(string question)
-        {
-            System.Diagnostics.Debug.WriteLine($"GetFallbackContent called with question containing: {question.Substring(0, Math.Min(200, question.Length))}");
 
-        
-            if (question.Contains("So sánh và chấm điểm") || question.Contains("Gốc:") || question.Contains("Dịch:") || question.Contains("so sánh bản dịch") || question.Contains("Văn bản gốc"))
-            {
-                System.Diagnostics.Debug.WriteLine("Detected comparison request, using comparison fallback");
-                return @"Translation Analysis:
-
- Accuracy: Your translation demonstrates good understanding of the main content. The overall meaning is conveyed clearly and comprehensibly.
-
-Grammar & Vocabulary: Sentence structure is stable, vocabulary is appropriate for the context. You could improve the naturalness and fluency of the sentences.
-
-Improvement suggestions: Pay attention to using connective words and more diverse sentence structures to make your translation more natural. Read more sample texts to improve your translation style.
-
-Overall score: 7.5/10 - Your translation is good! Keep practicing to enhance your skills.
-
-Note: AI service is temporarily unavailable. This is a basic analysis.";
-            }
-            else if (question.ToLower().Contains("english") || question.ToLower().Contains("daily life") || question.ToLower().Contains("science"))
-            {
-                return GenerateFallbackEnglishParagraph();
-            }
-            else if (question.ToLower().Contains("việt") || question.ToLower().Contains("vietnamese"))
-            {
-                return GenerateFallbackVietnameseParagraph();
-            }
-            else
-            {
-                return "AI service is temporarily unavailable. Using fallback content.";
-            }
-        }
 
    
         public string AskQuestion(string question)
@@ -453,57 +452,66 @@ Note: AI service is temporarily unavailable. This is a basic analysis.";
             }
         }
 
+
         public async Task<string> CompareTranslationAsync(string originalText, string userTranslation, string originalType)
         {
-            System.Diagnostics.Debug.WriteLine("=== CompareTranslationAsync START ===");
-            System.Diagnostics.Debug.WriteLine($"Original: {originalText}");
-            System.Diagnostics.Debug.WriteLine($"User: {userTranslation}");
-            System.Diagnostics.Debug.WriteLine($"Type: {originalType}");
-
-            string prompt = $@"Compare and score the user's translation. Return ONLY clean text without HTML tags:
-
-Original text ({originalType}): {originalText}
-
-User's translation: {userTranslation}
-
-Please evaluate the user's translation based on grammar, vocabulary, fluency, and accuracy.
-Score the translation on a scale from 0 to 10.
-Format your response like this:
-
- Translation Analysis:
-Accuracy: [your analysis]
-Grammar & Vocabulary: [your analysis]  
-Improvement suggestions: [your suggestions]
-Overall score: [score]/10 - [description]
-
-Use plain text only, no HTML tags.";
-
-            System.Diagnostics.Debug.WriteLine($"Prompt created: {prompt}");
-
             try
             {
-                System.Diagnostics.Debug.WriteLine("Calling AskQuestionAsync...");
-                string result = await AskQuestionAsync(prompt);
-                System.Diagnostics.Debug.WriteLine($"AskQuestionAsync returned: {result}");
-
-                if (string.IsNullOrWhiteSpace(result) ||
-                    result.Contains("AI service is temporarily unavailable") ||
-                    result.Contains("Không nhận được phản hồi") ||
-                    result.Contains("fallback"))
+                string sentence1 = originalText;
+                string sentence2 = userTranslation;
+                var httpClient = new HttpClient();
+                httpClient.Timeout = TimeSpan.FromSeconds(10); 
+                
+                var content = new StringContent(JsonConvert.SerializeObject(new
                 {
-                    System.Diagnostics.Debug.WriteLine("AI result is invalid, using fallback");
-                    return WrapForTranslator(GetFallbackComparison(originalText, userTranslation, originalType));
-                }
+                    sentence1,
+                    sentence2
+                }), Encoding.UTF8, "application/json");
 
-                System.Diagnostics.Debug.WriteLine("Returning AI result wrapped for translator");
-                return WrapForTranslator(result);
+                var response = await httpClient.PostAsync("http://localhost:5000/similarity", content);
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    
+                    if (result.TrimStart().StartsWith("{") && result.TrimEnd().EndsWith("}"))
+                    {
+                        dynamic json = JsonConvert.DeserializeObject(result);
+                        Console.WriteLine("Semantic similarity: " + json.score);
+                        return result;
+                    }
+                    else
+                    {
+                        // Response không phải JSON
+                        return JsonConvert.SerializeObject(new { error = "Model đang lỗi: API trả về dữ liệu không hợp lệ" });
+                    }
+                }
+                else
+                {
+                    // API trả về lỗi HTTP
+                    return JsonConvert.SerializeObject(new { error = $"Model đang lỗi: API trả về mã lỗi {response.StatusCode}" });
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                // Lỗi kết nối
+                System.Diagnostics.Debug.WriteLine($"CompareTranslationAsync connection error: {ex.Message}");
+                return JsonConvert.SerializeObject(new { error = "Model đang lỗi: Không thể kết nối tới API localhost:5000" });
+            }
+            catch (TaskCanceledException ex)
+            {
+                // Timeout
+                System.Diagnostics.Debug.WriteLine($"CompareTranslationAsync timeout: {ex.Message}");
+                return JsonConvert.SerializeObject(new { error = "Model đang lỗi: API không phản hồi (timeout)" });
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in CompareTranslationAsync: {ex.Message}");
-                return WrapForTranslator(GetFallbackComparison(originalText, userTranslation, originalType));
+                // Lỗi khác
+                System.Diagnostics.Debug.WriteLine($"CompareTranslationAsync error: {ex.Message}");
+                return JsonConvert.SerializeObject(new { error = $"Model đang lỗi: {ex.Message}" });
             }
         }
+
 
         private string WrapForTranslator(string content)
         {
@@ -513,103 +521,7 @@ Use plain text only, no HTML tags.";
             </div>";
         }
 
-        private string GetFallbackComparison(string originalText, string userTranslation, string originalType)
-        {
-            System.Diagnostics.Debug.WriteLine("=== GetFallbackComparison called ===");
-            System.Diagnostics.Debug.WriteLine($"Original: {originalText}");
-            System.Diagnostics.Debug.WriteLine($"User: {userTranslation}");
-            System.Diagnostics.Debug.WriteLine($"Type: {originalType}");
 
-            // Kiểm tra input
-            if (string.IsNullOrWhiteSpace(originalText) || string.IsNullOrWhiteSpace(userTranslation))
-            {
-                return "⚠️ Thông báo: Không có đủ thông tin để so sánh. Vui lòng kiểm tra lại văn bản gốc và bản dịch của bạn.";
-            }
-
-        
-            string lengthComment = "";
-            string contentComment = "";
-            double score = 7.5;
-
-            int originalLength = originalText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
-            int userLength = userTranslation.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
-            double lengthRatio = originalLength > 0 ? (double)userLength / originalLength : 1.0;
-
-            if (lengthRatio > 1.8)
-            {
-                lengthComment = "Bản dịch khá dài so với văn bản gốc. ";
-                score -= 0.7;
-            }
-            else if (lengthRatio > 1.4)
-            {
-                lengthComment = "Bản dịch hơi dài so với văn bản gốc. ";
-                score -= 0.4;
-            }
-            else if (lengthRatio < 0.5)
-            {
-                lengthComment = "Bản dịch khá ngắn, có thể thiếu một số ý quan trọng. ";
-                score -= 1.0;
-            }
-            else if (lengthRatio < 0.7)
-            {
-                lengthComment = "Bản dịch hơi ngắn, có thể thiếu một số chi tiết. ";
-                score -= 0.6;
-            }
-            else
-            {
-                lengthComment = "Độ dài bản dịch khá phù hợp. ";
-                score += 0.3;
-            }
-
-      
-            if (originalType?.ToLower().Contains("english") == true)
-            {
-                if (userTranslation.Contains("the ") || userTranslation.Contains("a "))
-                {
-                    contentComment = "Có thể cần chú ý về việc dịch mạo từ tiếng Anh sang tiếng Việt. ";
-                    score -= 0.2;
-                }
-                else
-                {
-                    contentComment = "Việc loại bỏ mạo từ khi dịch sang tiếng Việt là hợp lý. ";
-                    score += 0.1;
-                }
-            }
-            else if (originalType?.ToLower().Contains("vietnamese") == true)
-            {
-                if (!userTranslation.Contains(".") && !userTranslation.Contains("!") && !userTranslation.Contains("?"))
-                {
-                    contentComment = "Cần chú ý về dấu câu khi dịch sang tiếng Anh. ";
-                    score -= 0.3;
-                }
-                else
-                {
-                    contentComment = "Việc sử dụng dấu câu trong tiếng Anh là phù hợp. ";
-                    score += 0.2;
-                }
-            }
-
-            score = Math.Max(6.0, Math.Min(9.5, score)); 
-
-            string scoreDescription = "";
-            if (score >= 9.0) scoreDescription = "excellent";
-            else if (score >= 8.5) scoreDescription = "very good";
-            else if (score >= 7.5) scoreDescription = "good";
-            else if (score >= 6.5) scoreDescription = "adequate";
-            else scoreDescription = "needs improvement";
-
-            return $@"📝 Translation Analysis:
-
-✅ Accuracy: {lengthComment}Your translation demonstrates good understanding of the main content. The overall meaning is conveyed clearly and comprehensibly.
-
-📚 Grammar & Vocabulary: {contentComment}Sentence structure is stable, vocabulary is appropriate for the context. You could improve the naturalness and fluency of the sentences.
-
-💡 Improvement suggestions: Pay attention to using connective words, idiomatic phrases, and more diverse sentence structures. Read more sample texts to improve your translation style.
-
-🎯 Overall score: {score:F1}/10 - Your translation is {scoreDescription}! Keep practicing to enhance your translation skills.
-
-💭 Note: AI service is temporarily unavailable. This is a basic algorithmic analysis.";
-        }
 
         private string GenerateFallbackEnglishParagraph()
         {
@@ -737,5 +649,11 @@ Use plain text only, no HTML tags.";
         public int prompt_tokens { get; set; }
         public int completion_tokens { get; set; }
         public int total_tokens { get; set; }
+    }
+
+    public class ApiConfiguration
+    {
+        public string ApiKey { get; set; }
+        public string BaseUrl { get; set; }
     }
 }

@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\DefinitionExampleResult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,10 +13,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml.layout||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml.layout||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,20 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EnglishLearning.dbml",
-              "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml",
-              "RelativeDocumentMoniker": "EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml",
-              "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml",
-              "RelativeToolTip": "EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001722|",
-              "WhenOpened": "2025-07-10T05:49:56.553Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -56,7 +40,7 @@
               "RelativeDocumentMoniker": "EnglishWeb\\EnglishWeb\\Models\\DefinitionExampleResult.cs",
               "ToolTip": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Models\\DefinitionExampleResult.cs",
               "RelativeToolTip": "EnglishWeb\\EnglishWeb\\Models\\DefinitionExampleResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T05:49:55.945Z",
               "EditorCaption": ""
@@ -71,12 +55,11 @@
               "RelativeToolTip": "EnglishWeb\\EnglishWeb\\Models\\EnglishLearning.dbml.layout",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-10T05:49:53.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T05:49:53.563Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml",
               "RelativeDocumentMoniker": "EnglishWeb\\EnglishWeb\\Views\\Pragraph\\Index.cshtml",
@@ -89,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "VocabularyController.cs",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
               "RelativeDocumentMoniker": "EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
@@ -97,12 +80,11 @@
               "RelativeToolTip": "EnglishWeb\\EnglishWeb\\Controllers\\VocabularyController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T05:47:06.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T05:47:06.292Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "GameController.cs",
               "DocumentMoniker": "D:\\lam Game\\BASICPROJECT\\WEBENGLISH\\EnglishWeb\\EnglishWeb\\Controllers\\GameController.cs",
               "RelativeDocumentMoniker": "EnglishWeb\\EnglishWeb\\Controllers\\GameController.cs",
@@ -110,8 +92,7 @@
               "RelativeToolTip": "EnglishWeb\\EnglishWeb\\Controllers\\GameController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T05:47:04.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T05:47:04.729Z"
             }
           ]
         }
