@@ -2,12 +2,11 @@
 
 @{
     ViewBag.Title = "Edit Vocabulary";
-    string currentImagePath = ViewBag.ImagePath as string;
 }
 
 <h2>Edit Vocabulary</h2>
 
-@using (Html.BeginForm("Edit", "Vocabulary", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Vocabulary", FormMethod.Post))
 {
     @Html.HiddenFor(m => m.WordId)
     @Html.HiddenFor(m => m.LessonId)
@@ -19,54 +18,14 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Definition)
-        @Html.TextAreaFor(m => m.Definition, new { @class = "form-control" })
+        @Html.TextAreaFor(m => m.Definition, new { @class = "form-control", rows = 3 })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Example)
-        @Html.TextAreaFor(m => m.Example, new { @class = "form-control" })
+        @Html.TextAreaFor(m => m.Example, new { @class = "form-control", rows = 3 })
     </div>
 
-    <div class="form-group">
-        <label>Current Pronunciation:</label><br />
-        @if (!string.IsNullOrEmpty(Model.PronunciationUrl))
-        {
-            <audio controls>
-                <source src="@Model.PronunciationUrl" type="audio/mpeg" />
-                Your browser does not support the audio element.
-            </audio>
-            <br />
-            <small>@Model.PronunciationUrl</small>
-        }
-        else
-        {
-            <span>No pronunciation uploaded.</span>
-        }
-    </div>
-
-    <div class="form-group">
-        <label>Replace Pronunciation File (MP3)</label>
-        <input type="file" name="pronunciationFile" class="form-control" accept=".mp3" />
-    </div>
-
-    <div class="form-group">
-        <label>Current Image (if any):</label><br />
-        @if (!string.IsNullOrEmpty(currentImagePath))
-        {
-            <img src="@currentImagePath" alt="Image" width="150" height="150" /><br />
-            <small>@currentImagePath</small>
-        }
-        else
-        {
-            <span>No image uploaded.</span>
-        }
-    </div>
-
-    <div class="form-group">
-        <label>Replace Image File</label>
-        <input type="file" name="imageFile" class="form-control" accept="image/*" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Save</button>
-    @Html.ActionLink("Back", "Detail", new { id = Model.LessonId }, new { @class = "btn btn-default" })
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    @Html.ActionLink("Back to Lesson", "Detail", "Vocabulary", new { id = Model.LessonId }, new { @class = "btn btn-default" })
 }

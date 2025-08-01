@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Create", "Lesson", FormMethod.Post, new { enctype = "multipart/form-data" })) // thêm enctype
+@using (Html.BeginForm("Create", "Lesson", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -24,13 +24,10 @@
             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
         </div>
 
-        <div class="form-group">
-            @Html.Label("Loại bài học", htmlAttributes: new { @class = "control-label" })
-            @Html.DropDownList("TypeId", (SelectList)ViewBag.TypeId, "-- Chọn loại bài học --", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.TypeId, "", new { @class = "text-danger" })
-        </div>
+        <!-- Gán TypeId mặc định = 7 và ẩn -->
+        @Html.HiddenFor(model => model.TypeId, new { Value = 7 })
 
-        <!-- Phần chọn ảnh và preview -->
+        <!-- Chọn ảnh và preview -->
         <div class="form-group">
             @Html.Label("Ảnh đại diện bài học", htmlAttributes: new { @class = "control-label" })
             <input type="file" name="imageFile" id="imageFile" accept="image/*" class="form-control" />
@@ -39,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" value="Tạo bài họcz" class="btn btn-success" />
+            <input type="submit" value="Tạo bài học" class="btn btn-success" />
             @Html.ActionLink("Back to Lessons", "Index", "Vocabulary", null, new { @class = "btn btn-default" })
         </div>
     </div>

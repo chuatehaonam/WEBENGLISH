@@ -282,7 +282,7 @@ namespace EnglishLearning.Controllers
                     {
                         FullName = googleUser.name,
                         Email = googleUser.email,
-                        PasswordHash = "GOOGLE_AUTH" // Đánh dấu đây là tài khoản Google
+                        PasswordHash = "GOOGLE_AUTH" 
                     };
 
                     db.Users.InsertOnSubmit(newUser);

@@ -49,6 +49,7 @@ namespace EnglishLearningSite.Controllers
             ViewBag.Lesson = lesson;
             return View(vocabularies);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> GenerateVocabularyFromAI(int lessonId)
@@ -105,6 +106,8 @@ namespace EnglishLearningSite.Controllers
             return RedirectToAction("Detail", new { id = lesson.LessonId });
         }
 
+
+
         public ActionResult Create()
         {
             var vocabularyLessons = db.Lessons.Where(l => l.TypeId == 7).ToList();
@@ -113,44 +116,12 @@ namespace EnglishLearningSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Vocabulary vocab, HttpPostedFileBase pronunciationFile, HttpPostedFileBase imageFile)
+        public ActionResult Create(Vocabulary vocab)
         {
             if (ModelState.IsValid)
             {
-                if (pronunciationFile != null && pronunciationFile.ContentLength > 0)
-                {
-                    var audioDir = Server.MapPath("~/Uploads/Audio");
-                    Directory.CreateDirectory(audioDir);
-                    var audioFile = Path.GetFileName(pronunciationFile.FileName);
-                    var audioPath = Path.Combine(audioDir, audioFile);
-                    pronunciationFile.SaveAs(audioPath);
-                    vocab.PronunciationUrl = "/Uploads/Audio/" + audioFile;
-                }
-
                 db.Vocabularies.InsertOnSubmit(vocab);
                 db.SubmitChanges();
-
-                if (imageFile != null && imageFile.ContentLength > 0)
-                {
-                    var imageDir = Server.MapPath("~/Content/Images");
-                    Directory.CreateDirectory(imageDir);
-                    var imageFileName = Path.GetFileName(imageFile.FileName);
-                    var imagePath = Path.Combine(imageDir, imageFileName);
-                    imageFile.SaveAs(imagePath);
-
-                    var img = new Image
-                    {
-                        FileName = imageFileName,
-                        FilePath = "/Content/Images/" + imageFileName,
-                        UploadDate = DateTime.Now,
-                        UserId = 1,
-                        WordId = vocab.WordId
-                    };
-
-                    db.Images.InsertOnSubmit(img);
-                    db.SubmitChanges();
-                }
-
                 return RedirectToAction("Detail", new { id = vocab.LessonId });
             }
 

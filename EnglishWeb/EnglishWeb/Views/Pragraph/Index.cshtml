@@ -92,7 +92,7 @@
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">
-                            <i class="fas fa-robot"></i> Phân tích bởi DeepSeek AI
+                            <i class="fas fa-robot"></i> 
                         </small>
                     </div>
                 </div>
@@ -367,27 +367,29 @@
             // Make AJAX call
             $.post('@Url.Action("CompareTranslation", "Pragraph")', {
                 originalText: currentParagraph,
-                userTranslation: userTranslation,
-                originalType: currentParagraphType
+                userTranslation: userTranslation
             })
-            .done(function(response) {
-                if (response.success) {
-                    $('#comparisonContent').html(response.comparison.replace(/\n/g, '<br>'));
-                    $('#comparisonResultArea').show();
+                .done(function (response) {
+                    if (response.success) {
+                        $('#comparisonContent').html(
+                            '<div class="alert alert-success" role="alert">' +
+                            response.content.replace(/\n/g, '<br>') +
+                            '</div>'
+                        );
 
-                    // Reinitialize translator for new AI content
-                    if (window.reinitializeTranslator) {
-                        window.reinitializeTranslator();
+                        $('#comparisonResultArea').fadeIn('fast');
+
+                        if (window.reinitializeTranslator) {
+                            window.reinitializeTranslator();
+                        }
+
+                        $('html, body').animate({
+                            scrollTop: $('#comparisonResultArea').offset().top - 100
+                        }, 500);
+                    } else {
+                        showError(response.error || 'Không thể so sánh bản dịch');
                     }
-
-                    // Scroll to comparison result
-                    $('html, body').animate({
-                        scrollTop: $('#comparisonResultArea').offset().top - 100
-                    }, 500);
-                } else {
-                    showError(response.error || 'Không thể so sánh bản dịch');
-                }
-            })
+                })
             .fail(function(xhr, status, error) {
                 showError('Lỗi kết nối khi so sánh bản dịch');
             })

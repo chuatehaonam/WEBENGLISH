@@ -77,7 +77,7 @@ namespace EnglishWeb.Controllers
 
         // POST: Pragraph/CompareTranslation
         [HttpPost]
-        public async Task<JsonResult> CompareTranslation(string originalText, string userTranslation, string originalType)
+        public async Task<JsonResult> CompareTranslation(string originalText, string userTranslation)
         {
             try
             {
@@ -85,7 +85,6 @@ namespace EnglishWeb.Controllers
                 System.Diagnostics.Debug.WriteLine($"CompareTranslation called:");
                 System.Diagnostics.Debug.WriteLine($"originalText: {originalText}");
                 System.Diagnostics.Debug.WriteLine($"userTranslation: {userTranslation}");
-                System.Diagnostics.Debug.WriteLine($"originalType: {originalType}");
 
                 if (string.IsNullOrWhiteSpace(originalText) || string.IsNullOrWhiteSpace(userTranslation))
                 {
@@ -96,31 +95,16 @@ namespace EnglishWeb.Controllers
                     });
                 }
 
-                var result = await _aiService.CompareTranslationAsync(originalText, userTranslation, originalType);
+                var result = await _aiService.CompareTranslationAsync(originalText, userTranslation);
 
                 System.Diagnostics.Debug.WriteLine($"AI Service result - Success: {result.Success}");
-                System.Diagnostics.Debug.WriteLine($"AI Service content: {result.Content}");
                 System.Diagnostics.Debug.WriteLine($"AI Service error: {result.ErrorMessage}");
+                return Json(new
+                {
+                    success = true,
+                    content = result.Content
 
-                if (result.Success)
-                {
-                    return Json(new
-                    {
-                        success = true,
-                        comparison = result.Content,
-                        message = "So sánh bản dịch hoàn tất!",
-                        debug = "AI service returned successfully"
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        success = false,
-                        error = "Có lỗi xảy ra khi so sánh: " + result.ErrorMessage,
-                        debug = "AI service returned error"
-                    });
-                }
+                });
             }
             catch (Exception ex)
             {

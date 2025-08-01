@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Web.Hosting;
-
+using System.Web.Mvc;
 namespace EnglishWeb.Models
 {
 
@@ -193,25 +193,83 @@ namespace EnglishWeb.Models
             }
         }
 
-
-        public async Task<AIResponse> CompareTranslationAsync(string originalText, string userTranslation, string originalType)
+        public async Task<AIResponse> CompareTranslationAsync(string originalText, string userTranslation)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(originalText) || string.IsNullOrWhiteSpace(userTranslation))
+                string sentence1 = originalText;
+                string sentence2 = userTranslation;
+
+                // BƯỚC 1: Dịch câu gốc
+                string translationPrompt = $"Hãy dịch chính xác câu sau sang tiếng còn lại như trong sách song ngữ:\n\"{sentence1}\" ,bắt buộc phải đúng như trong sách song ngữ, chỉ trả lời câu thôi không cần gì khác";
+                string translatedSentence1 = await _deepSeekAI.AskQuestionAsync(translationPrompt);
+
+                if (translatedSentence1.Contains("AI service") || translatedSentence1.Contains("Không nhận được"))
                 {
-                    return new AIResponse { Success = false, ErrorMessage = "Vui lòng cung cấp đầy đủ văn bản gốc và bản dịch!" };
+                    return new AIResponse { Success = false, ErrorMessage = "Không thể dịch câu gốc từ sách song ngữ." };
                 }
 
-                string comparison = await _deepSeekAI.CompareTranslationAsync(originalText, userTranslation, originalType);
-                dynamic json = JsonConvert.DeserializeObject(comparison);
-                return new AIResponse { Success = true, Content = $"Semantic similarity: {json.score}/10" };
+                // BƯỚC 2: So sánh similarity
+                var httpClient = new HttpClient();
+                httpClient.Timeout = TimeSpan.FromSeconds(10);
+
+                var content = new StringContent(JsonConvert.SerializeObject(new
+                {
+                    sentence1 = translatedSentence1,
+                    sentence2 = sentence2
+                }), Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync("http://localhost:5000/similarity", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var similarityResult = await response.Content.ReadAsStringAsync();
+
+                    if (similarityResult.TrimStart().StartsWith("{") && similarityResult.TrimEnd().EndsWith("}"))
+                    {
+                        dynamic json = JsonConvert.DeserializeObject(similarityResult);
+
+                        double score = json.score;
+                        string analysis = "";
+
+                        try
+                        {
+                            string analysisPrompt =
+          "You are an English-only translation reviewer. No matter what the input language is, always reply in English. Be brief and direct.\n\n" +
+          $"Original English sentence: \"{translatedSentence1}\"\n" +
+          $"User's Vietnamese translation: \"{sentence2}\"\n" +
+          "Evaluate how accurate the translation is. Highlight only major differences in meaning or tone. " +
+          "DO NOT explain in Vietnamese. Reply ONLY in English. Keep your answer under 3 sentences.";
+
+                            analysis = await _deepSeekAI.AskQuestionAsync(analysisPrompt);
+                        }
+                        catch
+                        {
+                            analysis = "Không thể phân tích nội dung.";
+                        }
+
+                        return new AIResponse
+                        {
+                            Success = true,
+                            Content = $"Similarity Result: {score}\n{translatedSentence1}\n{analysis}"
+                        };
+                    }
+                    else
+                    {
+                        return new AIResponse { Success = false, ErrorMessage = "Dữ liệu từ AI không hợp lệ." };
+                    }
+                }
+                else
+                {
+                    return new AIResponse { Success = false, ErrorMessage = "API similarity trả về lỗi: " + response.StatusCode };
+                }
             }
             catch (Exception ex)
             {
-                return new AIResponse { Success = false, ErrorMessage = ex.Message };
+                return new AIResponse { Success = false, ErrorMessage = "Lỗi hệ thống: " + ex.Message };
             }
         }
+
         public async Task<AIResponse> CheckGrammarAsyncdong(string sentence)
         {
             try
@@ -239,6 +297,7 @@ namespace EnglishWeb.Models
     {
         public bool Success { get; set; }
         public string Content { get; set; }
+
         public string ErrorMessage { get; set; }
     }
 
@@ -247,7 +306,7 @@ namespace EnglishWeb.Models
 
     public class DeepSeekAI
     {
-        private readonly string apiKey;
+        private readonly string apiKey = "sk-or-v1-59f1ce8bf051fa403adf61eecccbf853c60ecb243746eeb5d344e073913e1706zzx";
         private readonly string baseUrl;
         private readonly HttpClient httpClient;
 
@@ -255,7 +314,7 @@ namespace EnglishWeb.Models
         {
             // Đọc cấu hình từ file appsettings.json
             var config = LoadConfiguration();
-            this.apiKey = config.ApiKey;
+            this.apiKey = config.ApiKey = "sk-or-v1-59f1ce8bf051fa403adf61eecccbf853c60ecb243746eeb5d344e073913e1706zzx";
             this.baseUrl = config.BaseUrl;
             
             this.httpClient = new HttpClient();
@@ -276,7 +335,7 @@ namespace EnglishWeb.Models
                     dynamic config = JsonConvert.DeserializeObject(json);
                     return new ApiConfiguration
                     {
-                        ApiKey = config.ApiSettings.OpenRouterApiKey,
+                        ApiKey = "sk-or-v1-59f1ce8bf051fa403adf61eecccbf853c60ecb243746eeb5d344e073913e1706zzx",
                         BaseUrl = config.ApiSettings.OpenRouterBaseUrl
                     };
                 }
@@ -289,7 +348,7 @@ namespace EnglishWeb.Models
             // Fallback nếu không đọc được config
             return new ApiConfiguration
             {
-                ApiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ?? "your-api-key-here",
+                ApiKey = Environment.GetEnvironmentVariable("sk-or-v1-59f1ce8bf051fa403adf61eecccbf853c60ecb243746eeb5d344e073913e1706zzx") ?? "sk-or-v1-59f1ce8bf051fa403adf61eecccbf853c60ecb243746eeb5d344e073913e1706zzx",
                 BaseUrl = "https://openrouter.ai/api/v1"
             };
         }
@@ -309,7 +368,7 @@ namespace EnglishWeb.Models
                     {
                         new { role = "user", content = question }
                     },
-                    max_tokens = 300,
+                    max_tokens = 400,
                     temperature = 0.3 
                 };
 
@@ -397,7 +456,11 @@ namespace EnglishWeb.Models
 
         public async Task<string> GenerateEnglishParagraphAsync()
         {
-            string prompt = "Pick a random sentence, one short English paragraph (20 to 50 words) taken from any English–Vietnamese bilingual sentence pairs. The paragraph must be simple, interesting, and different each time. Output only the English paragraph without translation or explanation.";
+
+            string prompt = "Randomly select one paragraph (20–50 words) in English from any of the following bilingual chil" +
+                "dren's books: Little Red Riding Hood, The Tale of Peter Rabbit, Cinderella, The Three Little Pigs, The Frog Prince, Snow White, Jack and " +
+                "the Beanstalk, The Ugly Duckling, Pinocchio, books from Let’s Read – Asia Foundation. Output only the English paragraph—no translation, no explanation, no source.";
+            
 
             try
             {
@@ -435,7 +498,7 @@ namespace EnglishWeb.Models
        
         public async Task<string> GenerateVietnameseParagraphAsync()
         {
-            string prompt = "lấy 1 đoạn ngẫu nhiên tiếng Việt ngắn gọn (từ 20 tới 50 từ), lấy từ sách song ngữ Việt - Anh, đơn giản, thú vị, chỉ xuất 1 câu tiếng Việt ngẫu nhiên, không thêm giải thích hay bản dịch.";
+            string prompt = "Chọn ngẫu nhiên một đoạn văn tiếng Việt (20–50 từ) từ một trong các sách song ngữ sau: Cô Bé Quàng Khăn Đỏ, Câu chuyện về thỏ Peter, Cô bé Lọ Lem, Ba chú heo con, Hoàng tử Ếch, Bạch Tuyết, Jack và cây đậu thần, Vịt con xấu xí, Cậu bé người gỗ, hoặc các truyện trong Let’s Read – Asia Foundation. Chỉ in ra đoạn tiếng Việt — không dịch, không ghi nguồn, không giải thích.";
 
             try
             {
@@ -453,63 +516,92 @@ namespace EnglishWeb.Models
         }
 
 
-        public async Task<string> CompareTranslationAsync(string originalText, string userTranslation, string originalType)
+        public async Task<string> CompareTranslationAsync(string originalText, string userTranslation)
         {
             try
             {
                 string sentence1 = originalText;
                 string sentence2 = userTranslation;
+
+                // BƯỚC 1: Dịch câu gốc sang ngôn ngữ còn lại (vi dụ: tiếng Việt)
+                string translationPrompt = $"Hãy dịch chính xác câu sau sang tiếng còn lại như trong sách song ngữ:\n\"{sentence1}\" ,bắt buộc phải đúng như trong sách song ngữ, chỉ trả lời câu thôi không cần gì khác";
+                string translatedSentence1 = await AskQuestionAsync(translationPrompt);
+
+                if (translatedSentence1.Contains("AI service") || translatedSentence1.Contains("Không nhận được"))
+                {
+                    return JsonConvert.SerializeObject(new { error = "Không thể dịch câu gốc từ sách song ngữ." });
+                }
+
+                // BƯỚC 2: So sánh similarity giữa bản dịch sách và bản dịch người dùng
                 var httpClient = new HttpClient();
-                httpClient.Timeout = TimeSpan.FromSeconds(10); 
-                
+                httpClient.Timeout = TimeSpan.FromSeconds(10);
+
                 var content = new StringContent(JsonConvert.SerializeObject(new
                 {
-                    sentence1,
-                    sentence2
+                    sentence1 = translatedSentence1,
+                    sentence2 = sentence2
                 }), Encoding.UTF8, "application/json");
 
                 var response = await httpClient.PostAsync("http://localhost:5000/similarity", content);
-                
+
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsStringAsync();
-                    
-                    if (result.TrimStart().StartsWith("{") && result.TrimEnd().EndsWith("}"))
+                    var similarityResult = await response.Content.ReadAsStringAsync();
+
+                    if (similarityResult.TrimStart().StartsWith("{") && similarityResult.TrimEnd().EndsWith("}"))
                     {
-                        dynamic json = JsonConvert.DeserializeObject(result);
+                        dynamic json = JsonConvert.DeserializeObject(similarityResult);
                         Console.WriteLine("Semantic similarity: " + json.score);
-                        return result;
+
+                        // Gọi thêm AI để phân tích nội dung
+                        string analysisPrompt =
+         "You are an English-only translation reviewer. No matter what the input language is, always reply in English. Be brief and direct.\n\n" +
+         $"Original English sentence: \"{translatedSentence1}\"\n" +
+         $"User's Vietnamese translation: \"{sentence2}\"\n" +
+         "Evaluate how accurate the translation is. Highlight only major differences in meaning or tone. " +
+         "DO NOT explain in Vietnamese. Reply ONLY in English. Keep your answer under 3 sentences.";
+
+
+                        try
+                        {
+                            string analysis = await AskQuestionAsync(analysisPrompt);
+
+                            string analysis1 = json.analysis;
+                            double score = json.score;
+                            
+                            var AIResponse = new
+                            {
+                                Success = true,
+                                Content = $"Similarity Result: {score}\n\n\n{analysis1}"
+                            };
+                            string result = AIResponse.Content;
+                            return result;
+                        }
+                        catch
+                        {
+                            return JsonConvert.SerializeObject(new
+                            {
+                                score = json.score,
+                                analysis = GenerateFallbackVietnameseParagraph()
+                            });
+                        }
                     }
                     else
                     {
-                        // Response không phải JSON
                         return JsonConvert.SerializeObject(new { error = "Model đang lỗi: API trả về dữ liệu không hợp lệ" });
                     }
                 }
                 else
                 {
-                    // API trả về lỗi HTTP
                     return JsonConvert.SerializeObject(new { error = $"Model đang lỗi: API trả về mã lỗi {response.StatusCode}" });
                 }
             }
-            catch (HttpRequestException ex)
-            {
-                // Lỗi kết nối
-                System.Diagnostics.Debug.WriteLine($"CompareTranslationAsync connection error: {ex.Message}");
-                return JsonConvert.SerializeObject(new { error = "Model đang lỗi: Không thể kết nối tới API localhost:5000" });
-            }
-            catch (TaskCanceledException ex)
-            {
-                // Timeout
-                System.Diagnostics.Debug.WriteLine($"CompareTranslationAsync timeout: {ex.Message}");
-                return JsonConvert.SerializeObject(new { error = "Model đang lỗi: API không phản hồi (timeout)" });
-            }
             catch (Exception ex)
             {
-                // Lỗi khác
-                System.Diagnostics.Debug.WriteLine($"CompareTranslationAsync error: {ex.Message}");
-                return JsonConvert.SerializeObject(new { error = $"Model đang lỗi: {ex.Message}" });
+                return JsonConvert.SerializeObject(new { error = $"Lỗi khi thực hiện quy trình so sánh: {ex.Message}" });
             }
+
+
         }
 
 
